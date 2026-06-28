@@ -15,3 +15,4 @@ ai-app/backend/data/sample_videos/*
 !ai-app/backend/data/sample_videos/.gitkeep
 .DS_Store
 *.session.json
+.venv-eval

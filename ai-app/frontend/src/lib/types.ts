@@ -10,16 +10,77 @@ export interface LlmEnvelope {
   error?: string | null;
 }
 
-export interface IntakeExtracted {
+// ---------------------------------------------------------------------------
+// Upload-form pickers
+// ---------------------------------------------------------------------------
+
+export interface VendorOption {
+  username: string;
+  display_name: string;
+  company_name: string | null;
+}
+
+export interface CustomerOption {
+  username: string;
+  display_name: string;
+  company_name: string | null;
+}
+
+export interface OrderItem {
+  sku: string;
+  item_name: string;
+  qty: number;
+}
+
+export interface OrderOption {
+  id: number;
+  order_number: string;
+  customer_username: string;
+  vendor_username: string;
+  items: OrderItem[];
+  status: string;
+}
+
+// ---------------------------------------------------------------------------
+// Pipeline step shapes
+// ---------------------------------------------------------------------------
+
+export interface InspectorExtracted {
   po_number: string | null;
-  item_type: string;
   damage_type: string;
   damaged_qty: number | null;
+  evidence_notes: string;
   confidence_notes: string;
 }
 
-export interface IntakeOut {
-  extracted: IntakeExtracted | null;
+export interface InspectorOut {
+  extracted: InspectorExtracted | null;
+  raw: Record<string, unknown>;
+  status: "ok" | "failed";
+  error: string | null;
+}
+
+export interface CaseObject {
+  order_id: number;
+  order_number: string;
+  customer_username: string;
+  vendor_username: string;
+  sku: string;
+  item_name: string;
+  ordered_qty: number;
+  damaged_qty: number;
+  damage_type: string;
+  evidence_notes: string;
+  confidence_notes: string;
+  stated_po_number: string | null;
+  po_number_mismatch: boolean;
+  needs_review: boolean;
+  qty_was_clamped: boolean;
+  case_summary: string;
+}
+
+export interface ContextOut {
+  case: CaseObject | null;
   raw: Record<string, unknown>;
   status: "ok" | "failed";
   error: string | null;
@@ -27,26 +88,24 @@ export interface IntakeOut {
 
 export interface PolicyResult {
   liable: boolean | "partial" | string;
+  eligible_for_claim: boolean;
   justification: string;
-  cited_clauses: string[];
 }
 
 export interface PolicyOut {
   result: PolicyResult | null;
-  vendor_id: number | null;
   raw: Record<string, unknown>;
   status: "ok" | "failed";
   error: string | null;
 }
 
 export interface InventoryResult {
-  shortfall_qty: number;
-  manufacturing_halt_risk: boolean;
-  affected_sku: string;
-  current_qty: number;
-  reorder_threshold: number;
-  projected_qty_after_damage: number;
-  manufacturing_critical: boolean;
+  risk: "safe" | "warning" | "critical" | string;
+  customer_qty_before_damage: number;
+  customer_qty_after_damage: number;
+  vendor_qty_on_hand: number;
+  vendor_reorder_threshold: number;
+  vendor_below_threshold: boolean;
 }
 
 export interface InventoryOut {
@@ -56,29 +115,47 @@ export interface InventoryOut {
   error: string | null;
 }
 
-export interface ClaimPayload {
-  po_number: string;
-  vendor_id: number;
-  damage_type: string;
-  damaged_qty: number;
-  liable: boolean | "partial" | string;
-  claim_amount_estimate: number;
-  narrative: string;
+export interface ReorderOrder extends OrderOption {
+  reorder_note?: string;
+}
+
+export interface ReorderOut {
+  order: ReorderOrder | null;
+  skipped: boolean;
+  raw: Record<string, unknown>;
+  status: "ok" | "failed";
+  error: string | null;
 }
 
 export interface ClaimRecord {
   id: number;
-  [key: string]: unknown;
-}
-
-export interface AlertRecord {
-  id: number;
+  claim_number?: string;
   [key: string]: unknown;
 }
 
 export interface ClaimOut {
   claim: ClaimRecord | null;
-  alert: AlertRecord | null;
+  skipped: boolean;
+  raw: Record<string, unknown>;
+  status: "ok" | "failed";
+  error: string | null;
+}
+
+export interface GovernanceSummary {
+  case_summary: string;
+  narrative: string;
+  liable: string | boolean;
+  eligible_for_claim: boolean;
+  claim_filed: boolean;
+  claim_id: number | null;
+  reorder_placed: boolean;
+  reorder_order_id: number | null;
+  inventory_risk: string;
+  inventory_alert_id: number | null;
+}
+
+export interface GovernanceOut {
+  summary: GovernanceSummary | null;
   raw: Record<string, unknown>;
   status: "ok" | "failed";
   error: string | null;
@@ -87,10 +164,13 @@ export interface ClaimOut {
 export interface PipelineRunResult {
   run_id: string;
   status: "running" | "completed" | "partial" | "failed";
-  intake: IntakeOut | null;
+  inspector: InspectorOut | null;
+  context: ContextOut | null;
   policy: PolicyOut | null;
   inventory: InventoryOut | null;
+  reorder: ReorderOut | null;
   claim: ClaimOut | null;
+  governance: GovernanceOut | null;
 }
 
 export interface AgentRun {
@@ -101,6 +181,8 @@ export interface AgentRun {
   case_summary: string;
   claim_id: number | null;
   alert_id: number | null;
+  actor_username?: string | null;
+  actor_role?: string | null;
 }
 
 export interface AgentLogEntry {
@@ -121,23 +203,30 @@ export interface RunDetail {
   steps: AgentLogEntry[];
 }
 
-export interface ChatMessage {
-  role: "user" | "assistant" | "system";
-  content: string;
-  timestamp: string;
-  tools_used?: { name: string; arguments: Record<string, unknown> }[];
+// Full ERP records for the "Claim Request" / "Order Request" tabs (GET
+// /api/claims, GET /api/orders) — distinct from ClaimRecord/ReorderOrder
+// above, which are the trimmed shapes embedded in a pipeline run's output.
+export interface ClaimRequestRecord {
+  id: number;
+  claim_number: string;
+  customer_username: string;
+  vendor_username: string;
+  order_id: number;
+  sku: string;
+  damage_type: string;
+  damaged_qty: number;
+  claim_text: string;
+  status: "pending" | "approved" | "rejected" | string;
+  decision_reason?: string | null;
+  created_at?: string;
+  updated_at?: string;
 }
 
-export interface ChatResponse {
-  session_id: string;
-  reply: string;
-  tools_used: { name: string; arguments: Record<string, unknown> }[];
-}
-
-export interface ChatSession {
-  session_id: string;
-  created_at: string;
-  messages: ChatMessage[];
+export interface OrderRequestRecord extends OrderOption {
+  undelivered_reason?: string | null;
+  requested_at?: string;
+  created_at?: string;
+  updated_at?: string;
 }
 
 export interface KpiAgentSummary {

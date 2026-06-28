@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
 import { api, ApiError } from "../lib/api";
 import { useAuth } from "../lib/auth";
 import { useToast } from "../lib/toast";
@@ -7,6 +8,8 @@ import { Badge } from "../components/ui/Badge";
 import { Button } from "../components/ui/Button";
 import { Modal } from "../components/ui/Modal";
 import { Input, Select, TextArea } from "../components/ui/Input";
+import { ENTITY_COLORS } from "../lib/colors";
+import { fadeUpItem, staggerContainer } from "../lib/motion";
 import type { Order, OrderItem, CustomerVendorLink, User } from "../lib/types";
 
 function statusTone(s: string) {
@@ -23,7 +26,7 @@ function OrderCard({
   children?: React.ReactNode;
 }) {
   return (
-    <Card className="flex flex-col gap-2 p-4">
+    <Card hoverable className={`flex flex-col gap-2 border-l-4 p-4 ${ENTITY_COLORS.orders.bar}`}>
       <div className="flex items-center justify-between gap-2">
         <span className="font-semibold text-slate-900 dark:text-slate-100">{order.order_number}</span>
         <Badge tone={statusTone(order.status)} dot>
@@ -46,8 +49,10 @@ function OrderCard({
       {order.undelivered_reason && (
         <p className="text-xs text-red-600 dark:text-red-400">Reason: {order.undelivered_reason}</p>
       )}
-      {order.requested_at && (
-        <p className="text-[11px] text-slate-400">{new Date(order.requested_at).toLocaleString()}</p>
+      {(order.requested_at || order.created_at) && (
+        <p className="text-[11px] text-slate-400">
+          {new Date(order.requested_at || order.created_at!).toLocaleString()}
+        </p>
       )}
       {children}
     </Card>
@@ -186,22 +191,29 @@ export default function Orders() {
       ) : visible.length === 0 ? (
         <p className="text-sm text-slate-400">No orders yet.</p>
       ) : (
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          animate="show"
+          className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"
+        >
           {visible.map((o) => (
-            <OrderCard key={o.id} order={o}>
-              {user?.role === "vendor" && o.status === "requested" && (
-                <div className="mt-2 flex gap-2">
-                  <Button size="sm" onClick={() => markDelivered(o)}>
-                    Delivered
-                  </Button>
-                  <Button size="sm" variant="danger" onClick={() => setUndeliverOrder(o)}>
-                    Undelivered
-                  </Button>
-                </div>
-              )}
-            </OrderCard>
+            <motion.div key={o.id} variants={fadeUpItem}>
+              <OrderCard order={o}>
+                {user?.role === "vendor" && o.status === "requested" && (
+                  <div className="mt-2 flex gap-2">
+                    <Button size="sm" onClick={() => markDelivered(o)}>
+                      Delivered
+                    </Button>
+                    <Button size="sm" variant="danger" onClick={() => setUndeliverOrder(o)}>
+                      Undelivered
+                    </Button>
+                  </div>
+                )}
+              </OrderCard>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       )}
 
       {user?.role === "customer" && (

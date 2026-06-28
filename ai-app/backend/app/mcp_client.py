@@ -4,10 +4,8 @@ ERP_MCP_URL, default http://127.0.0.1:8001/mcp/). Opens one persistent
 ClientSession at FastAPI startup (see app/main.py lifespan) and exposes a
 typed async wrapper method per ERP tool for the agents to call.
 
-This is the "tool/API-grounded RAG" surface of the app: agents pull live
-ERP state (inventory, purchase orders, SLA text, audit logs) through these
-typed calls instead of embeddings — no vector store involved for this data.
-The embedding-based RAG type lives in app/rag/ (SLA document chunks only).
+Tool wrappers here must match erp-app/backend/app/mcp_server.py exactly
+(names + params) — that file is the source of truth for the contract.
 """
 from __future__ import annotations
 
@@ -66,9 +64,11 @@ class ErpMcpClient:
         self._stack: AsyncExitStack | None = None
         self.session: ClientSession | None = None
 
-    async def connect(self) -> None:
+    async def connect(self, force: bool = False) -> None:
         if self.session is not None:
-            return
+            if not force:
+                return
+            await self.close()
         self._stack = AsyncExitStack()
         try:
             read_stream, write_stream, _get_session_id = await self._stack.enter_async_context(
@@ -87,11 +87,14 @@ class ErpMcpClient:
 
     async def close(self) -> None:
         if self._stack is not None:
-            await self._stack.aclose()
+            try:
+                await self._stack.aclose()
+            except Exception as exc:  # the remote side may already be gone (e.g. ERP restarted)
+                logger.warning("Error closing stale MCP session (ignoring): %s", exc)
         self._stack = None
         self.session = None
 
-    async def _call(self, name: str, arguments: dict | None = None) -> Any:
+    async def _call(self, name: str, arguments: dict | None = None, _retried: bool = False) -> Any:
         if self.session is None:
             raise McpClientError("MCP session is not connected. Call connect() first (or check startup logs).")
         try:
@@ -100,29 +103,90 @@ class ErpMcpClient:
         except McpClientError:
             raise
         except Exception as exc:
+            if not _retried:
+                # The ERP process may have restarted since this session was opened (its old
+                # session id is now dead server-side) — reconnect once and retry transparently
+                # instead of surfacing a confusing "Session terminated" error to every caller.
+                logger.warning("MCP tool call '%s' failed (%s) — reconnecting and retrying once", name, exc)
+                try:
+                    await self.connect(force=True)
+                    return await self._call(name, arguments, _retried=True)
+                except Exception as reconnect_exc:
+                    logger.error("MCP reconnect-and-retry failed: %s", reconnect_exc)
+                    raise McpClientError(f"MCP tool call '{name}' failed after reconnect attempt: {reconnect_exc}") from reconnect_exc
             logger.error("MCP tool call '%s' failed: %s", name, exc)
             raise McpClientError(f"MCP tool call '{name}' failed: {exc}") from exc
 
     # ------------------------------------------------------------------
-    # Typed wrappers, one per ERP MCP tool.
+    # Typed wrappers, one per ERP MCP tool (see app/mcp_server.py).
     # ------------------------------------------------------------------
-    async def list_inventory(self) -> list[dict]:
-        return await self._call("list_inventory")
+    async def list_vendors_for_customer(self, customer_username: str) -> list[dict]:
+        return await self._call("list_vendors_for_customer", {"customer_username": customer_username})
 
-    async def get_purchase_order(self, po_number: str) -> dict | None:
-        return await self._call("get_purchase_order", {"po_number": po_number})
+    async def list_customers_for_vendor(self, vendor_username: str) -> list[dict]:
+        return await self._call("list_customers_for_vendor", {"vendor_username": vendor_username})
 
-    async def update_inventory_qty(self, sku: str, delta: int, reason: str) -> dict | None:
-        return await self._call("update_inventory_qty", {"sku": sku, "delta": delta, "reason": reason})
+    async def list_customer_orders(self, customer_username: str, vendor_username: str | None = None) -> list[dict]:
+        return await self._call("list_customer_orders", {"customer_username": customer_username, "vendor_username": vendor_username})
 
-    async def get_vendor_sla_text(self, vendor_id: int) -> str | None:
-        return await self._call("get_vendor_sla_text", {"vendor_id": vendor_id})
+    async def list_vendor_orders(self, vendor_username: str) -> list[dict]:
+        return await self._call("list_vendor_orders", {"vendor_username": vendor_username})
 
-    async def create_claim(self, payload: dict) -> dict:
-        return await self._call("create_claim", {"payload": payload})
+    async def get_order_by_id(self, order_id: int) -> dict | None:
+        return await self._call("get_order_by_id", {"order_id": order_id})
 
-    async def create_alert(self, payload: dict) -> dict:
-        return await self._call("create_alert", {"payload": payload})
+    async def list_customer_claims(self, customer_username: str) -> list[dict]:
+        return await self._call("list_customer_claims", {"customer_username": customer_username})
+
+    async def list_vendor_claims(self, vendor_username: str) -> list[dict]:
+        return await self._call("list_vendor_claims", {"vendor_username": vendor_username})
+
+    async def list_customer_inventory(self, customer_username: str, vendor_username: str | None = None) -> list[dict]:
+        return await self._call("list_customer_inventory", {"customer_username": customer_username, "vendor_username": vendor_username})
+
+    async def list_vendor_inventory(self, vendor_username: str | None = None) -> list[dict]:
+        return await self._call("list_vendor_inventory", {"vendor_username": vendor_username})
+
+    async def ask_vendor_sla(self, vendor_username: str, customer_username: str, question: str, run_id: str | None = None) -> dict:
+        """run_id (optional): the calling pipeline run's id, forwarded so erp-app's SLA RAG
+        call nests under the SAME Langfuse trace — see app/observability.py."""
+        return await self._call(
+            "ask_vendor_sla",
+            {"vendor_username": vendor_username, "customer_username": customer_username, "question": question, "run_id": run_id},
+        )
+
+    async def create_order(self, customer_username: str, vendor_username: str, items: list[dict]) -> dict:
+        return await self._call("create_order", {"customer_username": customer_username, "vendor_username": vendor_username, "items": items})
+
+    async def create_claim(
+        self, customer_username: str, order_id: int, sku: str, damage_type: str, damaged_qty: int, claim_text: str
+    ) -> dict:
+        return await self._call(
+            "create_claim",
+            {
+                "customer_username": customer_username,
+                "order_id": order_id,
+                "sku": sku,
+                "damage_type": damage_type,
+                "damaged_qty": damaged_qty,
+                "claim_text": claim_text,
+            },
+        )
+
+    async def create_alert(
+        self, audience: str, target_username: str | None, type: str, title: str, message: str, related_id: int | None = None
+    ) -> dict:
+        return await self._call(
+            "create_alert",
+            {
+                "audience": audience,
+                "target_username": target_username,
+                "type": type,
+                "title": title,
+                "message": message,
+                "related_id": related_id,
+            },
+        )
 
     async def search_audit_logs(self, query: str | None = None, limit: int = 50) -> list[dict]:
         return await self._call("search_audit_logs", {"query": query, "limit": limit})

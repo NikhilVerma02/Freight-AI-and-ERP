@@ -11,3 +11,4 @@ chromadb
 google-genai
 groq
 numpy
+langfuse

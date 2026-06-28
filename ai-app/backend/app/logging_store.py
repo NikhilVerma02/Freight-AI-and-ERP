@@ -8,9 +8,6 @@ concurrent requests in this process don't corrupt the files.
 - data/agent_logs.json   : flat list of per-step log entries (one per agent
                             invocation within a run).
 - data/agent_runs.json   : one record per full pipeline run.
-- data/chat_sessions.json: chat history keyed by session_id (used by
-                            routers/chat.py, not by the pipeline, but lives
-                            here for consistency — see chat.py for access).
 """
 from __future__ import annotations
 
@@ -41,6 +38,15 @@ def _lock_for(path: Path) -> threading.Lock:
 
 def now_iso() -> str:
     return datetime.now(timezone.utc).isoformat()
+
+
+def reset_on_startup() -> None:
+    """Wipe agent_logs.json/agent_runs.json on every backend startup. This is intentionally
+    ephemeral, demo-oriented state: each run's full step-by-step output is still written to
+    these files while the server is up (so Logs & Exceptions / Case Detail can show it), but
+    nothing persists across restarts — keeps the case history from accumulating test runs."""
+    _write_list(LOGS_PATH, [])
+    _write_list(RUNS_PATH, [])
 
 
 def new_run_id() -> str:
@@ -128,7 +134,7 @@ def list_logs(status: str | None = None, run_id: str | None = None) -> list[dict
 # agent_runs.json
 # ---------------------------------------------------------------------------
 
-def create_run(run_id: str, case_summary: str) -> dict:
+def create_run(run_id: str, case_summary: str, actor_username: str | None = None, actor_role: str | None = None) -> dict:
     record = {
         "run_id": run_id,
         "started_at": now_iso(),
@@ -137,6 +143,8 @@ def create_run(run_id: str, case_summary: str) -> dict:
         "case_summary": case_summary,
         "claim_id": None,
         "alert_id": None,
+        "actor_username": actor_username,
+        "actor_role": actor_role,
     }
     return _append(RUNS_PATH, record)
 
@@ -157,8 +165,11 @@ def finish_run(run_id: str, status: str, claim_id: int | None = None, alert_id: 
     return None
 
 
-def list_runs() -> list[dict]:
-    return sorted(_read_list(RUNS_PATH), key=lambda r: r.get("started_at", ""), reverse=True)
+def list_runs(actor_username: str | None = None) -> list[dict]:
+    runs = _read_list(RUNS_PATH)
+    if actor_username is not None:
+        runs = [r for r in runs if r.get("actor_username") == actor_username]
+    return sorted(runs, key=lambda r: r.get("started_at", ""), reverse=True)
 
 
 def get_run(run_id: str) -> dict | None:

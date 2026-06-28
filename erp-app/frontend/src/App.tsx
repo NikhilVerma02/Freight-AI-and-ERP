@@ -23,6 +23,7 @@ import CustomerInventory from "./pages/CustomerInventory";
 import SlaUpload from "./pages/SlaUpload";
 import SlaView from "./pages/SlaView";
 import MyCustomers from "./pages/MyCustomers";
+import MyVendors from "./pages/MyVendors";
 
 function RequireAuth({ children }: { children: React.ReactNode }) {
   const { token } = useAuth();
@@ -113,6 +114,16 @@ export default function App() {
                   element={
                     <RequireRole roles={["vendor"]}>
                       <MyCustomers />
+                    </RequireRole>
+                  }
+                />
+
+                {/* Customer only */}
+                <Route
+                  path="my-vendors"
+                  element={
+                    <RequireRole roles={["customer"]}>
+                      <MyVendors />
                     </RequireRole>
                   }
                 />

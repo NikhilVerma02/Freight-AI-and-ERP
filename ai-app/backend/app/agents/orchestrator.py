@@ -1,19 +1,27 @@
 """
-Pipeline orchestrator: intake -> policy -> inventory -> claim, run
-sequentially. Each step is logged via logging_store.log_step. Only the
-intake agent's failure aborts the whole run (nothing downstream has data
-without it); policy/inventory/claim failures are logged and the run
+Pipeline orchestrator: Inspector -> Context -> Policy -> Inventory ->
+Reorder -> Claim -> Governance, run sequentially. Each step is logged via
+logging_store.log_step. Only the Inspector/Context agents' failures abort
+the whole run (nothing downstream has a valid case without them); Policy/
+Inventory/Reorder/Claim/Governance failures are logged and the run
 continues so the UI can still show whatever succeeded.
+
+run_pipeline_stream() is an async generator so the router can forward each
+step's start/finish as an SSE event the instant it happens — the frontend
+shows "executing" the moment an agent starts and the real extracted info
+the moment it finishes, instead of waiting for the whole pipeline and then
+faking a staggered reveal.
 """
 from __future__ import annotations
 
 import logging
 import time
+from typing import Any, AsyncIterator
 
-from app.agents import claim_agent, inventory_agent, intake_agent, policy_agent
-from app.llm_client import LLMClient
+from app import observability
+from app.agents import claim_agent, context_agent, governance_agent, inspector_agent, inventory_agent, policy_agent, reorder_agent
 from app.logging_store import create_run, finish_run, log_step, new_run_id
-from app.mcp_client import ErpMcpClient
+from app.mcp_client import ErpMcpClient, McpClientError
 
 logger = logging.getLogger("ai_app.agents.orchestrator")
 
@@ -27,74 +35,129 @@ def _tokens_from_envelope(envelope: dict | None) -> dict | None:
     }
 
 
-async def run_pipeline(
+async def run_pipeline_stream(
     mcp_client: ErpMcpClient,
-    llm_client: LLMClient,
-    video_path: str | None,
+    order_id: int,
+    sku: str,
+    files: list[dict],
     manual_transcript: str | None,
-    language: str = "en",
-) -> dict:
+    actor_username: str,
+    actor_role: str,
+) -> AsyncIterator[dict[str, Any]]:
+    """files: list of {"data": bytes, "mime_type": str} (video/image/audio, any combination).
+    order_id/sku come from the explicit picker on the upload form (not extracted).
+
+    Yields one {"type": "step_start", "step": ...} immediately before each agent runs, then
+    {"type": "step_done", "step": ..., "status", "error", "data"} immediately after — "data" is
+    that agent's clean output payload (same shape persisted to agent_logs.json), never the raw
+    LLM call envelopes. Ends with {"type": "run_complete", "run_id", "status"}.
+    """
     run_id = new_run_id()
-    case_summary = (manual_transcript or (f"video: {video_path}" if video_path else "no input"))[:200]
-    create_run(run_id, case_summary)
+    case_summary = (manual_transcript or (f"{len(files)} media file(s) uploaded" if files else "no input"))[:200]
+    create_run(run_id, case_summary, actor_username=actor_username, actor_role=actor_role)
+    # Langfuse trace for the whole run — derived deterministically from run_id, so erp-app's
+    # SLA RAG calls (triggered later, via MCP, from a different process) can independently
+    # derive the SAME trace id and nest under it. See app/observability.py.
+    observability.start_trace(
+        observability.trace_id_for(run_id) or run_id,
+        "claims_pipeline",
+        metadata={"actor_username": actor_username, "actor_role": actor_role, "order_id": order_id, "sku": sku},
+        input={"case_summary": case_summary},
+    )
 
-    result: dict = {
-        "run_id": run_id,
-        "status": "running",
-        "intake": None,
-        "policy": None,
-        "inventory": None,
-        "claim": None,
-    }
-
-    # ---------------- Intake ----------------
+    # ---------------- Inspector ----------------
+    yield {"type": "step_start", "step": "inspector"}
     t0 = time.perf_counter()
     try:
-        intake_out = await intake_agent.run_intake(llm_client, video_path, manual_transcript)
+        inspector_out = await inspector_agent.run_inspection(files, manual_transcript, run_id=run_id)
     except Exception as exc:
-        logger.exception("intake_agent raised unexpectedly")
-        intake_out = {"extracted": None, "raw": {}, "status": "failed", "error": str(exc)}
+        logger.exception("inspector_agent raised unexpectedly")
+        inspector_out = {"extracted": None, "raw": {}, "status": "failed", "error": str(exc)}
     latency_ms = (time.perf_counter() - t0) * 1000
 
-    extract_envelope = (intake_out.get("raw") or {}).get("extract")
+    extract_envelope = (inspector_out.get("raw") or {}).get("extract")
     log_step(
-        run_id, "intake_agent",
-        input_summary={"video_path": video_path, "manual_transcript": bool(manual_transcript)},
-        output_summary=intake_out.get("extracted"),
-        status=intake_out["status"],
+        run_id, "inspector_agent",
+        input_summary={"order_id": order_id, "sku": sku, "file_count": len(files), "manual_transcript": bool(manual_transcript)},
+        output_summary=inspector_out.get("extracted"),
+        status=inspector_out["status"],
         latency_ms=latency_ms,
         model=extract_envelope.get("model") if extract_envelope else None,
         tokens=_tokens_from_envelope(extract_envelope),
-        error=intake_out.get("error"),
+        error=inspector_out.get("error"),
     )
-    result["intake"] = intake_out
+    yield {"type": "step_done", "step": "inspector", "status": inspector_out["status"], "error": inspector_out.get("error"), "data": inspector_out.get("extracted")}
 
-    if intake_out["status"] != "ok":
-        result["status"] = "failed"
+    if inspector_out["status"] != "ok":
         finish_run(run_id, "failed")
-        return result
+        yield {"type": "run_complete", "run_id": run_id, "status": "failed"}
+        return
 
-    extracted = intake_out["extracted"] or {}
-    po_number = extracted.get("po_number")
-    item_type = extracted.get("item_type", "")
-    damage_type = extracted.get("damage_type", "")
-    damaged_qty = extracted.get("damaged_qty")
+    # ---------------- Context Structuring ----------------
+    yield {"type": "step_start", "step": "context"}
+    t0 = time.perf_counter()
+    try:
+        order = await mcp_client.get_order_by_id(order_id)
+    except McpClientError as exc:
+        order = None
+        order_error = str(exc)
+    else:
+        order_error = None if order else f"Order {order_id} not found"
 
+    if order is None:
+        log_step(
+            run_id, "context_agent",
+            input_summary={"order_id": order_id, "sku": sku},
+            output_summary=None, status="failed", latency_ms=(time.perf_counter() - t0) * 1000,
+            model=None, tokens=None, error=order_error,
+        )
+        yield {"type": "step_done", "step": "context", "status": "failed", "error": order_error, "data": None}
+        finish_run(run_id, "failed")
+        yield {"type": "run_complete", "run_id": run_id, "status": "failed"}
+        return
+
+    try:
+        context_out = await context_agent.run_context_structuring(inspector_out["extracted"], order, sku, run_id=run_id)
+    except Exception as exc:
+        logger.exception("context_agent raised unexpectedly")
+        context_out = {"case": None, "raw": {}, "status": "failed", "error": str(exc)}
+    latency_ms = (time.perf_counter() - t0) * 1000
+
+    summary_envelope = (context_out.get("raw") or {}).get("summary")
+    log_step(
+        run_id, "context_agent",
+        input_summary={"order_id": order_id, "sku": sku},
+        output_summary=context_out.get("case"),
+        status=context_out["status"],
+        latency_ms=latency_ms,
+        model=summary_envelope.get("model") if summary_envelope else None,
+        tokens=_tokens_from_envelope(summary_envelope),
+        error=context_out.get("error"),
+    )
+    yield {"type": "step_done", "step": "context", "status": context_out["status"], "error": context_out.get("error"), "data": context_out.get("case")}
+
+    if context_out["status"] != "ok":
+        finish_run(run_id, "failed")
+        yield {"type": "run_complete", "run_id": run_id, "status": "failed"}
+        return
+
+    case = context_out["case"]
     overall_status = "completed"
 
     # ---------------- Policy ----------------
+    yield {"type": "step_start", "step": "policy"}
     t0 = time.perf_counter()
     try:
-        policy_out = await policy_agent.run_policy(mcp_client, llm_client, po_number, None, damage_type, item_type, damaged_qty)
+        policy_out = await policy_agent.run_policy(mcp_client, case, run_id=run_id)
     except Exception as exc:
         logger.exception("policy_agent raised unexpectedly")
-        policy_out = {"result": None, "vendor_id": None, "raw": {}, "status": "failed", "error": str(exc)}
+        policy_out = {"result": None, "raw": {}, "status": "failed", "error": str(exc)}
     latency_ms = (time.perf_counter() - t0) * 1000
 
     reasoning_envelope = (policy_out.get("raw") or {}).get("reasoning")
     log_step(
         run_id, "policy_agent",
-        input_summary={"po_number": po_number, "damage_type": damage_type, "item_type": item_type},
+        input_summary={"order_id": order_id, "sku": sku, "damage_type": case["damage_type"]},
         output_summary=policy_out.get("result"),
         status=policy_out["status"],
         latency_ms=latency_ms,
@@ -102,14 +165,15 @@ async def run_pipeline(
         tokens=_tokens_from_envelope(reasoning_envelope),
         error=policy_out.get("error"),
     )
-    result["policy"] = policy_out
+    yield {"type": "step_done", "step": "policy", "status": policy_out["status"], "error": policy_out.get("error"), "data": policy_out.get("result")}
     if policy_out["status"] != "ok":
         overall_status = "partial"
 
     # ---------------- Inventory ----------------
+    yield {"type": "step_start", "step": "inventory"}
     t0 = time.perf_counter()
     try:
-        inventory_out = await inventory_agent.run_inventory(mcp_client, po_number, item_type, damaged_qty)
+        inventory_out = await inventory_agent.run_inventory(mcp_client, case)
     except Exception as exc:
         logger.exception("inventory_agent raised unexpectedly")
         inventory_out = {"result": None, "raw": {}, "status": "failed", "error": str(exc)}
@@ -117,7 +181,7 @@ async def run_pipeline(
 
     log_step(
         run_id, "inventory_agent",
-        input_summary={"po_number": po_number, "item_type": item_type, "damaged_qty": damaged_qty},
+        input_summary={"customer_username": case["customer_username"], "vendor_username": case["vendor_username"], "sku": sku},
         output_summary=inventory_out.get("result"),
         status=inventory_out["status"],
         latency_ms=latency_ms,
@@ -125,43 +189,89 @@ async def run_pipeline(
         tokens=None,
         error=inventory_out.get("error"),
     )
-    result["inventory"] = inventory_out
+    yield {"type": "step_done", "step": "inventory", "status": inventory_out["status"], "error": inventory_out.get("error"), "data": inventory_out.get("result")}
     if inventory_out["status"] != "ok":
         overall_status = "partial"
 
-    # ---------------- Claim ----------------
-    vendor_id = policy_out.get("vendor_id")
-    liability = policy_out.get("result")
-    manufacturing_halt_risk = bool((inventory_out.get("result") or {}).get("manufacturing_halt_risk"))
-
+    # ---------------- Reorder ----------------
+    yield {"type": "step_start", "step": "reorder"}
     t0 = time.perf_counter()
     try:
-        claim_out = await claim_agent.run_claim(
-            mcp_client, llm_client, po_number, vendor_id, damage_type, damaged_qty,
-            liability, manufacturing_halt_risk, inventory_out.get("result"), language,
-        )
+        reorder_out = await reorder_agent.run_reorder(mcp_client, case, inventory_out.get("result"), run_id=run_id)
+    except Exception as exc:
+        logger.exception("reorder_agent raised unexpectedly")
+        reorder_out = {"order": None, "skipped": False, "raw": {}, "status": "failed", "error": str(exc)}
+    latency_ms = (time.perf_counter() - t0) * 1000
+
+    note_envelope = (reorder_out.get("raw") or {}).get("note")
+    log_step(
+        run_id, "reorder_agent",
+        input_summary={"sku": sku, "damaged_qty": case["damaged_qty"]},
+        output_summary=reorder_out.get("order"),
+        status=reorder_out["status"],
+        latency_ms=latency_ms,
+        model=note_envelope.get("model") if note_envelope else None,
+        tokens=_tokens_from_envelope(note_envelope),
+        error=reorder_out.get("error"),
+    )
+    yield {"type": "step_done", "step": "reorder", "status": reorder_out["status"], "error": reorder_out.get("error"), "data": reorder_out.get("order")}
+    if reorder_out["status"] != "ok":
+        overall_status = "partial"
+
+    # ---------------- Claim ----------------
+    yield {"type": "step_start", "step": "claim"}
+    t0 = time.perf_counter()
+    try:
+        claim_out = await claim_agent.run_claim(mcp_client, case, policy_out.get("result"), run_id=run_id)
     except Exception as exc:
         logger.exception("claim_agent raised unexpectedly")
-        claim_out = {"claim": None, "alert": None, "raw": {}, "status": "failed", "error": str(exc)}
+        claim_out = {"claim": None, "skipped": False, "raw": {}, "status": "failed", "error": str(exc)}
     latency_ms = (time.perf_counter() - t0) * 1000
 
     draft_envelope = (claim_out.get("raw") or {}).get("draft")
     log_step(
         run_id, "claim_agent",
-        input_summary={"po_number": po_number, "vendor_id": vendor_id, "manufacturing_halt_risk": manufacturing_halt_risk},
-        output_summary={"claim": claim_out.get("claim"), "alert": claim_out.get("alert")},
+        input_summary={"order_id": order_id, "sku": sku, "eligible_for_claim": (policy_out.get("result") or {}).get("eligible_for_claim")},
+        output_summary=claim_out.get("claim"),
         status=claim_out["status"],
         latency_ms=latency_ms,
         model=draft_envelope.get("model") if draft_envelope else None,
         tokens=_tokens_from_envelope(draft_envelope),
         error=claim_out.get("error"),
     )
-    result["claim"] = claim_out
+    yield {"type": "step_done", "step": "claim", "status": claim_out["status"], "error": claim_out.get("error"), "data": claim_out.get("claim")}
     if claim_out["status"] != "ok":
         overall_status = "partial"
 
-    result["status"] = overall_status
-    claim_id = (claim_out.get("claim") or {}).get("id") if claim_out.get("claim") else None
-    alert_id = (claim_out.get("alert") or {}).get("id") if claim_out.get("alert") else None
+    # ---------------- Governance / Summary ----------------
+    yield {"type": "step_start", "step": "governance"}
+    t0 = time.perf_counter()
+    try:
+        governance_out = await governance_agent.run_governance(
+            mcp_client, case, policy_out.get("result"), inventory_out.get("result"), reorder_out, claim_out, run_id=run_id,
+        )
+    except Exception as exc:
+        logger.exception("governance_agent raised unexpectedly")
+        governance_out = {"summary": None, "raw": {}, "status": "failed", "error": str(exc)}
+    latency_ms = (time.perf_counter() - t0) * 1000
+
+    narrative_envelope = (governance_out.get("raw") or {}).get("narrative")
+    log_step(
+        run_id, "governance_agent",
+        input_summary={"order_id": order_id, "sku": sku},
+        output_summary=governance_out.get("summary"),
+        status=governance_out["status"],
+        latency_ms=latency_ms,
+        model=narrative_envelope.get("model") if narrative_envelope else None,
+        tokens=_tokens_from_envelope(narrative_envelope),
+        error=governance_out.get("error"),
+    )
+    yield {"type": "step_done", "step": "governance", "status": governance_out["status"], "error": governance_out.get("error"), "data": governance_out.get("summary")}
+    if governance_out["status"] != "ok":
+        overall_status = "partial"
+
+    claim_id = (claim_out.get("claim") or {}).get("id")
+    alert_id = (governance_out.get("summary") or {}).get("inventory_alert_id")
     finish_run(run_id, overall_status, claim_id=claim_id, alert_id=alert_id)
-    return result
+    observability.flush()  # short-lived request — force-send buffered traces now rather than waiting on the SDK's batch timer
+    yield {"type": "run_complete", "run_id": run_id, "status": overall_status}

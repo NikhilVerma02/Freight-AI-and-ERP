@@ -1,1 +1,68 @@
-[]
+[
+  {
+    "run_id": "run_52150ead57e2",
+    "started_at": "2026-06-28T16:15:42.165657+00:00",
+    "finished_at": "2026-06-28T16:16:05.052868+00:00",
+    "status": "completed",
+    "case_summary": "1 media file(s) uploaded",
+    "claim_id": 11,
+    "alert_id": 52,
+    "actor_username": "customera",
+    "actor_role": "customer"
+  },
+  {
+    "run_id": "run_b3772e3a6bd5",
+    "started_at": "2026-06-28T16:17:07.030009+00:00",
+    "finished_at": "2026-06-28T16:17:35.126967+00:00",
+    "status": "completed",
+    "case_summary": "1 media file(s) uploaded",
+    "claim_id": null,
+    "alert_id": null,
+    "actor_username": "customera",
+    "actor_role": "customer"
+  },
+  {
+    "run_id": "run_8d478d9b1cd7",
+    "started_at": "2026-06-28T16:17:49.630644+00:00",
+    "finished_at": "2026-06-28T16:18:28.393448+00:00",
+    "status": "completed",
+    "case_summary": "1 media file(s) uploaded",
+    "claim_id": 12,
+    "alert_id": 55,
+    "actor_username": "customera",
+    "actor_role": "customer"
+  },
+  {
+    "run_id": "run_13fca2e102a0",
+    "started_at": "2026-06-28T16:18:44.734013+00:00",
+    "finished_at": "2026-06-28T16:19:04.262690+00:00",
+    "status": "completed",
+    "case_summary": "1 media file(s) uploaded",
+    "claim_id": 13,
+    "alert_id": 58,
+    "actor_username": "customera",
+    "actor_role": "customer"
+  },
+  {
+    "run_id": "run_5a34991f1fa4",
+    "started_at": "2026-06-28T16:20:01.774080+00:00",
+    "finished_at": "2026-06-28T16:20:19.463818+00:00",
+    "status": "completed",
+    "case_summary": "1 media file(s) uploaded",
+    "claim_id": 14,
+    "alert_id": 61,
+    "actor_username": "customera",
+    "actor_role": "customer"
+  },
+  {
+    "run_id": "run_37dcfb2b36c2",
+    "started_at": "2026-06-28T17:40:39.246363+00:00",
+    "finished_at": "2026-06-28T17:41:00.856146+00:00",
+    "status": "completed",
+    "case_summary": "1 media file(s) uploaded",
+    "claim_id": null,
+    "alert_id": null,
+    "actor_username": "customera",
+    "actor_role": "customer"
+  }
+]

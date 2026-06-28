@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
 import { api, ApiError } from "../lib/api";
 import { useAuth } from "../lib/auth";
 import { useToast } from "../lib/toast";
@@ -7,6 +8,8 @@ import { Badge } from "../components/ui/Badge";
 import { Button } from "../components/ui/Button";
 import { Modal } from "../components/ui/Modal";
 import { Input, Select, TextArea } from "../components/ui/Input";
+import { ENTITY_COLORS } from "../lib/colors";
+import { fadeUpItem, staggerContainer } from "../lib/motion";
 import type { Claim, Order } from "../lib/types";
 
 function statusTone(s: string) {
@@ -106,38 +109,48 @@ export default function Claims() {
       ) : claims.length === 0 ? (
         <p className="text-sm text-slate-400">No claims yet.</p>
       ) : (
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          animate="show"
+          className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"
+        >
           {claims.map((c) => (
-            <Card key={c.id} className="flex flex-col gap-2 p-4">
-              <div className="flex items-center justify-between gap-2">
-                <span className="font-semibold text-slate-900 dark:text-slate-100">{c.claim_number}</span>
-                <Badge tone={statusTone(c.status)} dot>
-                  {c.status}
-                </Badge>
-              </div>
-              <div className="text-xs text-slate-500 dark:text-slate-400">
-                {c.customer_username} → {c.vendor_username} · {orderNumberFor(c.order_id)}
-              </div>
-              <p className="text-sm text-slate-700 dark:text-slate-300">
-                {c.damage_type} · {c.sku} · ×{c.damaged_qty}
-              </p>
-              <p className="text-xs text-slate-600 dark:text-slate-300">{c.claim_text}</p>
-              {c.decision_reason && (
-                <p className="text-xs text-red-600 dark:text-red-400">Reason: {c.decision_reason}</p>
-              )}
-              {user?.role === "vendor" && c.status === "pending" && (
-                <div className="mt-2 flex gap-2">
-                  <Button size="sm" onClick={() => approve(c)}>
-                    Approve
-                  </Button>
-                  <Button size="sm" variant="danger" onClick={() => setRejectClaim(c)}>
-                    Reject
-                  </Button>
+            <motion.div key={c.id} variants={fadeUpItem}>
+              <Card hoverable className={`flex flex-col gap-2 border-l-4 p-4 ${ENTITY_COLORS.claims.bar}`}>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="font-semibold text-slate-900 dark:text-slate-100">{c.claim_number}</span>
+                  <Badge tone={statusTone(c.status)} dot>
+                    {c.status}
+                  </Badge>
                 </div>
-              )}
-            </Card>
+                <div className="text-xs text-slate-500 dark:text-slate-400">
+                  {c.customer_username} → {c.vendor_username} · {orderNumberFor(c.order_id)}
+                </div>
+                <p className="text-sm text-slate-700 dark:text-slate-300">
+                  {c.damage_type} · {c.sku} · ×{c.damaged_qty}
+                </p>
+                <p className="text-xs text-slate-600 dark:text-slate-300">{c.claim_text}</p>
+                {c.decision_reason && (
+                  <p className="text-xs text-red-600 dark:text-red-400">Reason: {c.decision_reason}</p>
+                )}
+                {c.created_at && (
+                  <p className="text-[11px] text-slate-400">{new Date(c.created_at).toLocaleString()}</p>
+                )}
+                {user?.role === "vendor" && c.status === "pending" && (
+                  <div className="mt-2 flex gap-2">
+                    <Button size="sm" onClick={() => approve(c)}>
+                      Approve
+                    </Button>
+                    <Button size="sm" variant="danger" onClick={() => setRejectClaim(c)}>
+                      Reject
+                    </Button>
+                  </div>
+                )}
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       )}
 
       {user?.role === "customer" && (

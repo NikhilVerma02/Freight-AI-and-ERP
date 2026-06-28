@@ -17,6 +17,7 @@ export interface Order {
   status: OrderStatus;
   undelivered_reason?: string | null;
   requested_at?: string;
+  created_at?: string;
   updated_at?: string;
 }
 
@@ -111,6 +112,15 @@ export interface User {
 
 /** Returned by GET /api/vendors/{username}/customers */
 export interface MyCustomer {
+  username: string;
+  display_name: string;
+  company_name?: string | null;
+  order_count: number;
+  claim_count: number;
+}
+
+/** Returned by GET /api/customers/{username}/vendors */
+export interface MyVendor {
   username: string;
   display_name: string;
   company_name?: string | null;

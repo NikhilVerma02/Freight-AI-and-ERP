@@ -1,18 +1,5 @@
 [
   {
-    "id": 1,
-    "vendor_username": "vendorx",
-    "customer_usernames": [
-      "customera"
-    ],
-    "sla_document_filename": "vendorx_1782628499998.pdf",
-    "sla_text_cache": "Service Level Agreement (SLA) \nDocument Information \n\uf0b7 Document Name: Demo SLA \n\uf0b7 Version: 1.0 \n\uf0b7 Effective Date: [DD/MM/YYYY] \n\uf0b7 Owner: Sales / Pre-Sales Team \n1. Purpose \nThis Service Level Agreement (SLA) defines the service standards for scheduling, preparing, \ndelivering, and following up on product demonstrations for prospective customers. \n2. Scope \nThis SLA applies to: \n\uf0b7 Product demonstrations \n\uf0b7 Proof-of-Concept (PoC) discussions \n\uf0b7 Technical walkthroughs \n\uf0b7 Customer Q&A sessions \n3. Service Levels \nActivity SLA Target \nAcknowledge demo request Within 4 business hours \nSchedule demo Within 2 business days \nShare meeting invitation At least 24 hours before demo \nConduct demo As per agreed schedule \nShare presentation/material Within 1 business day after demo \nRespond to post-demo queries Within 1 business day \nSubmit follow-up summary Within 2 business days \n4. Customer Responsibilities \nThe customer should: \n\uf0b7 Provide business requirements before the demo. \n\uf0b7 Share the list of attendees. \n\uf0b7 Confirm the preferred date and time. \n\n\uf0b7 Ensure internet connectivity for virtual demos. \n\uf0b7 Notify any cancellations at least 24 hours in advance. \n5. Service Provider Responsibilities \nThe service provider will: \n\uf0b7 Assign a qualified presenter. \n\uf0b7 Customize the demo where feasible. \n\uf0b7 Demonstrate agreed product features. \n\uf0b7 Address customer questions. \n\uf0b7 Provide relevant documentation after the session. \n6. Exclusions \nThe following are outside the scope of this SLA: \n\uf0b7 Product customization during the demo \n\uf0b7 Production issue resolution \n\uf0b7 Development commitments \n\uf0b7 Formal training sessions \n\uf0b7 Guaranteed feature implementation \n7. Escalation Matrix \nLevel Contact Response Time \nLevel 1 Pre-Sales Executive 4 business hours \nLevel 2 Pre-Sales Manager 1 business day \nLevel 3 Sales Director 2 business days \n8. Availability \n\uf0b7 Business Hours: Monday to Friday, 9:00 AM \u2013 6:00 PM \n\uf0b7 Public holidays excluded unless otherwise agreed. \n9. Performance Metrics \n\uf0b7 Demo scheduling compliance: \u226595% \n\uf0b7 On-time demo delivery: \u226598% \n\uf0b7 Customer satisfaction score: \u22654.5/5 \n\uf0b7 Follow-up completion: \u226595% \n\n10. Review \nThis SLA will be reviewed annually or whenever significant changes are made to the demo \nprocess. \n11. Approval \nRole Name  Signature Date \nSales Manager    Pre-Sales Manager    Customer Representative     ",
-    "liability_summary": "Service Level Agreement (SLA) \nDocument Information \n\uf0b7 Document Name: Demo SLA \n\uf0b7 Version: 1.0 \n\uf0b7 Effective Date: [DD/MM/YYYY] \n\uf0b7 Owner: Sales / Pre-Sales Team \n1. Purpose \nThis Service Level Agreement (SLA) defines the service standards for scheduling, preparing, \ndelivering, and following up on pr...",
-    "uploaded_at": "2026-06-28T06:35:00.135455+00:00",
-    "created_at": "2026-06-28T06:35:00.135455+00:00",
-    "updated_at": "2026-06-28T06:35:00.135455+00:00"
-  },
-  {
     "id": 2,
     "vendor_username": "vendorz",
     "customer_usernames": [
@@ -24,5 +11,31 @@
     "uploaded_at": "2026-06-28T06:51:05.306439+00:00",
     "created_at": "2026-06-28T06:51:05.306439+00:00",
     "updated_at": "2026-06-28T06:51:05.306439+00:00"
+  },
+  {
+    "id": 3,
+    "vendor_username": "vendorx",
+    "customer_usernames": [
+      "customera"
+    ],
+    "sla_document_filename": "vendorx_1782642838871.pdf",
+    "sla_text_cache": "Claims SLA \u2013 Eligibility for Suspected \nTransit Damage \nDamage Assessment Criteria \nClaim Eligibility \nA shipment is eligible for a damage claim review when: \n1. Visible external packaging damage is present, including but not limited to: \no Large tears \no Crushing or compression \no Punctures \no Structural deformation of the carton or palletized load \n2. The observed packaging damage could reasonably have affected the contents, even if the \ncontents are not directly visible during inspection. \n3. The inspection evidence is sufficient to indicate potential transit damage but insufficient \nto determine the full extent of product damage. \nApplicable Evidence \n\uf0b7 Evidence Notes: \"The bottom box on the pallet has a large tear and appears crushed.\" \n\uf0b7 Confidence Notes: \"The extent of the damage to the contents of the box is not visible.\" \nSLA Decision \nStatus: Eligible for Claim Review \nReason: \nThe shipment exhibits significant external packaging damage (tear and crushing), creating a \nreasonable possibility of damage to the enclosed goods. Because the contents cannot be visually \ninspected from the available evidence, the claim should remain eligible and proceed for \nadditional validation rather than being rejected due to lack of visible internal damage. \nRequired Next Steps \n\uf0b7 Record photographic evidence of the damaged packaging. \n\uf0b7 Request photographs of the contents after opening, if available. \n\uf0b7 Verify shipment handling history and delivery condition. \n\uf0b7 Process the claim according to standard damage assessment procedures once additional \nevidence is received. \n ",
+    "liability_summary": "Claims SLA \u2013 Eligibility for Suspected \nTransit Damage \nDamage Assessment Criteria \nClaim Eligibility \nA shipment is eligible for a damage claim review when: \n1. Visible external packaging damage is present, including but not limited to: \no Large tears \no Crushing or compression \no Punctures \no Stru...",
+    "uploaded_at": "2026-06-28T10:33:58.930015+00:00",
+    "created_at": "2026-06-28T10:33:58.930015+00:00",
+    "updated_at": "2026-06-28T10:33:58.930015+00:00"
+  },
+  {
+    "id": 4,
+    "vendor_username": "vendorx",
+    "customer_usernames": [
+      "customera"
+    ],
+    "sla_document_filename": "test_eligibility_sla.pdf",
+    "sla_text_cache": "Claims SLA - Eligibility for Suspected Transit Damage\n\nDamage Assessment Criteria\n\nClaim Eligibility\n\nA shipment is eligible for a damage claim review when:\n\n1. Visible external packaging damage is present, including but not limited to:\n   - Large tears\n   - Crushing or compression\n   - Punctures\n   - Structural deformation of the carton or palletized load\n\n2. The observed packaging damage could reasonably have affected the contents, even if the contents are not directly visible during inspection.\n\n3. The inspection evidence is sufficient to indicate potential transit damage but insufficient to determine the full extent of product damage.\n\nApplicable Evidence\n\nEvidence Notes: The bottom box on the pallet has a large tear and appears crushed.\nConfidence Notes: The extent of the damage to the contents of the box is not visible.\n\nSLA Decision\n\nStatus: Eligible for Claim Review\n\nReason:\nThe shipment exhibits significant external packaging damage (tear and crushing), creating a reasonable possibility of damage to the enclosed goods. Because the contents cannot be visually inspected from the available evidence, the claim should remain eligible and proceed for additional validation rather than being rejected due to lack of visible internal damage.\n\nRequired Next Steps\n\n- Record photographic evidence of the damaged packaging.\n- Request photographs of the contents after opening, if available.\n- Verify shipment handling history and delivery condition.\n- Process the claim according to standard damage assessment procedures once additional evidence is received.\n",
+    "liability_summary": "Eligibility-threshold SLA for suspected transit damage.",
+    "uploaded_at": "2026-06-28T10:39:15.737343+00:00",
+    "created_at": "2026-06-28T10:39:15.738339+00:00",
+    "updated_at": "2026-06-28T10:39:15.738339+00:00"
   }
 ]

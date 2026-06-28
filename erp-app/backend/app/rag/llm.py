@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import logging
 
+from app import observability
 from app.config import GROQ_API_KEY, GROQ_CHAT_MODEL
 
 logger = logging.getLogger("erp_app.rag.llm")
@@ -24,8 +25,9 @@ def _get_client():
     return _client
 
 
-def answer_question(question: str, context_chunks: list[str]) -> str | None:
-    """Ask Groq to answer `question` grounded only in `context_chunks`. Returns None on failure."""
+def answer_question(question: str, context_chunks: list[str], trace_id: str | None = None) -> str | None:
+    """Ask Groq to answer `question` grounded only in `context_chunks`. Returns None on failure.
+    trace_id (optional): Langfuse trace to nest this call under — see app/observability.py."""
     client = _get_client()
     if client is None:
         logger.warning("llm: GROQ_API_KEY not set — cannot answer")
@@ -40,6 +42,9 @@ def answer_question(question: str, context_chunks: list[str]) -> str | None:
     )
     user_prompt = f"SLA excerpts:\n{context}\n\nQuestion: {question}"
 
+    generation = observability.start_generation(
+        trace_id, "groq_sla_answer", GROQ_CHAT_MODEL, input={"system": system_prompt, "user": user_prompt}
+    )
     try:
         resp = client.chat.completions.create(
             model=GROQ_CHAT_MODEL,
@@ -49,7 +54,21 @@ def answer_question(question: str, context_chunks: list[str]) -> str | None:
             ],
             temperature=0.2,
         )
-        return resp.choices[0].message.content
+        content = resp.choices[0].message.content
+        usage = getattr(resp, "usage", None)
+        observability.finish_generation(
+            generation,
+            output=content,
+            status="ok",
+            usage={
+                "input": getattr(usage, "prompt_tokens", None),
+                "output": getattr(usage, "completion_tokens", None),
+            }
+            if usage
+            else None,
+        )
+        return content
     except Exception as exc:
         logger.error("llm: Groq chat completion failed: %s", exc)
+        observability.finish_generation(generation, status="error", error=str(exc))
         return None

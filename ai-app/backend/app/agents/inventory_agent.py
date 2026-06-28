@@ -1,8 +1,21 @@
 """
-Inventory agent — pure tool/API-grounded retrieval (no LLM call needed
-here, the logic is deterministic given live ERP state). Pulls the PO and
-current inventory via mcp_client, matches the damaged item's SKU, and
-computes shortfall + manufacturing-halt risk.
+Inventory Agent — pure tool/API-grounded retrieval, no LLM call (the risk
+logic is deterministic given live ERP state, same pattern as the rest of
+this app's non-reasoning agents).
+
+Pulls the customer's own received-stock inventory for the damaged SKU (how
+much of it they actually have on hand right now) and the vendor's warehouse
+stock for the same SKU (can the vendor actually resupply), and classifies
+risk as safe/warning/critical.
+
+NOTE: the ERP does not yet track a per-SKU daily-consumption rate, so this
+is a stock-level heuristic rather than a burn-rate projection:
+  - critical: the customer has zero usable stock left after the damage, OR
+    the vendor's own stock for that SKU is already below ITS reorder
+    threshold (so a resupply request may not be fulfillable soon).
+  - warning: some units were damaged and the customer still has stock left,
+    but it's now reduced.
+  - safe: no units were damaged.
 """
 from __future__ import annotations
 
@@ -13,76 +26,51 @@ from app.mcp_client import ErpMcpClient, McpClientError
 logger = logging.getLogger("ai_app.agents.inventory")
 
 
-def _match_sku(po_record: dict, item_type: str) -> str | None:
-    """Best-effort match of the extracted item_type string to a PO line-item SKU/name."""
-    items = po_record.get("items", []) if po_record else []
-    if not items:
-        return None
-    item_type_lower = (item_type or "").lower()
-    for item in items:
-        name = (item.get("item_name") or "").lower()
-        if item_type_lower and (item_type_lower in name or name in item_type_lower):
-            return item.get("sku")
-    # Fallback: keyword overlap
-    for item in items:
-        name = (item.get("item_name") or "").lower()
-        if any(word in name for word in item_type_lower.split() if len(word) > 3):
-            return item.get("sku")
-    # Last resort: first line item
-    return items[0].get("sku") if items else None
+async def run_inventory(mcp_client: ErpMcpClient, case: dict) -> dict:
+    """case is the Context Structuring Agent's output. Returns
+    {result: dict|None, raw: dict, status: 'ok'|'failed', error: str|None}."""
+    raw: dict = {"customer_inventory": None, "vendor_inventory": None}
 
-
-async def run_inventory(
-    mcp_client: ErpMcpClient,
-    po_number: str | None,
-    item_type: str,
-    damaged_qty: int | None,
-) -> dict:
-    """Returns {result: dict|None, raw: dict, status, error}."""
-    raw: dict = {"po_lookup": None, "inventory_list": None}
-
-    if not po_number:
-        return {"result": None, "raw": raw, "status": "failed", "error": "No po_number available to look up PO/inventory."}
+    customer_username = case["customer_username"]
+    vendor_username = case["vendor_username"]
+    sku = case["sku"]
+    damaged_qty = case["damaged_qty"]
 
     try:
-        po_record = await mcp_client.get_purchase_order(po_number)
-        raw["po_lookup"] = po_record
+        customer_items = await mcp_client.list_customer_inventory(customer_username, vendor_username)
+        raw["customer_inventory"] = customer_items
     except McpClientError as exc:
-        return {"result": None, "raw": raw, "status": "failed", "error": f"PO lookup failed: {exc}"}
-
-    if not po_record:
-        return {"result": None, "raw": raw, "status": "failed", "error": f"PO '{po_number}' not found in ERP."}
-
-    sku = _match_sku(po_record, item_type)
-    if not sku:
-        return {"result": None, "raw": raw, "status": "failed", "error": "Could not match damaged item_type to a PO line-item SKU."}
+        return {"result": None, "raw": raw, "status": "failed", "error": f"Customer inventory lookup failed: {exc}"}
 
     try:
-        inventory_list = await mcp_client.list_inventory()
-        raw["inventory_list"] = inventory_list
+        vendor_items = await mcp_client.list_vendor_inventory(vendor_username)
+        raw["vendor_inventory"] = vendor_items
     except McpClientError as exc:
-        return {"result": None, "raw": raw, "status": "failed", "error": f"Inventory listing failed: {exc}"}
+        return {"result": None, "raw": raw, "status": "failed", "error": f"Vendor inventory lookup failed: {exc}"}
 
-    item = next((i for i in inventory_list if i.get("sku") == sku), None)
-    if not item:
-        return {"result": None, "raw": raw, "status": "failed", "error": f"SKU '{sku}' not found in current inventory."}
+    customer_item = next((i for i in customer_items if i.get("sku") == sku), None)
+    vendor_item = next((i for i in vendor_items if i.get("sku") == sku), None)
 
-    qty_on_hand = item.get("qty_on_hand", 0)
-    reorder_threshold = item.get("reorder_threshold", 0)
-    manufacturing_critical = item.get("manufacturing_critical", False)
-    damaged_qty = damaged_qty or 0
+    customer_qty_on_hand = customer_item.get("qty_on_hand", 0) if customer_item else 0
+    customer_remaining = max(0, customer_qty_on_hand - damaged_qty)
 
-    shortfall_qty = max(0, reorder_threshold - (qty_on_hand - damaged_qty))
-    projected_qty = qty_on_hand - damaged_qty
-    manufacturing_halt_risk = bool(manufacturing_critical and projected_qty < reorder_threshold)
+    vendor_qty_on_hand = vendor_item.get("qty_on_hand", 0) if vendor_item else 0
+    vendor_reorder_threshold = vendor_item.get("reorder_threshold", 0) if vendor_item else 0
+    vendor_below_threshold = vendor_qty_on_hand < vendor_reorder_threshold
+
+    if damaged_qty == 0:
+        risk = "safe"
+    elif customer_remaining == 0 or vendor_below_threshold:
+        risk = "critical"
+    else:
+        risk = "warning"
 
     result = {
-        "shortfall_qty": shortfall_qty,
-        "manufacturing_halt_risk": manufacturing_halt_risk,
-        "affected_sku": sku,
-        "current_qty": qty_on_hand,
-        "reorder_threshold": reorder_threshold,
-        "projected_qty_after_damage": projected_qty,
-        "manufacturing_critical": manufacturing_critical,
+        "risk": risk,
+        "customer_qty_before_damage": customer_qty_on_hand,
+        "customer_qty_after_damage": customer_remaining,
+        "vendor_qty_on_hand": vendor_qty_on_hand,
+        "vendor_reorder_threshold": vendor_reorder_threshold,
+        "vendor_below_threshold": vendor_below_threshold,
     }
     return {"result": result, "raw": raw, "status": "ok", "error": None}

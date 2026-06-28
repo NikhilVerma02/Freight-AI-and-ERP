@@ -16,11 +16,14 @@ else:
 
 from app.auth import router as auth_router
 from app.mcp_server import mcp
+from app.middleware import ApiLoggingMiddleware
 from app.routers.alerts import router as alerts_router
 from app.routers.audit_logs import router as audit_logs_router
 from app.routers.claims import router as claims_router
 from app.routers.customer_inventory import router as customer_inventory_router
+from app.routers.customers import router as customers_router
 from app.routers.links import router as links_router
+from app.routers.observability import router as observability_router
 from app.routers.orders import router as orders_router
 from app.routers.users import router as users_router
 from app.routers.vendor_inventory import router as vendor_inventory_router
@@ -59,6 +62,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+app.add_middleware(ApiLoggingMiddleware)
 
 app.include_router(auth_router)
 app.include_router(orders_router)
@@ -66,10 +70,12 @@ app.include_router(claims_router)
 app.include_router(vendor_inventory_router)
 app.include_router(customer_inventory_router)
 app.include_router(vendors_router)
+app.include_router(customers_router)
 app.include_router(links_router)
 app.include_router(alerts_router)
 app.include_router(users_router)
 app.include_router(audit_logs_router)
+app.include_router(observability_router)
 
 app.mount("/mcp", mcp_asgi_app)
 

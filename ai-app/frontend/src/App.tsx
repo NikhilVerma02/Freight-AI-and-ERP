@@ -7,7 +7,8 @@ import NoAccess from "./pages/NoAccess";
 import CaseIntake from "./pages/CaseIntake";
 import CaseDetail from "./pages/CaseDetail";
 import CaseHistory from "./pages/CaseHistory";
-import ChatBot from "./pages/ChatBot";
+import ClaimRequests from "./pages/ClaimRequests";
+import OrderRequests from "./pages/OrderRequests";
 import KpiDashboard from "./pages/KpiDashboard";
 import LogsExceptions from "./pages/LogsExceptions";
 
@@ -17,10 +18,10 @@ function RequireAuth({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-// Claims intake (video upload), history, and chat are open to all three
-// roles — customers are the ones filing damage claims, so they need the
-// same upload/chat access as vendor/admin staff. KPI/logs stay
-// operator-internal (admin-only).
+// Claims intake (video upload), history, and the Claim/Order Request tabs
+// are open to all three roles — customers are the ones filing damage
+// claims, so they need the same access as vendor/admin staff. KPI/logs
+// stay operator-internal (admin-only).
 function RequireRole({ roles, children }: { roles: Role[]; children: React.ReactNode }) {
   const { hasRole } = useAuth();
   if (!hasRole(...roles)) return <Navigate to="/no-access" replace />;
@@ -70,10 +71,18 @@ function AppRoutes() {
           }
         />
         <Route
-          path="/chat"
+          path="/claims"
           element={
             <RequireRole roles={["admin", "vendor", "customer"]}>
-              <ChatBot />
+              <ClaimRequests />
+            </RequireRole>
+          }
+        />
+        <Route
+          path="/orders"
+          element={
+            <RequireRole roles={["admin", "vendor", "customer"]}>
+              <OrderRequests />
             </RequireRole>
           }
         />

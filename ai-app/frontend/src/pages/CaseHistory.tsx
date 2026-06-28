@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import { api, ApiError } from "../lib/api";
 import { Badge, statusToTone, Button, Card, CardBody } from "../components/ui";
-import { Table, Thead, Tbody, Tr, Th, Td } from "../components/ui/Table";
+import { Table, Thead, Tr, Th, Td } from "../components/ui/Table";
 import { LoadingOverlay } from "../components/ui/Spinner";
+import { fadeUpItem, staggerContainer } from "../lib/motion";
 import type { AgentRun } from "../lib/types";
 
 export default function CaseHistory() {
@@ -22,10 +24,10 @@ export default function CaseHistory() {
 
   return (
     <div className="space-y-6">
-      <div>
+      <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
         <h1 className="text-xl font-semibold text-slate-100">{t("history.title")}</h1>
         <p className="mt-1 text-sm text-slate-400">{t("history.subtitle")}</p>
-      </div>
+      </motion.div>
 
       <Card>
         <CardBody>
@@ -47,9 +49,9 @@ export default function CaseHistory() {
                   <Th>{" "}</Th>
                 </Tr>
               </Thead>
-              <Tbody>
+              <motion.tbody variants={staggerContainer} initial="hidden" animate="show">
                 {runs.map((r) => (
-                  <Tr key={r.run_id}>
+                  <motion.tr key={r.run_id} variants={fadeUpItem} className="border-b border-slate-800/60 last:border-0">
                     <Td className="font-mono text-xs">{r.run_id}</Td>
                     <Td className="max-w-xs truncate">{r.case_summary}</Td>
                     <Td className="text-xs text-slate-400">{new Date(r.started_at).toLocaleString()}</Td>
@@ -63,9 +65,9 @@ export default function CaseHistory() {
                         {t("history.view")}
                       </Button>
                     </Td>
-                  </Tr>
+                  </motion.tr>
                 ))}
-              </Tbody>
+              </motion.tbody>
             </Table>
           )}
         </CardBody>

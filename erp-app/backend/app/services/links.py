@@ -23,6 +23,17 @@ def is_linked(customer_username: str, vendor_username: str) -> bool:
     )
 
 
+def get_link_by_pair(customer_username: str, vendor_username: str) -> dict | None:
+    return next(
+        (
+            l
+            for l in _links.list_all()
+            if l.get("customer_username") == customer_username and l.get("vendor_username") == vendor_username
+        ),
+        None,
+    )
+
+
 def vendors_for_customer(customer_username: str) -> list[str]:
     return [l["vendor_username"] for l in _links.list_all() if l.get("customer_username") == customer_username]
 

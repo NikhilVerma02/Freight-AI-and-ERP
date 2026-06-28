@@ -1,1 +1,1156 @@
-[]
+[
+  {
+    "run_id": "run_52150ead57e2",
+    "agent": "inspector_agent",
+    "timestamp": "2026-06-28T16:15:56.103571+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "file_count": 1,
+      "manual_transcript": false
+    },
+    "output_summary": {
+      "po_number": "461023",
+      "damage_type": "impact",
+      "damaged_qty": 1,
+      "evidence_notes": "A warehouse worker is observed roughly throwing/dropping a cardboard box onto a stack of boxes on a pallet.",
+      "confidence_notes": "The rough handling/impact is clearly visible, though the exact physical damage to the contents inside the box cannot be verified from the video alone."
+    },
+    "status": "ok",
+    "latency_ms": 13935.091999999713,
+    "model": "gemini-flash-latest",
+    "tokens": {
+      "prompt_tokens": 1092,
+      "completion_tokens": 91
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_52150ead57e2",
+    "agent": "context_agent",
+    "timestamp": "2026-06-28T16:15:57.081691+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A"
+    },
+    "output_summary": {
+      "order_id": 1,
+      "order_number": "ORD-0001",
+      "customer_username": "customera",
+      "vendor_username": "vendorx",
+      "sku": "STL-CHASSIS-A",
+      "item_name": "Steel Chassis Frame A",
+      "ordered_qty": 50,
+      "damaged_qty": 1,
+      "damage_type": "impact",
+      "evidence_notes": "A warehouse worker is observed roughly throwing/dropping a cardboard box onto a stack of boxes on a pallet.",
+      "confidence_notes": "The rough handling/impact is clearly visible, though the exact physical damage to the contents inside the box cannot be verified from the video alone.",
+      "stated_po_number": "461023",
+      "po_number_mismatch": true,
+      "needs_review": true,
+      "qty_was_clamped": false,
+      "case_summary": "Order ORD-0001 incurred damage to 1 of 50 Steel Chassis Frame A units due to impact, allegedly caused by a warehouse worker mishandling a cardboard box nearby."
+    },
+    "status": "ok",
+    "latency_ms": 964.9591999987024,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 135,
+      "completion_tokens": 38
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_52150ead57e2",
+    "agent": "policy_agent",
+    "timestamp": "2026-06-28T16:16:02.905525+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "damage_type": "impact"
+    },
+    "output_summary": {
+      "eligible_for_claim": true,
+      "liable": "pending",
+      "justification": "The SLA-grounded answer states the case is eligible for a damage claim review due to the observed rough handling, which aligns with criteria 2, and does not address liability."
+    },
+    "status": "ok",
+    "latency_ms": 5794.203900000866,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 472,
+      "completion_tokens": 61
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_52150ead57e2",
+    "agent": "inventory_agent",
+    "timestamp": "2026-06-28T16:16:03.058464+00:00",
+    "input_summary": {
+      "customer_username": "customera",
+      "vendor_username": "vendorx",
+      "sku": "STL-CHASSIS-A"
+    },
+    "output_summary": {
+      "risk": "warning",
+      "customer_qty_before_damage": 47,
+      "customer_qty_after_damage": 46,
+      "vendor_qty_on_hand": 280,
+      "vendor_reorder_threshold": 100,
+      "vendor_below_threshold": false
+    },
+    "status": "ok",
+    "latency_ms": 105.06059999897843,
+    "model": null,
+    "tokens": null,
+    "error": null
+  },
+  {
+    "run_id": "run_52150ead57e2",
+    "agent": "reorder_agent",
+    "timestamp": "2026-06-28T16:16:03.512137+00:00",
+    "input_summary": {
+      "sku": "STL-CHASSIS-A",
+      "damaged_qty": 1
+    },
+    "output_summary": {
+      "id": 21,
+      "order_number": "ORD-0021",
+      "customer_username": "customera",
+      "vendor_username": "vendorx",
+      "items": [
+        {
+          "sku": "STL-CHASSIS-A",
+          "item_name": "Steel Chassis Frame A",
+          "qty": 1
+        }
+      ],
+      "status": "requested",
+      "undelivered_reason": null,
+      "requested_at": "2026-06-28T16:16:03.430460+00:00",
+      "created_at": "2026-06-28T16:16:03.434363+00:00",
+      "updated_at": "2026-06-28T16:16:03.434363+00:00",
+      "reorder_note": "A replacement-stock order was auto-generated for the customer due to the damage to 1 unit of 'Steel Chassis Frame A' on order ORD-0001 to mitigate potential inventory shortages indicated by the warning-level risk assessment."
+    },
+    "status": "ok",
+    "latency_ms": 425.13610000241897,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 113,
+      "completion_tokens": 46
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_52150ead57e2",
+    "agent": "claim_agent",
+    "timestamp": "2026-06-28T16:16:04.365287+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "eligible_for_claim": true
+    },
+    "output_summary": {
+      "id": 11,
+      "claim_number": "CLM-0011",
+      "customer_username": "customera",
+      "vendor_username": "vendorx",
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "damage_type": "impact",
+      "damaged_qty": 1,
+      "claim_text": "A claim has been filed for order ORD-0001 regarding damage to one Steel Chassis Frame A, SKU STL-CHASSIS-A, out of a total shipment of 50 units. The damage type observed is impact, suggesting rough handling may have occurred during transit. As per the SLA, this matter is eligible for a damage claim review due to the observed rough handling, which aligns with criteria 2. The claim is currently under review to determine liability, with further investigation needed to assess responsibility. The claimant awaits a determination regarding compensation for the damaged item.",
+      "status": "pending",
+      "decision_reason": null,
+      "created_at": "2026-06-28T16:16:04.266197+00:00",
+      "updated_at": "2026-06-28T16:16:04.266197+00:00"
+    },
+    "status": "ok",
+    "latency_ms": 829.5747999982268,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 171,
+      "completion_tokens": 117
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_52150ead57e2",
+    "agent": "governance_agent",
+    "timestamp": "2026-06-28T16:16:04.997996+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A"
+    },
+    "output_summary": {
+      "case_summary": "Order ORD-0001 incurred damage to 1 of 50 Steel Chassis Frame A units due to impact, allegedly caused by a warehouse worker mishandling a cardboard box nearby.",
+      "narrative": "Order ORD-0001 sustained damage to one Steel Chassis Frame A unit due to alleged mishandling by a warehouse worker. A claim has been filed and a replacement order for one unit has been placed to mitigate the loss. The incident has triggered an inventory risk warning due to the damage. The claim's liability remains pending, awaiting further review and determination.",
+      "liable": "pending",
+      "eligible_for_claim": true,
+      "claim_filed": true,
+      "claim_id": 11,
+      "reorder_placed": true,
+      "reorder_order_id": 21,
+      "inventory_risk": "warning",
+      "inventory_alert_id": 52
+    },
+    "status": "ok",
+    "latency_ms": 611.8986999972549,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 211,
+      "completion_tokens": 73
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_b3772e3a6bd5",
+    "agent": "inspector_agent",
+    "timestamp": "2026-06-28T16:17:31.896385+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "file_count": 1,
+      "manual_transcript": false
+    },
+    "output_summary": {
+      "po_number": "PO-4598732",
+      "damage_type": "other",
+      "damaged_qty": null,
+      "evidence_notes": "The image shows a pallet of boxes in a warehouse setting; there is no visible evidence of physical damage to the packaging.",
+      "confidence_notes": "No damage is apparent in the provided photograph."
+    },
+    "status": "ok",
+    "latency_ms": 24842.002700002922,
+    "model": "gemini-flash-lite-latest",
+    "tokens": {
+      "prompt_tokens": 1262,
+      "completion_tokens": 84
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_b3772e3a6bd5",
+    "agent": "context_agent",
+    "timestamp": "2026-06-28T16:17:32.241354+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A"
+    },
+    "output_summary": {
+      "order_id": 1,
+      "order_number": "ORD-0001",
+      "customer_username": "customera",
+      "vendor_username": "vendorx",
+      "sku": "STL-CHASSIS-A",
+      "item_name": "Steel Chassis Frame A",
+      "ordered_qty": 50,
+      "damaged_qty": 0,
+      "damage_type": "other",
+      "evidence_notes": "The image shows a pallet of boxes in a warehouse setting; there is no visible evidence of physical damage to the packaging.",
+      "confidence_notes": "No damage is apparent in the provided photograph.",
+      "stated_po_number": "PO-4598732",
+      "po_number_mismatch": true,
+      "needs_review": true,
+      "qty_was_clamped": false,
+      "case_summary": "Order ORD-0001 reported 0 of 50 units of Steel Chassis Frame A damaged with damage type listed as other and no visible evidence of physical damage to packaging in provided image."
+    },
+    "status": "ok",
+    "latency_ms": 329.3252000003122,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 138,
+      "completion_tokens": 39
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_b3772e3a6bd5",
+    "agent": "policy_agent",
+    "timestamp": "2026-06-28T16:17:34.249292+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "damage_type": "other"
+    },
+    "output_summary": {
+      "eligible_for_claim": false,
+      "liable": "pending",
+      "justification": "The SLA states that a shipment is eligible for a damage claim review when visible external packaging damage is present, such as large tears, crushing, or punctures, and no such damage is apparent in the provided photograph."
+    },
+    "status": "ok",
+    "latency_ms": 1969.1334999988612,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 468,
+      "completion_tokens": 64
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_b3772e3a6bd5",
+    "agent": "inventory_agent",
+    "timestamp": "2026-06-28T16:17:34.341668+00:00",
+    "input_summary": {
+      "customer_username": "customera",
+      "vendor_username": "vendorx",
+      "sku": "STL-CHASSIS-A"
+    },
+    "output_summary": {
+      "risk": "safe",
+      "customer_qty_before_damage": 47,
+      "customer_qty_after_damage": 47,
+      "vendor_qty_on_hand": 280,
+      "vendor_reorder_threshold": 100,
+      "vendor_below_threshold": false
+    },
+    "status": "ok",
+    "latency_ms": 71.49220000064815,
+    "model": null,
+    "tokens": null,
+    "error": null
+  },
+  {
+    "run_id": "run_b3772e3a6bd5",
+    "agent": "reorder_agent",
+    "timestamp": "2026-06-28T16:17:34.371217+00:00",
+    "input_summary": {
+      "sku": "STL-CHASSIS-A",
+      "damaged_qty": 0
+    },
+    "output_summary": null,
+    "status": "ok",
+    "latency_ms": 0.006000002031214535,
+    "model": null,
+    "tokens": null,
+    "error": null
+  },
+  {
+    "run_id": "run_b3772e3a6bd5",
+    "agent": "claim_agent",
+    "timestamp": "2026-06-28T16:17:34.401272+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "eligible_for_claim": false
+    },
+    "output_summary": null,
+    "status": "ok",
+    "latency_ms": 0.005199999577598646,
+    "model": null,
+    "tokens": null,
+    "error": null
+  },
+  {
+    "run_id": "run_b3772e3a6bd5",
+    "agent": "governance_agent",
+    "timestamp": "2026-06-28T16:17:35.082798+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A"
+    },
+    "output_summary": {
+      "case_summary": "Order ORD-0001 reported 0 of 50 units of Steel Chassis Frame A damaged with damage type listed as other and no visible evidence of physical damage to packaging in provided image.",
+      "narrative": "Order ORD-0001 reported 0 of 50 units damaged but no visible packaging damage was found, resulting in no claim filed and no replacement order placed, with the inventory risk level determined to be safe. The damage claim was not pursued due to lack of visible external packaging damage as required by the SLA. The order's status has been resolved with no further action required. The overall inventory remains unaffected with no additional risk introduced.",
+      "liable": "pending",
+      "eligible_for_claim": false,
+      "claim_filed": false,
+      "claim_id": null,
+      "reorder_placed": false,
+      "reorder_order_id": null,
+      "inventory_risk": "safe",
+      "inventory_alert_id": null
+    },
+    "status": "ok",
+    "latency_ms": 660.2478999993764,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 219,
+      "completion_tokens": 88
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_8d478d9b1cd7",
+    "agent": "inspector_agent",
+    "timestamp": "2026-06-28T16:18:23.305365+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "file_count": 1,
+      "manual_transcript": false
+    },
+    "output_summary": {
+      "po_number": "450912",
+      "damage_type": "moisture/water damage and crushing",
+      "damaged_qty": 4,
+      "evidence_notes": "Multiple boxes on pallets show visible water staining, structural collapse, and puncture damage with exposed contents.",
+      "confidence_notes": "PO number is clearly printed on multiple boxes; damage is extensive and visible across several units."
+    },
+    "status": "ok",
+    "latency_ms": 33636.61499999944,
+    "model": "gemini-flash-lite-latest",
+    "tokens": {
+      "prompt_tokens": 1262,
+      "completion_tokens": 92
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_8d478d9b1cd7",
+    "agent": "context_agent",
+    "timestamp": "2026-06-28T16:18:23.824373+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A"
+    },
+    "output_summary": {
+      "order_id": 1,
+      "order_number": "ORD-0001",
+      "customer_username": "customera",
+      "vendor_username": "vendorx",
+      "sku": "STL-CHASSIS-A",
+      "item_name": "Steel Chassis Frame A",
+      "ordered_qty": 50,
+      "damaged_qty": 4,
+      "damage_type": "moisture damage",
+      "evidence_notes": "Multiple boxes on pallets show visible water staining, structural collapse, and puncture damage with exposed contents.",
+      "confidence_notes": "PO number is clearly printed on multiple boxes; damage is extensive and visible across several units.",
+      "stated_po_number": "450912",
+      "po_number_mismatch": true,
+      "needs_review": true,
+      "qty_was_clamped": false,
+      "case_summary": "Order ORD-0001 incurred damage to 4 out of 50 units of Steel Chassis Frame A (SKU STL-CHASSIS-A) due to moisture exposure, resulting in visible water staining, structural collapse, and puncture damage with exposed contents."
+    },
+    "status": "ok",
+    "latency_ms": 472.8207999978622,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 136,
+      "completion_tokens": 53
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_8d478d9b1cd7",
+    "agent": "policy_agent",
+    "timestamp": "2026-06-28T16:18:26.159817+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "damage_type": "moisture damage"
+    },
+    "output_summary": {
+      "eligible_for_claim": true,
+      "liable": "pending",
+      "justification": "The SLA-grounded answer states that the case meets the criteria for a damage claim review due to visible external packaging damage, potential impact on contents, and sufficient inspection evidence, but does not address liability."
+    },
+    "status": "ok",
+    "latency_ms": 2298.7631000032707,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 507,
+      "completion_tokens": 65
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_8d478d9b1cd7",
+    "agent": "inventory_agent",
+    "timestamp": "2026-06-28T16:18:26.283492+00:00",
+    "input_summary": {
+      "customer_username": "customera",
+      "vendor_username": "vendorx",
+      "sku": "STL-CHASSIS-A"
+    },
+    "output_summary": {
+      "risk": "warning",
+      "customer_qty_before_damage": 47,
+      "customer_qty_after_damage": 43,
+      "vendor_qty_on_hand": 280,
+      "vendor_reorder_threshold": 100,
+      "vendor_below_threshold": false
+    },
+    "status": "ok",
+    "latency_ms": 94.27660000073956,
+    "model": null,
+    "tokens": null,
+    "error": null
+  },
+  {
+    "run_id": "run_8d478d9b1cd7",
+    "agent": "reorder_agent",
+    "timestamp": "2026-06-28T16:18:26.670389+00:00",
+    "input_summary": {
+      "sku": "STL-CHASSIS-A",
+      "damaged_qty": 4
+    },
+    "output_summary": {
+      "id": 22,
+      "order_number": "ORD-0022",
+      "customer_username": "customera",
+      "vendor_username": "vendorx",
+      "items": [
+        {
+          "sku": "STL-CHASSIS-A",
+          "item_name": "Steel Chassis Frame A",
+          "qty": 4
+        }
+      ],
+      "status": "requested",
+      "undelivered_reason": null,
+      "requested_at": "2026-06-28T16:18:26.583734+00:00",
+      "created_at": "2026-06-28T16:18:26.583734+00:00",
+      "updated_at": "2026-06-28T16:18:26.583734+00:00",
+      "reorder_note": "A replacement-stock order was auto-generated for the customer due to the moisture damage to 4 units of 'Steel Chassis Frame A' on order ORD-0001, which triggered an inventory risk warning."
+    },
+    "status": "ok",
+    "latency_ms": 353.1155000018771,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 116,
+      "completion_tokens": 42
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_8d478d9b1cd7",
+    "agent": "claim_agent",
+    "timestamp": "2026-06-28T16:18:27.523517+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "eligible_for_claim": true
+    },
+    "output_summary": {
+      "id": 12,
+      "claim_number": "CLM-0012",
+      "customer_username": "customera",
+      "vendor_username": "vendorx",
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "damage_type": "moisture damage",
+      "damaged_qty": 4,
+      "claim_text": "A claim has been filed for order ORD-0001, which contained 50 units of Steel Chassis Frame A, with 4 units sustaining moisture damage. Visible external packaging damage was noted upon inspection, raising concerns about the potential impact on the contents. The inspection evidence supports a damage claim review, as the packaging damage may have compromised the integrity of the shipment. The claim is currently under review to determine liability, with a thorough examination of the circumstances surrounding the damage to be conducted. Further investigation is required to ascertain the responsible party and determine the appropriate course of action.",
+      "status": "pending",
+      "decision_reason": null,
+      "created_at": "2026-06-28T16:18:27.421070+00:00",
+      "updated_at": "2026-06-28T16:18:27.421070+00:00"
+    },
+    "status": "ok",
+    "latency_ms": 826.0112000025401,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 176,
+      "completion_tokens": 115
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_8d478d9b1cd7",
+    "agent": "governance_agent",
+    "timestamp": "2026-06-28T16:18:28.349072+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A"
+    },
+    "output_summary": {
+      "case_summary": "Order ORD-0001 incurred damage to 4 out of 50 units of Steel Chassis Frame A (SKU STL-CHASSIS-A) due to moisture exposure, resulting in visible water staining, structural collapse, and puncture damage with exposed contents.",
+      "narrative": "Order ORD-0001 sustained damage to 4 units of Steel Chassis Frame A due to moisture exposure, resulting in a claim being filed and a replacement order for the damaged quantity being placed. The case meets the criteria for a damage claim review, although liability remains pending. The inventory risk level has been elevated to warning due to the damage. A reorder for 4 replacement units has been successfully executed to mitigate the inventory risk.",
+      "liable": "pending",
+      "eligible_for_claim": true,
+      "claim_filed": true,
+      "claim_id": 12,
+      "reorder_placed": true,
+      "reorder_order_id": 22,
+      "inventory_risk": "warning",
+      "inventory_alert_id": 55
+    },
+    "status": "ok",
+    "latency_ms": 796.7102000002342,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 230,
+      "completion_tokens": 87
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_13fca2e102a0",
+    "agent": "inspector_agent",
+    "timestamp": "2026-06-28T16:18:59.691459+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "file_count": 1,
+      "manual_transcript": false
+    },
+    "output_summary": {
+      "po_number": "450912",
+      "damage_type": "moisture/water damage",
+      "damaged_qty": 3,
+      "evidence_notes": "Three boxes on a pallet are visibly crushed and water-damaged, with one box spilling contents.",
+      "confidence_notes": "High confidence; PO number and damage type are clearly labeled on the boxes."
+    },
+    "status": "ok",
+    "latency_ms": 14927.605900000344,
+    "model": "gemini-flash-lite-latest",
+    "tokens": {
+      "prompt_tokens": 1092,
+      "completion_tokens": 92
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_13fca2e102a0",
+    "agent": "context_agent",
+    "timestamp": "2026-06-28T16:19:00.374965+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A"
+    },
+    "output_summary": {
+      "order_id": 1,
+      "order_number": "ORD-0001",
+      "customer_username": "customera",
+      "vendor_username": "vendorx",
+      "sku": "STL-CHASSIS-A",
+      "item_name": "Steel Chassis Frame A",
+      "ordered_qty": 50,
+      "damaged_qty": 3,
+      "damage_type": "moisture damage",
+      "evidence_notes": "Three boxes on a pallet are visibly crushed and water-damaged, with one box spilling contents.",
+      "confidence_notes": "High confidence; PO number and damage type are clearly labeled on the boxes.",
+      "stated_po_number": "450912",
+      "po_number_mismatch": true,
+      "needs_review": true,
+      "qty_was_clamped": false,
+      "case_summary": "Order ORD-0001 sustained damage to 3 out of 50 units of Steel Chassis Frame A (SKU STL-CHASSIS-A) due to moisture damage, with evidence showing crushed and water-damaged boxes and spilled contents."
+    },
+    "status": "ok",
+    "latency_ms": 522.0867999996699,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 135,
+      "completion_tokens": 49
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_13fca2e102a0",
+    "agent": "policy_agent",
+    "timestamp": "2026-06-28T16:19:02.048305+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "damage_type": "moisture damage"
+    },
+    "output_summary": {
+      "eligible_for_claim": true,
+      "liable": "pending",
+      "justification": "The SLA excerpts state that visible external packaging damage is present and could reasonably have affected the contents, meeting the criteria for a damage claim review, but do not address liability."
+    },
+    "status": "ok",
+    "latency_ms": 1645.5953000004229,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 465,
+      "completion_tokens": 59
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_13fca2e102a0",
+    "agent": "inventory_agent",
+    "timestamp": "2026-06-28T16:19:02.169072+00:00",
+    "input_summary": {
+      "customer_username": "customera",
+      "vendor_username": "vendorx",
+      "sku": "STL-CHASSIS-A"
+    },
+    "output_summary": {
+      "risk": "warning",
+      "customer_qty_before_damage": 47,
+      "customer_qty_after_damage": 44,
+      "vendor_qty_on_hand": 280,
+      "vendor_reorder_threshold": 100,
+      "vendor_below_threshold": false
+    },
+    "status": "ok",
+    "latency_ms": 90.85590000177035,
+    "model": null,
+    "tokens": null,
+    "error": null
+  },
+  {
+    "run_id": "run_13fca2e102a0",
+    "agent": "reorder_agent",
+    "timestamp": "2026-06-28T16:19:02.566276+00:00",
+    "input_summary": {
+      "sku": "STL-CHASSIS-A",
+      "damaged_qty": 3
+    },
+    "output_summary": {
+      "id": 23,
+      "order_number": "ORD-0023",
+      "customer_username": "customera",
+      "vendor_username": "vendorx",
+      "items": [
+        {
+          "sku": "STL-CHASSIS-A",
+          "item_name": "Steel Chassis Frame A",
+          "qty": 3
+        }
+      ],
+      "status": "requested",
+      "undelivered_reason": null,
+      "requested_at": "2026-06-28T16:19:02.481412+00:00",
+      "created_at": "2026-06-28T16:19:02.481412+00:00",
+      "updated_at": "2026-06-28T16:19:02.481412+00:00",
+      "reorder_note": "A replacement-stock order was auto-generated for the customer due to the moisture damage to 3 units of 'Steel Chassis Frame A' on order ORD-0001, which triggered an inventory risk warning."
+    },
+    "status": "ok",
+    "latency_ms": 359.5366000008653,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 116,
+      "completion_tokens": 42
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_13fca2e102a0",
+    "agent": "claim_agent",
+    "timestamp": "2026-06-28T16:19:03.576224+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "eligible_for_claim": true
+    },
+    "output_summary": {
+      "id": 13,
+      "claim_number": "CLM-0013",
+      "customer_username": "customera",
+      "vendor_username": "vendorx",
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "damage_type": "moisture damage",
+      "damaged_qty": 3,
+      "claim_text": "A claim has been filed for moisture damage to three Steel Chassis Frame A units, SKU STL-CHASSIS-A, from order ORD-0001, which consisted of 50 units in total. Visible external packaging damage was noted upon delivery, and it is reasonable to conclude that this damage could have compromised the integrity of the packaging, potentially causing the moisture damage to the contents. As per the applicable Service Level Agreement, this damage meets the criteria for a claim review to determine liability. The claim is currently pending liability determination, and further review is required to assess the responsible party. The damaged units are being held for further inspection and evaluation to support the claim review process.",
+      "status": "pending",
+      "decision_reason": null,
+      "created_at": "2026-06-28T16:19:03.481826+00:00",
+      "updated_at": "2026-06-28T16:19:03.481826+00:00"
+    },
+    "status": "ok",
+    "latency_ms": 989.9538000026951,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 170,
+      "completion_tokens": 136
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_13fca2e102a0",
+    "agent": "governance_agent",
+    "timestamp": "2026-06-28T16:19:04.217730+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A"
+    },
+    "output_summary": {
+      "case_summary": "Order ORD-0001 sustained damage to 3 out of 50 units of Steel Chassis Frame A (SKU STL-CHASSIS-A) due to moisture damage, with evidence showing crushed and water-damaged boxes and spilled contents.",
+      "narrative": "Order ORD-0001 incurred freight damage to 3 units of Steel Chassis Frame A, with visible external packaging damage and water-damaged contents. A claim has been filed and a replacement order for 3 units has been placed to mitigate inventory loss. The current inventory risk level for this item is warning, indicating potential supply chain disruption. The claim's liability is still pending review, with the SLA supporting a damage claim but not explicitly assigning responsibility.",
+      "liable": "pending",
+      "eligible_for_claim": true,
+      "claim_filed": true,
+      "claim_id": 13,
+      "reorder_placed": true,
+      "reorder_order_id": 23,
+      "inventory_risk": "warning",
+      "inventory_alert_id": 58
+    },
+    "status": "ok",
+    "latency_ms": 615.2508999985002,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 220,
+      "completion_tokens": 92
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_5a34991f1fa4",
+    "agent": "inspector_agent",
+    "timestamp": "2026-06-28T16:20:15.313342+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "file_count": 1,
+      "manual_transcript": false
+    },
+    "output_summary": {
+      "po_number": "461023",
+      "damage_type": "impact",
+      "damaged_qty": 1,
+      "evidence_notes": "A worker drops a box labeled PO 461023 onto a pallet, causing a visible impact.",
+      "confidence_notes": "The damage is clearly visible as the box is dropped."
+    },
+    "status": "ok",
+    "latency_ms": 13514.413500000956,
+    "model": "gemini-flash-lite-latest",
+    "tokens": {
+      "prompt_tokens": 1092,
+      "completion_tokens": 88
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_5a34991f1fa4",
+    "agent": "context_agent",
+    "timestamp": "2026-06-28T16:20:15.854840+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A"
+    },
+    "output_summary": {
+      "order_id": 1,
+      "order_number": "ORD-0001",
+      "customer_username": "customera",
+      "vendor_username": "vendorx",
+      "sku": "STL-CHASSIS-A",
+      "item_name": "Steel Chassis Frame A",
+      "ordered_qty": 50,
+      "damaged_qty": 1,
+      "damage_type": "impact",
+      "evidence_notes": "A worker drops a box labeled PO 461023 onto a pallet, causing a visible impact.",
+      "confidence_notes": "The damage is clearly visible as the box is dropped.",
+      "stated_po_number": "461023",
+      "po_number_mismatch": true,
+      "needs_review": true,
+      "qty_was_clamped": false,
+      "case_summary": "Order ORD-0001 sustained damage to 1 of 50 'Steel Chassis Frame A' units due to impact caused by a dropped box during handling, as evidenced by a witnessed incident involving a worker and a box labeled PO 461023."
+    },
+    "status": "ok",
+    "latency_ms": 511.93729999795323,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 133,
+      "completion_tokens": 51
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_5a34991f1fa4",
+    "agent": "policy_agent",
+    "timestamp": "2026-06-28T16:20:17.301301+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "damage_type": "impact"
+    },
+    "output_summary": {
+      "eligible_for_claim": true,
+      "liable": "pending",
+      "justification": "The SLA-grounded answer states the case is eligible for a damage claim review due to visible external packaging damage, but does not mention liability."
+    },
+    "status": "ok",
+    "latency_ms": 1429.9487999996927,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 447,
+      "completion_tokens": 53
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_5a34991f1fa4",
+    "agent": "inventory_agent",
+    "timestamp": "2026-06-28T16:20:17.408064+00:00",
+    "input_summary": {
+      "customer_username": "customera",
+      "vendor_username": "vendorx",
+      "sku": "STL-CHASSIS-A"
+    },
+    "output_summary": {
+      "risk": "warning",
+      "customer_qty_before_damage": 47,
+      "customer_qty_after_damage": 46,
+      "vendor_qty_on_hand": 280,
+      "vendor_reorder_threshold": 100,
+      "vendor_below_threshold": false
+    },
+    "status": "ok",
+    "latency_ms": 69.00320000204374,
+    "model": null,
+    "tokens": null,
+    "error": null
+  },
+  {
+    "run_id": "run_5a34991f1fa4",
+    "agent": "reorder_agent",
+    "timestamp": "2026-06-28T16:20:17.862322+00:00",
+    "input_summary": {
+      "sku": "STL-CHASSIS-A",
+      "damaged_qty": 1
+    },
+    "output_summary": {
+      "id": 24,
+      "order_number": "ORD-0024",
+      "customer_username": "customera",
+      "vendor_username": "vendorx",
+      "items": [
+        {
+          "sku": "STL-CHASSIS-A",
+          "item_name": "Steel Chassis Frame A",
+          "qty": 1
+        }
+      ],
+      "status": "requested",
+      "undelivered_reason": null,
+      "requested_at": "2026-06-28T16:20:17.761038+00:00",
+      "created_at": "2026-06-28T16:20:17.763051+00:00",
+      "updated_at": "2026-06-28T16:20:17.763051+00:00",
+      "reorder_note": "A replacement-stock order was auto-generated for the customer due to the damage to 1 unit of 'Steel Chassis Frame A' on order ORD-0001 to mitigate potential inventory shortages indicated by the warning-level risk assessment."
+    },
+    "status": "ok",
+    "latency_ms": 420.79699999885634,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 113,
+      "completion_tokens": 46
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_5a34991f1fa4",
+    "agent": "claim_agent",
+    "timestamp": "2026-06-28T16:20:18.665024+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "eligible_for_claim": true
+    },
+    "output_summary": {
+      "id": 14,
+      "claim_number": "CLM-0014",
+      "customer_username": "customera",
+      "vendor_username": "vendorx",
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "damage_type": "impact",
+      "damaged_qty": 1,
+      "claim_text": "A claim has been filed for order ORD-0001 due to damage sustained by one Steel Chassis Frame A, SKU STL-CHASSIS-A, during transit. The damaged item, one of fifty shipped, exhibits impact damage that is believed to have occurred while in the carrier's possession. Visible external packaging damage was noted upon delivery, prompting a damage claim review as per the service level agreement. The claim is currently under review to determine liability and potential compensation for the damaged item. Further investigation is required to assess the extent of the damage and assign liability.",
+      "status": "pending",
+      "decision_reason": null,
+      "created_at": "2026-06-28T16:20:18.557979+00:00",
+      "updated_at": "2026-06-28T16:20:18.557979+00:00"
+    },
+    "status": "ok",
+    "latency_ms": 780.4953999984718,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 163,
+      "completion_tokens": 113
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_5a34991f1fa4",
+    "agent": "governance_agent",
+    "timestamp": "2026-06-28T16:20:19.394538+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A"
+    },
+    "output_summary": {
+      "case_summary": "Order ORD-0001 sustained damage to 1 of 50 'Steel Chassis Frame A' units due to impact caused by a dropped box during handling, as evidenced by a witnessed incident involving a worker and a box labeled PO 461023.",
+      "narrative": "Order ORD-0001 experienced freight damage with one Steel Chassis Frame A unit impacted due to a handling incident. A claim has been filed and a replacement order for one unit has been placed. The current inventory risk level is warning due to the damage. The claim's liability remains pending as the review process continues to determine responsibility for the damage.",
+      "liable": "pending",
+      "eligible_for_claim": true,
+      "claim_filed": true,
+      "claim_id": 14,
+      "reorder_placed": true,
+      "reorder_order_id": 24,
+      "inventory_risk": "warning",
+      "inventory_alert_id": 61
+    },
+    "status": "ok",
+    "latency_ms": 698.7005999981193,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 216,
+      "completion_tokens": 70
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_37dcfb2b36c2",
+    "agent": "inspector_agent",
+    "timestamp": "2026-06-28T17:40:56.180992+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "file_count": 1,
+      "manual_transcript": false
+    },
+    "output_summary": {
+      "po_number": "PO-5123489",
+      "damage_type": "other",
+      "damaged_qty": null,
+      "evidence_notes": "The cartons labeled with PO-5123489 on Pallet #107 appear completely intact with no visible signs of crushing, impact, or moisture damage.",
+      "confidence_notes": "PO number is clearly visible on the receiving report. No damage is visible on the exterior of the freight in the image."
+    },
+    "status": "ok",
+    "latency_ms": 16863.392000002932,
+    "model": "gemini-flash-latest",
+    "tokens": {
+      "prompt_tokens": 1262,
+      "completion_tokens": 104
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_37dcfb2b36c2",
+    "agent": "context_agent",
+    "timestamp": "2026-06-28T17:40:56.892863+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A"
+    },
+    "output_summary": {
+      "order_id": 1,
+      "order_number": "ORD-0001",
+      "customer_username": "customera",
+      "vendor_username": "vendorx",
+      "sku": "STL-CHASSIS-A",
+      "item_name": "Steel Chassis Frame A",
+      "ordered_qty": 50,
+      "damaged_qty": 0,
+      "damage_type": "other",
+      "evidence_notes": "The cartons labeled with PO-5123489 on Pallet #107 appear completely intact with no visible signs of crushing, impact, or moisture damage.",
+      "confidence_notes": "PO number is clearly visible on the receiving report. No damage is visible on the exterior of the freight in the image.",
+      "stated_po_number": "PO-5123489",
+      "po_number_mismatch": true,
+      "needs_review": true,
+      "qty_was_clamped": false,
+      "case_summary": "Order ORD-0001 had 0 out of 50 units of Steel Chassis Frame A damaged, with damage type classified as other, and evidence showing intact cartons with no visible signs of damage on Pallet #107."
+    },
+    "status": "ok",
+    "latency_ms": 650.1729000010528,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 145,
+      "completion_tokens": 47
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_37dcfb2b36c2",
+    "agent": "policy_agent",
+    "timestamp": "2026-06-28T17:40:59.578083+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "damage_type": "other"
+    },
+    "output_summary": {
+      "eligible_for_claim": false,
+      "liable": "pending",
+      "justification": "The SLA excerpts state that visible external packaging damage is a requirement for claim eligibility, and since there is no visible external packaging damage, the case is not eligible for a damage claim review."
+    },
+    "status": "ok",
+    "latency_ms": 2594.6072000006097,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 470,
+      "completion_tokens": 58
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_37dcfb2b36c2",
+    "agent": "inventory_agent",
+    "timestamp": "2026-06-28T17:40:59.942585+00:00",
+    "input_summary": {
+      "customer_username": "customera",
+      "vendor_username": "vendorx",
+      "sku": "STL-CHASSIS-A"
+    },
+    "output_summary": {
+      "risk": "safe",
+      "customer_qty_before_damage": 47,
+      "customer_qty_after_damage": 47,
+      "vendor_qty_on_hand": 280,
+      "vendor_reorder_threshold": 100,
+      "vendor_below_threshold": false
+    },
+    "status": "ok",
+    "latency_ms": 239.9074000022665,
+    "model": null,
+    "tokens": null,
+    "error": null
+  },
+  {
+    "run_id": "run_37dcfb2b36c2",
+    "agent": "reorder_agent",
+    "timestamp": "2026-06-28T17:41:00.049136+00:00",
+    "input_summary": {
+      "sku": "STL-CHASSIS-A",
+      "damaged_qty": 0
+    },
+    "output_summary": null,
+    "status": "ok",
+    "latency_ms": 0.047199999244185165,
+    "model": null,
+    "tokens": null,
+    "error": null
+  },
+  {
+    "run_id": "run_37dcfb2b36c2",
+    "agent": "claim_agent",
+    "timestamp": "2026-06-28T17:41:00.118874+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A",
+      "eligible_for_claim": false
+    },
+    "output_summary": null,
+    "status": "ok",
+    "latency_ms": 0.08680000246386044,
+    "model": null,
+    "tokens": null,
+    "error": null
+  },
+  {
+    "run_id": "run_37dcfb2b36c2",
+    "agent": "governance_agent",
+    "timestamp": "2026-06-28T17:41:00.773713+00:00",
+    "input_summary": {
+      "order_id": 1,
+      "sku": "STL-CHASSIS-A"
+    },
+    "output_summary": {
+      "case_summary": "Order ORD-0001 had 0 out of 50 units of Steel Chassis Frame A damaged, with damage type classified as other, and evidence showing intact cartons with no visible signs of damage on Pallet #107.",
+      "narrative": "Order ORD-0001 had no damage to its 50 units of Steel Chassis Frame A, with intact cartons and no visible signs of damage, resulting in no claim being filed due to ineligibility based on SLA requirements. As a result, no replacement order was placed, with a quantity of 0 units reordered. The inventory risk level for this case is classified as safe. The case has been closed with no further action required.",
+      "liable": "pending",
+      "eligible_for_claim": false,
+      "claim_filed": false,
+      "claim_id": null,
+      "reorder_placed": false,
+      "reorder_order_id": null,
+      "inventory_risk": "safe",
+      "inventory_alert_id": null
+    },
+    "status": "ok",
+    "latency_ms": 558.6617000008118,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 221,
+      "completion_tokens": 91
+    },
+    "error": null
+  }
+]

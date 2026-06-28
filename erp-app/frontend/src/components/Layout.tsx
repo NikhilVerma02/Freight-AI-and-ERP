@@ -37,6 +37,7 @@ const NAV_BY_ROLE: Record<Role, NavItem[]> = {
     { to: "/orders", label: "Orders", icon: "🧾" },
     { to: "/claims", label: "Claims", icon: "📋" },
     { to: "/sla", label: "SLA", icon: "📄" },
+    { to: "/my-vendors", label: "My Vendors", icon: "🏭" },
     { to: "/customer-inventory", label: "My Inventory", icon: "📦" },
     { to: "/alerts", label: "Alerts", icon: "🚨" },
   ],

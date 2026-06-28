@@ -4,7 +4,7 @@ from app.services import alerts as alerts_svc
 from app.services import customer_inventory as cust_inv_svc
 from app.services import links as links_svc
 from app.services.audit_logs import log_action
-from app.store import Collection
+from app.store import Collection, now_iso
 
 _orders = Collection("orders.json")
 
@@ -50,6 +50,7 @@ def create_order(customer_username: str, vendor_username: str, items: list[dict]
             "items": items,
             "status": "requested",
             "undelivered_reason": None,
+            "requested_at": now_iso(),
         }
     )
     log_action(actor, "create", "orders", record["id"], f"order {record['order_number']} {customer_username} -> {vendor_username}")
