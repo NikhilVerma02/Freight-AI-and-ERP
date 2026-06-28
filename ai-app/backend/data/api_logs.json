@@ -1,0 +1,478 @@
+[
+  {
+    "timestamp": "2026-06-28T17:52:46.546330+00:00",
+    "method": "GET",
+    "path": "/",
+    "status_code": 200,
+    "duration_ms": 24.9
+  },
+  {
+    "timestamp": "2026-06-28T17:53:10.076764+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 428.28
+  },
+  {
+    "timestamp": "2026-06-28T17:53:10.258509+00:00",
+    "method": "POST",
+    "path": "/api/ingest/run",
+    "status_code": 200,
+    "duration_ms": 75.58
+  },
+  {
+    "timestamp": "2026-06-28T17:54:01.296276+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 341.62
+  },
+  {
+    "timestamp": "2026-06-28T17:54:01.461680+00:00",
+    "method": "GET",
+    "path": "/api/observability/api-logs",
+    "status_code": 200,
+    "duration_ms": 51.81
+  },
+  {
+    "timestamp": "2026-06-28T17:54:11.083035+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 363.96
+  },
+  {
+    "timestamp": "2026-06-28T17:54:11.240154+00:00",
+    "method": "GET",
+    "path": "/api/observability/api-logs",
+    "status_code": 403,
+    "duration_ms": 31.1
+  },
+  {
+    "timestamp": "2026-06-28T18:00:34.840646+00:00",
+    "method": "GET",
+    "path": "/api/ingest/vendors",
+    "status_code": 401,
+    "duration_ms": 78.55
+  },
+  {
+    "timestamp": "2026-06-28T18:00:34.928176+00:00",
+    "method": "GET",
+    "path": "/api/ingest/vendors",
+    "status_code": 401,
+    "duration_ms": 78.46
+  },
+  {
+    "timestamp": "2026-06-28T18:00:43.559767+00:00",
+    "method": "OPTIONS",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 0.93
+  },
+  {
+    "timestamp": "2026-06-28T18:00:43.960349+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 377.7
+  },
+  {
+    "timestamp": "2026-06-28T18:00:44.147333+00:00",
+    "method": "GET",
+    "path": "/api/ingest/vendors",
+    "status_code": 200,
+    "duration_ms": 135.02
+  },
+  {
+    "timestamp": "2026-06-28T18:00:44.236482+00:00",
+    "method": "GET",
+    "path": "/api/ingest/vendors",
+    "status_code": 200,
+    "duration_ms": 60.55
+  },
+  {
+    "timestamp": "2026-06-28T18:00:57.854959+00:00",
+    "method": "GET",
+    "path": "/api/ingest/orders",
+    "status_code": 200,
+    "duration_ms": 64.91
+  },
+  {
+    "timestamp": "2026-06-28T18:01:08.607452+00:00",
+    "method": "POST",
+    "path": "/api/ingest/run",
+    "status_code": 200,
+    "duration_ms": 2078.85
+  },
+  {
+    "timestamp": "2026-06-28T18:06:06.408594+00:00",
+    "method": "POST",
+    "path": "/api/ingest/run",
+    "status_code": 200,
+    "duration_ms": 1938.75
+  },
+  {
+    "timestamp": "2026-06-28T18:38:38.358927+00:00",
+    "method": "OPTIONS",
+    "path": "/api/ingest/vendors",
+    "status_code": 200,
+    "duration_ms": 7.91
+  },
+  {
+    "timestamp": "2026-06-28T18:38:38.398253+00:00",
+    "method": "OPTIONS",
+    "path": "/api/ingest/vendors",
+    "status_code": 200,
+    "duration_ms": 40.9
+  },
+  {
+    "timestamp": "2026-06-28T18:38:38.554492+00:00",
+    "method": "GET",
+    "path": "/api/ingest/vendors",
+    "status_code": 401,
+    "duration_ms": 106.8
+  },
+  {
+    "timestamp": "2026-06-28T18:38:38.683812+00:00",
+    "method": "GET",
+    "path": "/api/ingest/vendors",
+    "status_code": 401,
+    "duration_ms": 91.77
+  },
+  {
+    "timestamp": "2026-06-28T18:38:45.304499+00:00",
+    "method": "GET",
+    "path": "/",
+    "status_code": 200,
+    "duration_ms": 41.53
+  },
+  {
+    "timestamp": "2026-06-28T18:38:47.945580+00:00",
+    "method": "OPTIONS",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 0.51
+  },
+  {
+    "timestamp": "2026-06-28T18:38:48.356014+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 383.14
+  },
+  {
+    "timestamp": "2026-06-28T18:38:48.739929+00:00",
+    "method": "GET",
+    "path": "/api/ingest/vendors",
+    "status_code": 200,
+    "duration_ms": 324.43
+  },
+  {
+    "timestamp": "2026-06-28T18:38:49.196628+00:00",
+    "method": "GET",
+    "path": "/api/ingest/vendors",
+    "status_code": 500,
+    "duration_ms": 170.72
+  },
+  {
+    "timestamp": "2026-06-28T18:38:49.581903+00:00",
+    "method": "GET",
+    "path": "/api/ingest/vendors",
+    "status_code": 200,
+    "duration_ms": 579.47
+  },
+  {
+    "timestamp": "2026-06-28T18:38:53.514130+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 352.37
+  },
+  {
+    "timestamp": "2026-06-28T18:38:53.947064+00:00",
+    "method": "GET",
+    "path": "/api/kpi/summary",
+    "status_code": 200,
+    "duration_ms": 143.98
+  },
+  {
+    "timestamp": "2026-06-28T18:39:30.470433+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 373.66
+  },
+  {
+    "timestamp": "2026-06-28T18:39:33.706186+00:00",
+    "method": "OPTIONS",
+    "path": "/api/kpi/summary",
+    "status_code": 200,
+    "duration_ms": 2.8
+  },
+  {
+    "timestamp": "2026-06-28T18:39:33.719010+00:00",
+    "method": "OPTIONS",
+    "path": "/api/kpi/summary",
+    "status_code": 200,
+    "duration_ms": 0.76
+  },
+  {
+    "timestamp": "2026-06-28T18:39:33.803107+00:00",
+    "method": "GET",
+    "path": "/api/kpi/summary",
+    "status_code": 200,
+    "duration_ms": 45.81
+  },
+  {
+    "timestamp": "2026-06-28T18:39:33.906763+00:00",
+    "method": "GET",
+    "path": "/api/kpi/summary",
+    "status_code": 200,
+    "duration_ms": 72.35
+  },
+  {
+    "timestamp": "2026-06-28T18:39:36.986259+00:00",
+    "method": "OPTIONS",
+    "path": "/api/logs",
+    "status_code": 200,
+    "duration_ms": 2.74
+  },
+  {
+    "timestamp": "2026-06-28T18:39:37.040297+00:00",
+    "method": "OPTIONS",
+    "path": "/api/logs",
+    "status_code": 200,
+    "duration_ms": 55.12
+  },
+  {
+    "timestamp": "2026-06-28T18:39:37.138370+00:00",
+    "method": "GET",
+    "path": "/api/logs",
+    "status_code": 200,
+    "duration_ms": 72.77
+  },
+  {
+    "timestamp": "2026-06-28T18:39:37.233038+00:00",
+    "method": "GET",
+    "path": "/api/logs",
+    "status_code": 200,
+    "duration_ms": 59.7
+  },
+  {
+    "timestamp": "2026-06-28T18:39:39.753275+00:00",
+    "method": "GET",
+    "path": "/api/kpi/summary",
+    "status_code": 200,
+    "duration_ms": 67.51
+  },
+  {
+    "timestamp": "2026-06-28T18:39:39.878277+00:00",
+    "method": "GET",
+    "path": "/api/kpi/summary",
+    "status_code": 200,
+    "duration_ms": 95.36
+  },
+  {
+    "timestamp": "2026-06-28T18:39:47.623716+00:00",
+    "method": "GET",
+    "path": "/api/logs",
+    "status_code": 200,
+    "duration_ms": 77.89
+  },
+  {
+    "timestamp": "2026-06-28T18:39:47.736510+00:00",
+    "method": "GET",
+    "path": "/api/logs",
+    "status_code": 200,
+    "duration_ms": 68.25
+  },
+  {
+    "timestamp": "2026-06-28T18:39:49.235967+00:00",
+    "method": "GET",
+    "path": "/api/kpi/summary",
+    "status_code": 200,
+    "duration_ms": 61.13
+  },
+  {
+    "timestamp": "2026-06-28T18:39:49.356024+00:00",
+    "method": "GET",
+    "path": "/api/kpi/summary",
+    "status_code": 200,
+    "duration_ms": 87.53
+  },
+  {
+    "timestamp": "2026-06-28T18:40:36.896438+00:00",
+    "method": "GET",
+    "path": "/",
+    "status_code": 200,
+    "duration_ms": 28.65
+  },
+  {
+    "timestamp": "2026-06-28T18:40:45.590693+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 329.15
+  },
+  {
+    "timestamp": "2026-06-28T18:40:45.768898+00:00",
+    "method": "GET",
+    "path": "/api/kpi/summary",
+    "status_code": 200,
+    "duration_ms": 40.06
+  },
+  {
+    "timestamp": "2026-06-28T18:40:46.216378+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 342.72
+  },
+  {
+    "timestamp": "2026-06-28T18:40:46.386621+00:00",
+    "method": "GET",
+    "path": "/api/kpi/summary",
+    "status_code": 200,
+    "duration_ms": 37.95
+  },
+  {
+    "timestamp": "2026-06-28T18:40:59.231797+00:00",
+    "method": "GET",
+    "path": "/api/kpi/summary",
+    "status_code": 200,
+    "duration_ms": 113.73
+  },
+  {
+    "timestamp": "2026-06-28T18:40:59.460465+00:00",
+    "method": "GET",
+    "path": "/api/kpi/summary",
+    "status_code": 200,
+    "duration_ms": 154.8
+  },
+  {
+    "timestamp": "2026-06-28T18:41:27.478857+00:00",
+    "method": "OPTIONS",
+    "path": "/api/kpi/summary",
+    "status_code": 200,
+    "duration_ms": 0.29
+  },
+  {
+    "timestamp": "2026-06-28T18:41:27.567005+00:00",
+    "method": "GET",
+    "path": "/api/kpi/summary",
+    "status_code": 401,
+    "duration_ms": 63.94
+  },
+  {
+    "timestamp": "2026-06-28T18:41:28.445029+00:00",
+    "method": "GET",
+    "path": "/api/kpi/summary",
+    "status_code": 401,
+    "duration_ms": 44.18
+  },
+  {
+    "timestamp": "2026-06-28T18:42:17.534934+00:00",
+    "method": "GET",
+    "path": "/",
+    "status_code": 200,
+    "duration_ms": 1.0
+  },
+  {
+    "timestamp": "2026-06-28T18:45:34.161985+00:00",
+    "method": "OPTIONS",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 0.46
+  },
+  {
+    "timestamp": "2026-06-28T18:45:34.239703+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 401,
+    "duration_ms": 66.95
+  },
+  {
+    "timestamp": "2026-06-28T18:45:39.284891+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 362.11
+  },
+  {
+    "timestamp": "2026-06-28T18:45:39.352758+00:00",
+    "method": "OPTIONS",
+    "path": "/api/ingest/vendors",
+    "status_code": 200,
+    "duration_ms": 0.72
+  },
+  {
+    "timestamp": "2026-06-28T18:45:39.385110+00:00",
+    "method": "OPTIONS",
+    "path": "/api/ingest/vendors",
+    "status_code": 200,
+    "duration_ms": 31.51
+  },
+  {
+    "timestamp": "2026-06-28T18:45:39.531408+00:00",
+    "method": "GET",
+    "path": "/api/ingest/vendors",
+    "status_code": 200,
+    "duration_ms": 123.02
+  },
+  {
+    "timestamp": "2026-06-28T18:45:39.633376+00:00",
+    "method": "GET",
+    "path": "/api/ingest/vendors",
+    "status_code": 200,
+    "duration_ms": 77.15
+  },
+  {
+    "timestamp": "2026-06-28T18:45:44.717031+00:00",
+    "method": "OPTIONS",
+    "path": "/api/ingest/orders",
+    "status_code": 200,
+    "duration_ms": 0.28
+  },
+  {
+    "timestamp": "2026-06-28T18:45:44.806438+00:00",
+    "method": "GET",
+    "path": "/api/ingest/orders",
+    "status_code": 200,
+    "duration_ms": 64.27
+  },
+  {
+    "timestamp": "2026-06-28T18:46:35.540209+00:00",
+    "method": "OPTIONS",
+    "path": "/api/ingest/run",
+    "status_code": 200,
+    "duration_ms": 0.6
+  },
+  {
+    "timestamp": "2026-06-28T18:46:37.424548+00:00",
+    "method": "POST",
+    "path": "/api/ingest/run",
+    "status_code": 200,
+    "duration_ms": 1821.71
+  },
+  {
+    "timestamp": "2026-06-28T18:48:17.068117+00:00",
+    "method": "POST",
+    "path": "/api/ingest/run",
+    "status_code": 200,
+    "duration_ms": 173.83
+  },
+  {
+    "timestamp": "2026-06-28T18:48:56.539855+00:00",
+    "method": "GET",
+    "path": "/api/kpi/summary",
+    "status_code": 200,
+    "duration_ms": 92.49
+  },
+  {
+    "timestamp": "2026-06-28T18:48:56.623113+00:00",
+    "method": "GET",
+    "path": "/api/kpi/summary",
+    "status_code": 200,
+    "duration_ms": 62.04
+  }
+]

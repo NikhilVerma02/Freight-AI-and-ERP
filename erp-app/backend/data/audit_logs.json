@@ -1285,5 +1285,239 @@
     "module": "alerts",
     "record_id": 61,
     "details": "alert to vendorx: Inventory risk (warning) \u2014 Steel Chassis Frame A"
+  },
+  {
+    "id": 144,
+    "timestamp": "2026-06-28T17:53:35.092442+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "orders",
+    "record_id": 25,
+    "details": "order ORD-0025 customera -> vendorx"
+  },
+  {
+    "id": 145,
+    "timestamp": "2026-06-28T17:53:35.125213+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 62,
+    "details": "alert to vendorx: New order ORD-0025"
+  },
+  {
+    "id": 146,
+    "timestamp": "2026-06-28T17:53:35.868354+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "claims",
+    "record_id": 15,
+    "details": "claim CLM-0015 on order 1"
+  },
+  {
+    "id": 147,
+    "timestamp": "2026-06-28T17:53:35.913745+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 63,
+    "details": "alert to vendorx: New claim CLM-0015"
+  },
+  {
+    "id": 148,
+    "timestamp": "2026-06-28T17:53:35.997692+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 64,
+    "details": "alert to vendorx: Inventory risk (warning) \u2014 Steel Chassis Frame A"
+  },
+  {
+    "id": 149,
+    "timestamp": "2026-06-28T17:56:47.415847+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "orders",
+    "record_id": 26,
+    "details": "order ORD-0026 customera -> vendorx"
+  },
+  {
+    "id": 150,
+    "timestamp": "2026-06-28T17:56:47.445414+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 65,
+    "details": "alert to vendorx: New order ORD-0026"
+  },
+  {
+    "id": 151,
+    "timestamp": "2026-06-28T17:56:48.223210+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "claims",
+    "record_id": 16,
+    "details": "claim CLM-0016 on order 1"
+  },
+  {
+    "id": 152,
+    "timestamp": "2026-06-28T17:56:48.264591+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 66,
+    "details": "alert to vendorx: New claim CLM-0016"
+  },
+  {
+    "id": 153,
+    "timestamp": "2026-06-28T17:56:48.337575+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 67,
+    "details": "alert to vendorx: Inventory risk (warning) \u2014 Steel Chassis Frame A"
+  },
+  {
+    "id": 154,
+    "timestamp": "2026-06-28T18:01:47.825195+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "orders",
+    "record_id": 27,
+    "details": "order ORD-0027 customera -> vendorx"
+  },
+  {
+    "id": 155,
+    "timestamp": "2026-06-28T18:01:47.867110+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 68,
+    "details": "alert to vendorx: New order ORD-0027"
+  },
+  {
+    "id": 156,
+    "timestamp": "2026-06-28T18:01:48.714261+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "claims",
+    "record_id": 17,
+    "details": "claim CLM-0017 on order 1"
+  },
+  {
+    "id": 157,
+    "timestamp": "2026-06-28T18:01:48.765359+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 69,
+    "details": "alert to vendorx: New claim CLM-0017"
+  },
+  {
+    "id": 158,
+    "timestamp": "2026-06-28T18:01:48.909355+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 70,
+    "details": "alert to vendorx: Inventory risk (warning) \u2014 Steel Chassis Frame A"
+  },
+  {
+    "id": 159,
+    "timestamp": "2026-06-28T18:06:50.443419+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "orders",
+    "record_id": 28,
+    "details": "order ORD-0028 customera -> vendorx"
+  },
+  {
+    "id": 160,
+    "timestamp": "2026-06-28T18:06:50.490164+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 71,
+    "details": "alert to vendorx: New order ORD-0028"
+  },
+  {
+    "id": 161,
+    "timestamp": "2026-06-28T18:06:51.288755+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "claims",
+    "record_id": 18,
+    "details": "claim CLM-0018 on order 1"
+  },
+  {
+    "id": 162,
+    "timestamp": "2026-06-28T18:06:51.330627+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 72,
+    "details": "alert to vendorx: New claim CLM-0018"
+  },
+  {
+    "id": 163,
+    "timestamp": "2026-06-28T18:06:51.415054+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 73,
+    "details": "alert to vendorx: Inventory risk (warning) \u2014 Steel Chassis Frame A"
+  },
+  {
+    "id": 164,
+    "timestamp": "2026-06-28T18:47:09.942783+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "orders",
+    "record_id": 29,
+    "details": "order ORD-0029 customera -> vendorx"
+  },
+  {
+    "id": 165,
+    "timestamp": "2026-06-28T18:47:09.987562+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 74,
+    "details": "alert to vendorx: New order ORD-0029"
+  },
+  {
+    "id": 166,
+    "timestamp": "2026-06-28T18:47:10.178115+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 75,
+    "details": "alert to vendorx: Inventory risk (warning) \u2014 Steel Chassis Frame A"
+  },
+  {
+    "id": 167,
+    "timestamp": "2026-06-28T18:48:36.801493+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "orders",
+    "record_id": 30,
+    "details": "order ORD-0030 customera -> vendorx"
+  },
+  {
+    "id": 168,
+    "timestamp": "2026-06-28T18:48:36.859876+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 76,
+    "details": "alert to vendorx: New order ORD-0030"
+  },
+  {
+    "id": 169,
+    "timestamp": "2026-06-28T18:48:37.068508+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 77,
+    "details": "alert to vendorx: Inventory risk (warning) \u2014 Steel Chassis Frame A"
   }
 ]

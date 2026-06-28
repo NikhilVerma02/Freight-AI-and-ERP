@@ -10,5 +10,5 @@ router = APIRouter(prefix="/api/kpi", tags=["kpi"])
 
 
 @router.get("/summary")
-async def get_kpi_summary(current_user: dict = Depends(require_role("admin"))):
+async def get_kpi_summary(current_user: dict = Depends(require_role("admin", "vendor", "customer"))):
     return kpi_summary()

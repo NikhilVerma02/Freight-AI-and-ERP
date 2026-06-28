@@ -2,7 +2,7 @@
  * the whole app (stat tiles, card accents, chart series) instead of
  * everything sharing the one default "accent" blue. Status colors (green
  * /amber/red) are kept separate — see Badge.tsx tones for those. */
-export type EntityKind = "orders" | "claims" | "alerts" | "vendors" | "customers" | "inventory" | "sla";
+export type EntityKind = "orders" | "claims" | "alerts" | "vendors" | "customers" | "inventory" | "sla" | "evaluation";
 
 interface EntityPalette {
   text: string;
@@ -61,6 +61,13 @@ export const ENTITY_COLORS: Record<EntityKind, EntityPalette> = {
     ring: "ring-rose-500/20",
     bar: "border-l-rose-500",
     hex: "#f43f5e",
+  },
+  evaluation: {
+    text: "text-cyan-600 dark:text-cyan-400",
+    iconBg: "bg-cyan-500/10 text-cyan-500",
+    ring: "ring-cyan-500/20",
+    bar: "border-l-cyan-500",
+    hex: "#06b6d4",
   },
 };
 

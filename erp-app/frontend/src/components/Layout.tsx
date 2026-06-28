@@ -22,6 +22,7 @@ const NAV_BY_ROLE: Record<Role, NavItem[]> = {
     { to: "/users", label: "Users", icon: "👤" },
     { to: "/alerts", label: "Alerts", icon: "🚨" },
     { to: "/audit-logs", label: "Audit Logs", icon: "🕒" },
+    { to: "/rag-evaluation", label: "RAG Evaluation", icon: "🧪" },
   ],
   vendor: [
     { to: "/", label: "Dashboard", icon: "📊" },
@@ -31,6 +32,7 @@ const NAV_BY_ROLE: Record<Role, NavItem[]> = {
     { to: "/my-customers", label: "My Customers", icon: "🏢" },
     { to: "/vendor-inventory", label: "My Inventory", icon: "📦" },
     { to: "/alerts", label: "Alerts", icon: "🚨" },
+    { to: "/rag-evaluation", label: "RAG Evaluation", icon: "🧪" },
   ],
   customer: [
     { to: "/", label: "Dashboard", icon: "📊" },
@@ -40,6 +42,7 @@ const NAV_BY_ROLE: Record<Role, NavItem[]> = {
     { to: "/my-vendors", label: "My Vendors", icon: "🏭" },
     { to: "/customer-inventory", label: "My Inventory", icon: "📦" },
     { to: "/alerts", label: "Alerts", icon: "🚨" },
+    { to: "/rag-evaluation", label: "RAG Evaluation", icon: "🧪" },
   ],
 };
 

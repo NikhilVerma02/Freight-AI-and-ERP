@@ -89,7 +89,7 @@ function AppRoutes() {
         <Route
           path="/kpi"
           element={
-            <RequireRole roles={["admin"]}>
+            <RequireRole roles={["admin", "vendor", "customer"]}>
               <KpiDashboard />
             </RequireRole>
           }

@@ -128,6 +128,31 @@ export interface MyVendor {
   claim_count: number;
 }
 
+/** Ragas RAG-quality eval results — see erp-app/backend/scripts/eval_rag.py
+ * and GET /api/observability/rag-eval[, /{run_id}]. */
+export interface RagEvalAverages {
+  faithfulness?: number;
+  answer_relevancy?: number;
+  context_precision?: number;
+  context_recall?: number;
+}
+
+export interface RagEvalSummary {
+  run_id: string;
+  averages: RagEvalAverages;
+  question_count: number;
+}
+
+export interface RagEvalRow extends RagEvalAverages {
+  user_input: string;
+}
+
+export interface RagEvalDetail {
+  run_id: string;
+  averages: RagEvalAverages;
+  rows: RagEvalRow[];
+}
+
 export interface AuditLog {
   id: number;
   actor: string;
