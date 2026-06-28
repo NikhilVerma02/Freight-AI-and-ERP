@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "order_number": "ORD-0001",
+    "customer_username": "customera",
+    "vendor_username": "vendorx",
+    "items": [
+      {
+        "sku": "STL-CHASSIS-A",
+        "item_name": "Steel Chassis Frame A",
+        "qty": 50
+      }
+    ],
+    "status": "delivered",
+    "undelivered_reason": null,
+    "requested_at": "2026-06-27T18:33:46.224394+00:00",
+    "updated_at": "2026-06-27T18:33:46.224394+00:00"
+  },
+  {
+    "id": 2,
+    "order_number": "ORD-0002",
+    "customer_username": "customerb",
+    "vendor_username": "vendory",
+    "items": [
+      {
+        "sku": "PLST-HSG-B",
+        "item_name": "Plastic Housing Unit B",
+        "qty": 200
+      }
+    ],
+    "status": "requested",
+    "undelivered_reason": null,
+    "requested_at": "2026-06-27T18:33:46.224394+00:00",
+    "updated_at": "2026-06-27T18:33:46.224394+00:00"
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "username": "admin",
+    "password_hash": "$2b$12$q6HPHqf4wN7voUCprGML8OtxDk38m2VhdPyBZsIJVFhZ6Oyl7YNMy",
+    "role": "admin",
+    "display_name": "Alex Admin",
+    "company_name": null,
+    "email": "admin@freighterp.com",
+    "created_at": "2026-06-27T18:33:44.143033+00:00",
+    "updated_at": "2026-06-27T18:33:44.143033+00:00"
+  },
+  {
+    "username": "vendorx",
+    "password_hash": "$2b$12$4B0oNa8xA6id22Gt5rb8Q.H0G3X8bwzdeGvqJmfzLhWqAWiASvrb.",
+    "role": "vendor",
+    "display_name": "Vendor X",
+    "company_name": "Vendor X Logistics",
+    "email": "ops@vendorx.com",
+    "created_at": "2026-06-27T18:33:44.143033+00:00",
+    "updated_at": "2026-06-27T18:33:44.143033+00:00"
+  },
+  {
+    "username": "vendory",
+    "password_hash": "$2b$12$73dsaU9uExmHM9xAn.OVheP9XUg4Pl5uiCHT42N1AvuRAQEAk20vC",
+    "role": "vendor",
+    "display_name": "Vendor Y",
+    "company_name": "Vendor Y Freight",
+    "email": "ops@vendory.com",
+    "created_at": "2026-06-27T18:33:44.143033+00:00",
+    "updated_at": "2026-06-27T18:33:44.143033+00:00"
+  },
+  {
+    "username": "vendorz",
+    "password_hash": "$2b$12$uMxQoxHUY1ZlfLvipFiGNuSqiO06lj8QNnzDqF9OlBMiEFXURFaEa",
+    "role": "vendor",
+    "display_name": "Vendor Z",
+    "company_name": "Vendor Z Transport",
+    "email": "ops@vendorz.com",
+    "created_at": "2026-06-27T18:33:44.143033+00:00",
+    "updated_at": "2026-06-27T18:33:44.143033+00:00"
+  },
+  {
+    "username": "customera",
+    "password_hash": "$2b$12$rgX3/ObKzMBmeQOovIE/W./zSY/khecBFrT31upKBGrs5rGkEPz8W",
+    "role": "customer",
+    "display_name": "Customer A",
+    "company_name": "Customer A Manufacturing",
+    "email": "procurement@customera.com",
+    "created_at": "2026-06-27T18:33:44.143033+00:00",
+    "updated_at": "2026-06-27T18:33:44.143033+00:00"
+  },
+  {
+    "username": "customerb",
+    "password_hash": "$2b$12$1BFXEDxb9ioVtUGj1VkKDOhM1CEGOJUjpaf/NQvhThA2vpX4Qt/Sq",
+    "role": "customer",
+    "display_name": "Customer B",
+    "company_name": "Customer B Industries",
+    "email": "procurement@customerb.com",
+    "created_at": "2026-06-27T18:33:44.143033+00:00",
+    "updated_at": "2026-06-27T18:33:44.143033+00:00"
+  },
+  {
+    "username": "customerd",
+    "role": "customer",
+    "display_name": "Customer D",
+    "company_name": null,
+    "email": null,
+    "password_hash": "$2b$12$.cqTDo69jduJA4uIWyTtOOhoJ1TKqxHArOZsAGnCptFV.3uu2L9Ny",
+    "created_at": "2026-06-27T18:40:19.738273+00:00",
+    "updated_at": "2026-06-27T18:40:19.738273+00:00"
+  }
+]

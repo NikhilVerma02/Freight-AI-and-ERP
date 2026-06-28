@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "customer_username": "customera",
+    "vendor_username": "vendorx",
+    "linked_at": "2026-06-27T18:33:45.891790+00:00",
+    "created_at": "2026-06-27T18:33:45.891790+00:00",
+    "updated_at": "2026-06-27T18:33:45.891790+00:00"
+  },
+  {
+    "id": 2,
+    "customer_username": "customera",
+    "vendor_username": "vendorz",
+    "linked_at": "2026-06-27T18:33:45.930323+00:00",
+    "created_at": "2026-06-27T18:33:45.930323+00:00",
+    "updated_at": "2026-06-27T18:33:45.930323+00:00"
+  },
+  {
+    "id": 3,
+    "customer_username": "customerb",
+    "vendor_username": "vendorx",
+    "linked_at": "2026-06-27T18:33:45.952022+00:00",
+    "created_at": "2026-06-27T18:33:45.952022+00:00",
+    "updated_at": "2026-06-27T18:33:45.952022+00:00"
+  },
+  {
+    "id": 4,
+    "customer_username": "customerb",
+    "vendor_username": "vendory",
+    "linked_at": "2026-06-27T18:33:45.986168+00:00",
+    "created_at": "2026-06-27T18:33:45.986168+00:00",
+    "updated_at": "2026-06-27T18:33:45.986168+00:00"
+  },
+  {
+    "id": 5,
+    "customer_username": "customerb",
+    "vendor_username": "vendorz",
+    "linked_at": "2026-06-27T18:33:46.011508+00:00",
+    "created_at": "2026-06-27T18:33:46.013646+00:00",
+    "updated_at": "2026-06-27T18:33:46.013646+00:00"
+  }
+]

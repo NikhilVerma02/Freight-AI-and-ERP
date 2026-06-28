@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+pydantic
+bcrypt
+python-multipart
+fastmcp
+reportlab
+pypdf
+python-dotenv
+chromadb
+google-genai
+groq
+numpy

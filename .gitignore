@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+node_modules/
+dist/
+build/
+.env
+*.log
+ai-app/backend/data/vector_cache/*
+ai-app/backend/data/temp_uploads/*
+ai-app/backend/data/sample_videos/*
+!ai-app/backend/data/vector_cache/.gitkeep
+!ai-app/backend/data/temp_uploads/.gitkeep
+!ai-app/backend/data/sample_videos/.gitkeep
+.DS_Store
+*.session.json

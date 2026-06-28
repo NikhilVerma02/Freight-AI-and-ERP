@@ -1,0 +1,326 @@
+[
+  {
+    "id": 1,
+    "timestamp": "2026-06-27T18:33:45.893797+00:00",
+    "actor": "system",
+    "action": "create",
+    "module": "customer_vendor_links",
+    "record_id": 1,
+    "details": "linked customera <-> vendorx"
+  },
+  {
+    "id": 2,
+    "timestamp": "2026-06-27T18:33:45.934292+00:00",
+    "actor": "system",
+    "action": "create",
+    "module": "customer_vendor_links",
+    "record_id": 2,
+    "details": "linked customera <-> vendorz"
+  },
+  {
+    "id": 3,
+    "timestamp": "2026-06-27T18:33:45.961853+00:00",
+    "actor": "system",
+    "action": "create",
+    "module": "customer_vendor_links",
+    "record_id": 3,
+    "details": "linked customerb <-> vendorx"
+  },
+  {
+    "id": 4,
+    "timestamp": "2026-06-27T18:33:45.986168+00:00",
+    "actor": "system",
+    "action": "create",
+    "module": "customer_vendor_links",
+    "record_id": 4,
+    "details": "linked customerb <-> vendory"
+  },
+  {
+    "id": 5,
+    "timestamp": "2026-06-27T18:33:46.016906+00:00",
+    "actor": "system",
+    "action": "create",
+    "module": "customer_vendor_links",
+    "record_id": 5,
+    "details": "linked customerb <-> vendorz"
+  },
+  {
+    "id": 6,
+    "timestamp": "2026-06-27T18:33:46.066248+00:00",
+    "actor": "system",
+    "action": "upsert",
+    "module": "vendor_sla",
+    "record_id": null,
+    "details": "SLA updated for vendorx (vendorx_sla.pdf)"
+  },
+  {
+    "id": 7,
+    "timestamp": "2026-06-27T18:33:46.133018+00:00",
+    "actor": "system",
+    "action": "upsert",
+    "module": "vendor_sla",
+    "record_id": null,
+    "details": "SLA updated for vendory (vendory_sla.pdf)"
+  },
+  {
+    "id": 8,
+    "timestamp": "2026-06-27T18:33:46.208621+00:00",
+    "actor": "system",
+    "action": "upsert",
+    "module": "vendor_sla",
+    "record_id": null,
+    "details": "SLA updated for vendorz (vendorz_sla.pdf)"
+  },
+  {
+    "id": 9,
+    "timestamp": "2026-06-27T18:40:19.738273+00:00",
+    "actor": "customerd",
+    "action": "create",
+    "module": "users",
+    "record_id": null,
+    "details": "created user customerd"
+  },
+  {
+    "id": 10,
+    "timestamp": "2026-06-28T06:18:35.768716+00:00",
+    "actor": "system",
+    "action": "upsert",
+    "module": "vendor_sla",
+    "record_id": 1,
+    "details": "SLA uploaded for vendorx -> ['customera', 'customerb'] (vendorx_sla.pdf)"
+  },
+  {
+    "id": 11,
+    "timestamp": "2026-06-28T06:18:35.780955+00:00",
+    "actor": "system",
+    "action": "rag_index_failed",
+    "module": "vendor_sla",
+    "record_id": 1,
+    "details": "Embedding failed (check GEMINI_API_KEY)"
+  },
+  {
+    "id": 12,
+    "timestamp": "2026-06-28T06:18:35.848593+00:00",
+    "actor": "system",
+    "action": "upsert",
+    "module": "vendor_sla",
+    "record_id": 2,
+    "details": "SLA uploaded for vendory -> ['customerb'] (vendory_sla.pdf)"
+  },
+  {
+    "id": 13,
+    "timestamp": "2026-06-28T06:18:35.864696+00:00",
+    "actor": "system",
+    "action": "rag_index_failed",
+    "module": "vendor_sla",
+    "record_id": 2,
+    "details": "Embedding failed (check GEMINI_API_KEY)"
+  },
+  {
+    "id": 14,
+    "timestamp": "2026-06-28T06:18:35.932089+00:00",
+    "actor": "system",
+    "action": "upsert",
+    "module": "vendor_sla",
+    "record_id": 3,
+    "details": "SLA uploaded for vendorz -> ['customera', 'customerb'] (vendorz_sla.pdf)"
+  },
+  {
+    "id": 15,
+    "timestamp": "2026-06-28T06:18:35.950172+00:00",
+    "actor": "system",
+    "action": "rag_index_failed",
+    "module": "vendor_sla",
+    "record_id": 3,
+    "details": "Embedding failed (check GEMINI_API_KEY)"
+  },
+  {
+    "id": 16,
+    "timestamp": "2026-06-28T06:20:20.198818+00:00",
+    "actor": "system",
+    "action": "upsert",
+    "module": "vendor_sla",
+    "record_id": 1,
+    "details": "SLA uploaded for vendorx -> ['customera', 'customerb'] (vendorx_sla.pdf)"
+  },
+  {
+    "id": 17,
+    "timestamp": "2026-06-28T06:20:24.168447+00:00",
+    "actor": "system",
+    "action": "rag_index_failed",
+    "module": "vendor_sla",
+    "record_id": 1,
+    "details": "Embedding failed (check GEMINI_API_KEY)"
+  },
+  {
+    "id": 18,
+    "timestamp": "2026-06-28T06:20:24.211977+00:00",
+    "actor": "system",
+    "action": "upsert",
+    "module": "vendor_sla",
+    "record_id": 2,
+    "details": "SLA uploaded for vendory -> ['customerb'] (vendory_sla.pdf)"
+  },
+  {
+    "id": 19,
+    "timestamp": "2026-06-28T06:20:24.406576+00:00",
+    "actor": "system",
+    "action": "rag_index_failed",
+    "module": "vendor_sla",
+    "record_id": 2,
+    "details": "Embedding failed (check GEMINI_API_KEY)"
+  },
+  {
+    "id": 20,
+    "timestamp": "2026-06-28T06:20:24.460222+00:00",
+    "actor": "system",
+    "action": "upsert",
+    "module": "vendor_sla",
+    "record_id": 3,
+    "details": "SLA uploaded for vendorz -> ['customera', 'customerb'] (vendorz_sla.pdf)"
+  },
+  {
+    "id": 21,
+    "timestamp": "2026-06-28T06:20:24.781154+00:00",
+    "actor": "system",
+    "action": "rag_index_failed",
+    "module": "vendor_sla",
+    "record_id": 3,
+    "details": "Embedding failed (check GEMINI_API_KEY)"
+  },
+  {
+    "id": 22,
+    "timestamp": "2026-06-28T06:21:36.315146+00:00",
+    "actor": "system",
+    "action": "upsert",
+    "module": "vendor_sla",
+    "record_id": 1,
+    "details": "SLA uploaded for vendorx -> ['customera', 'customerb'] (vendorx_sla.pdf)"
+  },
+  {
+    "id": 23,
+    "timestamp": "2026-06-28T06:21:39.529588+00:00",
+    "actor": "system",
+    "action": "rag_index_failed",
+    "module": "vendor_sla",
+    "record_id": 1,
+    "details": "Embedding failed (check GEMINI_API_KEY)"
+  },
+  {
+    "id": 24,
+    "timestamp": "2026-06-28T06:21:39.566794+00:00",
+    "actor": "system",
+    "action": "upsert",
+    "module": "vendor_sla",
+    "record_id": 2,
+    "details": "SLA uploaded for vendory -> ['customerb'] (vendory_sla.pdf)"
+  },
+  {
+    "id": 25,
+    "timestamp": "2026-06-28T06:21:39.737758+00:00",
+    "actor": "system",
+    "action": "rag_index_failed",
+    "module": "vendor_sla",
+    "record_id": 2,
+    "details": "Embedding failed (check GEMINI_API_KEY)"
+  },
+  {
+    "id": 26,
+    "timestamp": "2026-06-28T06:21:39.777687+00:00",
+    "actor": "system",
+    "action": "upsert",
+    "module": "vendor_sla",
+    "record_id": 3,
+    "details": "SLA uploaded for vendorz -> ['customera', 'customerb'] (vendorz_sla.pdf)"
+  },
+  {
+    "id": 27,
+    "timestamp": "2026-06-28T06:21:39.943797+00:00",
+    "actor": "system",
+    "action": "rag_index_failed",
+    "module": "vendor_sla",
+    "record_id": 3,
+    "details": "Embedding failed (check GEMINI_API_KEY)"
+  },
+  {
+    "id": 28,
+    "timestamp": "2026-06-28T06:21:55.940186+00:00",
+    "actor": "system",
+    "action": "upsert",
+    "module": "vendor_sla",
+    "record_id": 1,
+    "details": "SLA uploaded for vendorx -> ['customera', 'customerb'] (vendorx_sla.pdf)"
+  },
+  {
+    "id": 29,
+    "timestamp": "2026-06-28T06:21:55.963798+00:00",
+    "actor": "system",
+    "action": "rag_index_failed",
+    "module": "vendor_sla",
+    "record_id": 1,
+    "details": "Embedding failed (check GEMINI_API_KEY)"
+  },
+  {
+    "id": 30,
+    "timestamp": "2026-06-28T06:21:56.015108+00:00",
+    "actor": "system",
+    "action": "upsert",
+    "module": "vendor_sla",
+    "record_id": 2,
+    "details": "SLA uploaded for vendory -> ['customerb'] (vendory_sla.pdf)"
+  },
+  {
+    "id": 31,
+    "timestamp": "2026-06-28T06:21:56.034888+00:00",
+    "actor": "system",
+    "action": "rag_index_failed",
+    "module": "vendor_sla",
+    "record_id": 2,
+    "details": "Embedding failed (check GEMINI_API_KEY)"
+  },
+  {
+    "id": 32,
+    "timestamp": "2026-06-28T06:21:56.083977+00:00",
+    "actor": "system",
+    "action": "upsert",
+    "module": "vendor_sla",
+    "record_id": 3,
+    "details": "SLA uploaded for vendorz -> ['customera', 'customerb'] (vendorz_sla.pdf)"
+  },
+  {
+    "id": 33,
+    "timestamp": "2026-06-28T06:21:56.103751+00:00",
+    "actor": "system",
+    "action": "rag_index_failed",
+    "module": "vendor_sla",
+    "record_id": 3,
+    "details": "Embedding failed (check GEMINI_API_KEY)"
+  },
+  {
+    "id": 34,
+    "timestamp": "2026-06-28T06:35:00.138462+00:00",
+    "actor": "vendorx",
+    "action": "upsert",
+    "module": "vendor_sla",
+    "record_id": 1,
+    "details": "SLA uploaded for vendorx -> ['customera'] (vendorx_1782628499998.pdf)"
+  },
+  {
+    "id": 35,
+    "timestamp": "2026-06-28T06:35:03.695081+00:00",
+    "actor": "vendorx",
+    "action": "rag_index_failed",
+    "module": "vendor_sla",
+    "record_id": 1,
+    "details": "Embedding failed (check GEMINI_API_KEY)"
+  },
+  {
+    "id": 36,
+    "timestamp": "2026-06-28T06:51:05.308442+00:00",
+    "actor": "vendorz",
+    "action": "upsert",
+    "module": "vendor_sla",
+    "record_id": 2,
+    "details": "SLA uploaded for vendorz -> ['customera'] (vendorz_1782629465172.pdf)"
+  }
+]

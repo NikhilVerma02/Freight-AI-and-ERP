@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "vendor_username": "vendorx",
+    "sku": "STL-CHASSIS-A",
+    "item_name": "Steel Chassis Frame A",
+    "qty_on_hand": 280,
+    "reorder_threshold": 100,
+    "manufacturing_critical": true,
+    "created_at": "2026-06-27T18:33:46.029557+00:00",
+    "updated_at": "2026-06-27T18:33:46.029557+00:00"
+  },
+  {
+    "id": 2,
+    "vendor_username": "vendorx",
+    "sku": "WIRE-HARN-C",
+    "item_name": "Wire Harness Assembly C",
+    "qty_on_hand": 760,
+    "reorder_threshold": 200,
+    "manufacturing_critical": true,
+    "created_at": "2026-06-27T18:33:46.029557+00:00",
+    "updated_at": "2026-06-27T18:33:46.029557+00:00"
+  },
+  {
+    "id": 3,
+    "vendor_username": "vendory",
+    "sku": "PLST-HSG-B",
+    "item_name": "Plastic Housing Unit B",
+    "qty_on_hand": 1100,
+    "reorder_threshold": 300,
+    "manufacturing_critical": false,
+    "created_at": "2026-06-27T18:33:46.029557+00:00",
+    "updated_at": "2026-06-27T18:33:46.029557+00:00"
+  },
+  {
+    "id": 4,
+    "vendor_username": "vendory",
+    "sku": "RUBR-GASKET-D",
+    "item_name": "Rubber Gasket Set D",
+    "qty_on_hand": 3800,
+    "reorder_threshold": 1000,
+    "manufacturing_critical": false,
+    "created_at": "2026-06-27T18:33:46.029557+00:00",
+    "updated_at": "2026-06-27T18:33:46.029557+00:00"
+  },
+  {
+    "id": 5,
+    "vendor_username": "vendorz",
+    "sku": "MCU-2200X",
+    "item_name": "Microcontroller Chipset 2200X",
+    "qty_on_hand": 420,
+    "reorder_threshold": 500,
+    "manufacturing_critical": true,
+    "created_at": "2026-06-27T18:33:46.029557+00:00",
+    "updated_at": "2026-06-27T18:33:46.029557+00:00"
+  },
+  {
+    "id": 6,
+    "vendor_username": "vendorz",
+    "sku": "MCU-3300Y",
+    "item_name": "Microcontroller Chipset 3300Y",
+    "qty_on_hand": 90,
+    "reorder_threshold": 400,
+    "manufacturing_critical": true,
+    "created_at": "2026-06-27T18:33:46.029557+00:00",
+    "updated_at": "2026-06-27T18:33:46.029557+00:00"
+  }
+]
