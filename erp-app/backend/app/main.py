@@ -19,6 +19,7 @@ from app.mcp_server import mcp
 from app.middleware import ApiLoggingMiddleware
 from app.routers.alerts import router as alerts_router
 from app.routers.audit_logs import router as audit_logs_router
+from app.routers.chatbot import router as chatbot_router
 from app.routers.claims import router as claims_router
 from app.routers.customer_inventory import router as customer_inventory_router
 from app.routers.customers import router as customers_router
@@ -76,6 +77,7 @@ app.include_router(alerts_router)
 app.include_router(users_router)
 app.include_router(audit_logs_router)
 app.include_router(observability_router)
+app.include_router(chatbot_router)
 
 app.mount("/mcp", mcp_asgi_app)
 

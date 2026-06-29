@@ -1,370 +1,1180 @@
 [
   {
-    "run_id": "run_53baf883dde9",
+    "run_id": "run_77b25b114fa5",
     "agent": "inspector_agent",
-    "timestamp": "2026-06-28T18:46:57.216858+00:00",
+    "timestamp": "2026-06-29T18:14:35.011710+00:00",
     "input_summary": {
-      "order_id": 1,
-      "sku": "STL-CHASSIS-A",
+      "order_id": 33,
+      "sku": "Item",
       "file_count": 1,
       "manual_transcript": false
     },
     "output_summary": {
       "po_number": "450912",
       "damage_type": "moisture/water damage",
-      "damaged_qty": 3,
-      "evidence_notes": "Three boxes on a pallet are visibly crushed and water-damaged, with one box spilling contents.",
-      "confidence_notes": "High confidence; PO number and damage type are clearly labeled on the boxes."
+      "damaged_qty": 6,
+      "evidence_notes": "Observed multiple severely damaged cardboard boxes on pallets. Two central boxes are heavily water-stained with puddles on the floor, labeled 'PO NUMBER: 450912' and 'FRAGILE - WATER DAMAGED'. One box on top is torn open exposing internal cables, another is completely crushed and spilled on the floor with packing peanuts, and others show crushing.",
+      "confidence_notes": "High confidence in PO number and damage types. Visually counted approximately 6 severely compromised outer cartons."
     },
     "status": "ok",
-    "latency_ms": 19765.15550000113,
-    "model": "gemini-flash-lite-latest",
+    "latency_ms": 36934.515500001,
+    "model": "gemini-flash-latest",
     "tokens": {
-      "prompt_tokens": 1092,
-      "completion_tokens": 92
+      "prompt_tokens": 1347,
+      "completion_tokens": 156
     },
     "error": null
   },
   {
-    "run_id": "run_53baf883dde9",
+    "run_id": "run_77b25b114fa5",
     "agent": "context_agent",
-    "timestamp": "2026-06-28T18:47:02.664806+00:00",
+    "timestamp": "2026-06-29T18:14:35.605668+00:00",
     "input_summary": {
-      "order_id": 1,
-      "sku": "STL-CHASSIS-A"
+      "order_id": 33,
+      "sku": "Item"
     },
     "output_summary": {
-      "order_id": 1,
-      "order_number": "ORD-0001",
-      "customer_username": "customera",
-      "vendor_username": "vendorx",
-      "sku": "STL-CHASSIS-A",
-      "item_name": "Steel Chassis Frame A",
-      "ordered_qty": 50,
+      "order_id": 33,
+      "order_number": "ORD-0033",
+      "customer_username": "abc",
+      "vendor_username": "vendory",
+      "sku": "Item",
+      "item_name": "Test",
+      "ordered_qty": 3,
       "damaged_qty": 3,
       "damage_type": "moisture damage",
-      "evidence_notes": "Three boxes on a pallet are visibly crushed and water-damaged, with one box spilling contents.",
-      "confidence_notes": "High confidence; PO number and damage type are clearly labeled on the boxes.",
+      "evidence_notes": "Observed multiple severely damaged cardboard boxes on pallets. Two central boxes are heavily water-stained with puddles on the floor, labeled 'PO NUMBER: 450912' and 'FRAGILE - WATER DAMAGED'. One box on top is torn open exposing internal cables, another is completely crushed and spilled on the floor with packing peanuts, and others show crushing.",
+      "confidence_notes": "High confidence in PO number and damage types. Visually counted approximately 6 severely compromised outer cartons.",
       "stated_po_number": "450912",
       "po_number_mismatch": true,
       "needs_review": true,
-      "qty_was_clamped": false,
-      "case_summary": "Order ORD-0001 experienced freight damage to 3 out of 50 units of Steel Chassis Frame A (SKU STL-CHASSIS-A) due to moisture damage, with evidence showing crushed and water-damaged boxes and spilled contents."
+      "qty_was_clamped": true,
+      "case_summary": "Order ORD-0033 sustained moisture damage to all 3 units of SKU Item 'Test' due to severely damaged and water-stained cardboard boxes, with evidence of crushing, tearing, and water exposure."
     },
     "status": "ok",
-    "latency_ms": 5440.95709999965,
+    "latency_ms": 589.211599999544,
     "model": "llama-3.3-70b-versatile",
     "tokens": {
-      "prompt_tokens": 135,
-      "completion_tokens": 50
-    },
-    "error": null
-  },
-  {
-    "run_id": "run_53baf883dde9",
-    "agent": "policy_agent",
-    "timestamp": "2026-06-28T18:47:09.469107+00:00",
-    "input_summary": {
-      "order_id": 1,
-      "sku": "STL-CHASSIS-A",
-      "damage_type": "moisture damage"
-    },
-    "output_summary": null,
-    "status": "failed",
-    "latency_ms": 6763.417199999822,
-    "model": "llama-3.3-70b-versatile",
-    "tokens": {
-      "prompt_tokens": null,
-      "completion_tokens": null
-    },
-    "error": "Reasoning call failed: Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kw6d9yckffxbsdfz99tz52k3` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99756, Requested 466. Please try again in 3m11.808s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
-  },
-  {
-    "run_id": "run_53baf883dde9",
-    "agent": "inventory_agent",
-    "timestamp": "2026-06-28T18:47:09.601447+00:00",
-    "input_summary": {
-      "customer_username": "customera",
-      "vendor_username": "vendorx",
-      "sku": "STL-CHASSIS-A"
-    },
-    "output_summary": {
-      "risk": "warning",
-      "customer_qty_before_damage": 47,
-      "customer_qty_after_damage": 44,
-      "vendor_qty_on_hand": 280,
-      "vendor_reorder_threshold": 100,
-      "vendor_below_threshold": false
-    },
-    "status": "ok",
-    "latency_ms": 102.03950000141049,
-    "model": null,
-    "tokens": null,
-    "error": null
-  },
-  {
-    "run_id": "run_53baf883dde9",
-    "agent": "reorder_agent",
-    "timestamp": "2026-06-28T18:47:10.030213+00:00",
-    "input_summary": {
-      "sku": "STL-CHASSIS-A",
-      "damaged_qty": 3
-    },
-    "output_summary": {
-      "id": 29,
-      "order_number": "ORD-0029",
-      "customer_username": "customera",
-      "vendor_username": "vendorx",
-      "items": [
-        {
-          "sku": "STL-CHASSIS-A",
-          "item_name": "Steel Chassis Frame A",
-          "qty": 3
-        }
-      ],
-      "status": "requested",
-      "undelivered_reason": null,
-      "requested_at": "2026-06-28T18:47:09.935254+00:00",
-      "created_at": "2026-06-28T18:47:09.935254+00:00",
-      "updated_at": "2026-06-28T18:47:09.935254+00:00",
-      "reorder_note": "A replacement-stock order was auto-generated for the customer due to the moisture damage to 3 units of 'Steel Chassis Frame A' on order ORD-0001, which triggered an inventory risk warning."
-    },
-    "status": "ok",
-    "latency_ms": 391.4609000021301,
-    "model": "llama-3.3-70b-versatile",
-    "tokens": {
-      "prompt_tokens": 116,
+      "prompt_tokens": 180,
       "completion_tokens": 42
     },
     "error": null
   },
   {
-    "run_id": "run_53baf883dde9",
-    "agent": "claim_agent",
-    "timestamp": "2026-06-28T18:47:10.063390+00:00",
+    "run_id": "run_77b25b114fa5",
+    "agent": "policy_agent",
+    "timestamp": "2026-06-29T18:14:38.435000+00:00",
     "input_summary": {
-      "order_id": 1,
-      "sku": "STL-CHASSIS-A",
-      "eligible_for_claim": null
+      "order_id": 33,
+      "sku": "Item",
+      "damage_type": "moisture damage"
     },
-    "output_summary": null,
+    "output_summary": {
+      "eligible_for_claim": true,
+      "liable": "pending",
+      "justification": "Visible external packaging damage, including crushing, tearing, and water staining, could reasonably have affected the contents, and the observed packaging damage is sufficient to indicate potential transit damage (SLA excerpts)."
+    },
     "status": "ok",
-    "latency_ms": 0.007300001016119495,
+    "latency_ms": 2821.219600000404,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 532,
+      "completion_tokens": 63
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_77b25b114fa5",
+    "agent": "inventory_agent",
+    "timestamp": "2026-06-29T18:14:38.595057+00:00",
+    "input_summary": {
+      "customer_username": "abc",
+      "vendor_username": "vendory",
+      "sku": "Item"
+    },
+    "output_summary": {
+      "risk": "critical",
+      "customer_qty_before_damage": 3,
+      "customer_qty_after_damage": 0,
+      "vendor_qty_on_hand": 0,
+      "vendor_reorder_threshold": 0,
+      "vendor_below_threshold": false
+    },
+    "status": "ok",
+    "latency_ms": 118.76769999980752,
     "model": null,
     "tokens": null,
     "error": null
   },
   {
-    "run_id": "run_53baf883dde9",
-    "agent": "governance_agent",
-    "timestamp": "2026-06-28T18:47:10.528199+00:00",
+    "run_id": "run_77b25b114fa5",
+    "agent": "reorder_agent",
+    "timestamp": "2026-06-29T18:14:39.032850+00:00",
     "input_summary": {
-      "order_id": 1,
-      "sku": "STL-CHASSIS-A"
+      "sku": "Item",
+      "damaged_qty": 3
     },
     "output_summary": {
-      "case_summary": "Order ORD-0001 experienced freight damage to 3 out of 50 units of Steel Chassis Frame A (SKU STL-CHASSIS-A) due to moisture damage, with evidence showing crushed and water-damaged boxes and spilled contents.",
-      "narrative": "Order ORD-0001 experienced freight damage to 3 out of 50 units of Steel Chassis Frame A (SKU STL-CHASSIS-A) due to moisture damage, with evidence showing crushed and water-damaged boxes and spilled contents.",
-      "liable": "unknown",
-      "eligible_for_claim": false,
-      "claim_filed": false,
-      "claim_id": null,
-      "reorder_placed": true,
-      "reorder_order_id": 29,
-      "inventory_risk": "warning",
-      "inventory_alert_id": 75
+      "id": 35,
+      "order_number": "ORD-0035",
+      "customer_username": "abc",
+      "vendor_username": "vendory",
+      "items": [
+        {
+          "sku": "Item",
+          "item_name": "Test",
+          "qty": 3
+        }
+      ],
+      "status": "requested",
+      "undelivered_reason": null,
+      "requested_at": "2026-06-29T18:14:38.913316+00:00",
+      "created_at": "2026-06-29T18:14:38.915623+00:00",
+      "updated_at": "2026-06-29T18:14:38.915623+00:00",
+      "reorder_note": "A replacement-stock order was auto-generated for the customer due to the critical inventory risk resulting from the moisture damage to 3 units of 'Test' on order ORD-0033."
     },
     "status": "ok",
-    "latency_ms": 419.2094999998517,
+    "latency_ms": 386.45159999941825,
     "model": "llama-3.3-70b-versatile",
     "tokens": {
-      "prompt_tokens": null,
-      "completion_tokens": null
+      "prompt_tokens": 112,
+      "completion_tokens": 37
     },
     "error": null
   },
   {
-    "run_id": "run_8f67b4773d67",
-    "agent": "inspector_agent",
-    "timestamp": "2026-06-28T18:48:29.233221+00:00",
+    "run_id": "run_77b25b114fa5",
+    "agent": "claim_agent",
+    "timestamp": "2026-06-29T18:14:40.029091+00:00",
     "input_summary": {
-      "order_id": 1,
-      "sku": "STL-CHASSIS-A",
+      "order_id": 33,
+      "sku": "Item",
+      "eligible_for_claim": true
+    },
+    "output_summary": {
+      "id": 21,
+      "claim_number": "CLM-0021",
+      "customer_username": "abc",
+      "vendor_username": "vendory",
+      "order_id": 33,
+      "sku": "Item",
+      "damage_type": "moisture damage",
+      "damaged_qty": 3,
+      "claim_text": "Order ORD-0033 contained three units of Test SKU Item that were received with moisture damage rendering all items unusable. Visible external packaging damage, including crushing, tearing, and water staining, was observed upon delivery, which could have reasonably compromised the integrity of the contents. The extent of the packaging damage suggests that the items may have been exposed to water during transit, resulting in the reported moisture damage. As the packaging damage is consistent with potential transit damage, further review is warranted to determine liability. The claim is being submitted for consideration pursuant to the applicable service level agreement provisions.",
+      "status": "pending",
+      "decision_reason": null,
+      "created_at": "2026-06-29T18:14:39.892815+00:00",
+      "updated_at": "2026-06-29T18:14:39.892815+00:00"
+    },
+    "status": "ok",
+    "latency_ms": 965.9149999988585,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 164,
+      "completion_tokens": 116
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_77b25b114fa5",
+    "agent": "governance_agent",
+    "timestamp": "2026-06-29T18:14:40.615147+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item"
+    },
+    "output_summary": {
+      "case_summary": "Order ORD-0033 sustained moisture damage to all 3 units of SKU Item 'Test' due to severely damaged and water-stained cardboard boxes, with evidence of crushing, tearing, and water exposure.",
+      "narrative": "Order ORD-0033 experienced freight damage due to severely damaged packaging, resulting in moisture damage to all 3 units of SKU Item 'Test'. A claim has been filed and a replacement order for 3 units has been placed to mitigate the issue. The inventory risk level has been elevated to critical due to the extent of the damage. The claim's outcome is pending, awaiting further review and determination of liability.",
+      "liable": "pending",
+      "eligible_for_claim": true,
+      "claim_filed": true,
+      "claim_id": 21,
+      "reorder_placed": true,
+      "reorder_order_id": 35,
+      "inventory_risk": "critical",
+      "inventory_alert_id": 90
+    },
+    "status": "ok",
+    "latency_ms": 554.6154000003298,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 216,
+      "completion_tokens": 83
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_e9a7dea9b50c",
+    "agent": "inspector_agent",
+    "timestamp": "2026-06-29T18:18:38.415141+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item",
       "file_count": 1,
       "manual_transcript": false
     },
     "output_summary": {
-      "po_number": "PO-789012",
-      "damage_type": "crushing",
+      "po_number": "4017",
+      "damage_type": "other",
       "damaged_qty": 1,
-      "evidence_notes": "Cardboard box on pallet #107 shows significant crushing/denting on the front face.",
-      "confidence_notes": "Damage is clearly visible on the primary box; quantity is limited to the single visible damaged unit."
+      "evidence_notes": "The narrator states that they received an order from Vendor Y with one damaged unit, and explicitly mentions the PO number is 4017.",
+      "confidence_notes": "High confidence as the PO number, quantity, and damage were clearly stated in the audio narration."
     },
     "status": "ok",
-    "latency_ms": 12135.824400000274,
-    "model": "gemini-flash-lite-latest",
+    "latency_ms": 6230.692099999942,
+    "model": "gemini-flash-latest",
     "tokens": {
-      "prompt_tokens": 1262,
-      "completion_tokens": 91
+      "prompt_tokens": 477,
+      "completion_tokens": 100
     },
     "error": null
   },
   {
-    "run_id": "run_8f67b4773d67",
+    "run_id": "run_e9a7dea9b50c",
     "agent": "context_agent",
-    "timestamp": "2026-06-28T18:48:33.160106+00:00",
+    "timestamp": "2026-06-29T18:18:38.788574+00:00",
     "input_summary": {
-      "order_id": 1,
-      "sku": "STL-CHASSIS-A"
+      "order_id": 33,
+      "sku": "Item"
     },
     "output_summary": {
-      "order_id": 1,
-      "order_number": "ORD-0001",
-      "customer_username": "customera",
-      "vendor_username": "vendorx",
-      "sku": "STL-CHASSIS-A",
-      "item_name": "Steel Chassis Frame A",
-      "ordered_qty": 50,
+      "order_id": 33,
+      "order_number": "ORD-0033",
+      "customer_username": "abc",
+      "vendor_username": "vendory",
+      "sku": "Item",
+      "item_name": "Test",
+      "ordered_qty": 3,
       "damaged_qty": 1,
-      "damage_type": "crushing",
-      "evidence_notes": "Cardboard box on pallet #107 shows significant crushing/denting on the front face.",
-      "confidence_notes": "Damage is clearly visible on the primary box; quantity is limited to the single visible damaged unit.",
-      "stated_po_number": "PO-789012",
+      "damage_type": "other",
+      "evidence_notes": "The narrator states that they received an order from Vendor Y with one damaged unit, and explicitly mentions the PO number is 4017.",
+      "confidence_notes": "High confidence as the PO number, quantity, and damage were clearly stated in the audio narration.",
+      "stated_po_number": "4017",
       "po_number_mismatch": true,
       "needs_review": true,
       "qty_was_clamped": false,
-      "case_summary": "Order ORD-0001 experienced freight damage to 1 of 50 units of Steel Chassis Frame A (SKU STL-CHASSIS-A) due to crushing, with evidence showing significant crushing and denting on the front face of the cardboard box on pallet #107."
+      "case_summary": "One of three units of SKU Item 'Test' in order ORD-0033 was damaged, with evidence noting receipt of a damaged unit from Vendor Y, referenced under PO number 4017."
     },
     "status": "ok",
-    "latency_ms": 3894.32929999748,
+    "latency_ms": 362.37619999883464,
     "model": "llama-3.3-70b-versatile",
     "tokens": {
-      "prompt_tokens": 131,
-      "completion_tokens": 56
+      "prompt_tokens": 132,
+      "completion_tokens": 40
     },
     "error": null
   },
   {
-    "run_id": "run_8f67b4773d67",
+    "run_id": "run_e9a7dea9b50c",
     "agent": "policy_agent",
-    "timestamp": "2026-06-28T18:48:36.384063+00:00",
+    "timestamp": "2026-06-29T18:18:40.841559+00:00",
     "input_summary": {
-      "order_id": 1,
-      "sku": "STL-CHASSIS-A",
-      "damage_type": "crushing"
+      "order_id": 33,
+      "sku": "Item",
+      "damage_type": "other"
     },
     "output_summary": {
       "eligible_for_claim": false,
       "liable": "pending",
-      "justification": "Answer generation failed (check GROQ_API_KEY)"
+      "justification": "SLA excerpt states 'this case is not eligible for a damage claim review because there is no mention of visible external packaging damage' (section 1 of Claim Eligibility)"
     },
     "status": "ok",
-    "latency_ms": 3199.700199998915,
-    "model": null,
-    "tokens": null,
+    "latency_ms": 2016.095700000733,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 468,
+      "completion_tokens": 55
+    },
     "error": null
   },
   {
-    "run_id": "run_8f67b4773d67",
+    "run_id": "run_e9a7dea9b50c",
     "agent": "inventory_agent",
-    "timestamp": "2026-06-28T18:48:36.615639+00:00",
+    "timestamp": "2026-06-29T18:18:40.934861+00:00",
     "input_summary": {
-      "customer_username": "customera",
-      "vendor_username": "vendorx",
-      "sku": "STL-CHASSIS-A"
+      "customer_username": "abc",
+      "vendor_username": "vendory",
+      "sku": "Item"
     },
     "output_summary": {
       "risk": "warning",
-      "customer_qty_before_damage": 47,
-      "customer_qty_after_damage": 46,
-      "vendor_qty_on_hand": 280,
-      "vendor_reorder_threshold": 100,
+      "customer_qty_before_damage": 3,
+      "customer_qty_after_damage": 2,
+      "vendor_qty_on_hand": 0,
+      "vendor_reorder_threshold": 0,
       "vendor_below_threshold": false
     },
     "status": "ok",
-    "latency_ms": 148.4283999998297,
+    "latency_ms": 69.77929999993648,
     "model": null,
     "tokens": null,
     "error": null
   },
   {
-    "run_id": "run_8f67b4773d67",
+    "run_id": "run_e9a7dea9b50c",
     "agent": "reorder_agent",
-    "timestamp": "2026-06-28T18:48:36.914639+00:00",
+    "timestamp": "2026-06-29T18:18:41.369862+00:00",
     "input_summary": {
-      "sku": "STL-CHASSIS-A",
+      "sku": "Item",
       "damaged_qty": 1
     },
     "output_summary": {
-      "id": 30,
-      "order_number": "ORD-0030",
-      "customer_username": "customera",
-      "vendor_username": "vendorx",
+      "id": 36,
+      "order_number": "ORD-0036",
+      "customer_username": "abc",
+      "vendor_username": "vendory",
       "items": [
         {
-          "sku": "STL-CHASSIS-A",
-          "item_name": "Steel Chassis Frame A",
+          "sku": "Item",
+          "item_name": "Test",
           "qty": 1
         }
       ],
       "status": "requested",
       "undelivered_reason": null,
-      "requested_at": "2026-06-28T18:48:36.791222+00:00",
-      "created_at": "2026-06-28T18:48:36.793226+00:00",
-      "updated_at": "2026-06-28T18:48:36.793226+00:00",
-      "reorder_note": "Auto-generated to replace 1 damaged unit(s) of Steel Chassis Frame A."
+      "requested_at": "2026-06-29T18:18:41.297155+00:00",
+      "created_at": "2026-06-29T18:18:41.298153+00:00",
+      "updated_at": "2026-06-29T18:18:41.298153+00:00",
+      "reorder_note": "A replacement-stock order was auto-generated for the customer because the damage to 1 unit of 'Test' on order ORD-0033 triggered an inventory risk warning that required immediate replenishment to maintain adequate stock levels."
     },
     "status": "ok",
-    "latency_ms": 249.54230000003008,
+    "latency_ms": 412.9603000001225,
     "model": "llama-3.3-70b-versatile",
     "tokens": {
-      "prompt_tokens": null,
-      "completion_tokens": null
+      "prompt_tokens": 109,
+      "completion_tokens": 44
     },
     "error": null
   },
   {
-    "run_id": "run_8f67b4773d67",
+    "run_id": "run_e9a7dea9b50c",
     "agent": "claim_agent",
-    "timestamp": "2026-06-28T18:48:36.947874+00:00",
+    "timestamp": "2026-06-29T18:18:41.386225+00:00",
     "input_summary": {
-      "order_id": 1,
-      "sku": "STL-CHASSIS-A",
+      "order_id": 33,
+      "sku": "Item",
       "eligible_for_claim": false
     },
     "output_summary": null,
     "status": "ok",
-    "latency_ms": 0.00679999720887281,
+    "latency_ms": 0.0070000005507608876,
     "model": null,
     "tokens": null,
     "error": null
   },
   {
-    "run_id": "run_8f67b4773d67",
+    "run_id": "run_e9a7dea9b50c",
     "agent": "governance_agent",
-    "timestamp": "2026-06-28T18:48:37.461942+00:00",
+    "timestamp": "2026-06-29T18:18:42.030575+00:00",
     "input_summary": {
-      "order_id": 1,
-      "sku": "STL-CHASSIS-A"
+      "order_id": 33,
+      "sku": "Item"
     },
     "output_summary": {
-      "case_summary": "Order ORD-0001 experienced freight damage to 1 of 50 units of Steel Chassis Frame A (SKU STL-CHASSIS-A) due to crushing, with evidence showing significant crushing and denting on the front face of the cardboard box on pallet #107.",
-      "narrative": "Order ORD-0001 experienced freight damage to 1 of 50 units of Steel Chassis Frame A (SKU STL-CHASSIS-A) due to crushing, with evidence showing significant crushing and denting on the front face of the cardboard box on pallet #107.",
+      "case_summary": "One of three units of SKU Item 'Test' in order ORD-0033 was damaged, with evidence noting receipt of a damaged unit from Vendor Y, referenced under PO number 4017.",
+      "narrative": "Order ORD-0033 received one damaged unit of SKU Item 'Test' from Vendor Y under PO 4017, however the case is not eligible for a damage claim review due to lack of visible external packaging damage. A replacement order for one unit has been placed to mitigate inventory risk. The current inventory risk level for this item is warning. No claim has been filed with the vendor as per the SLA exemption.",
       "liable": "pending",
       "eligible_for_claim": false,
       "claim_filed": false,
       "claim_id": null,
       "reorder_placed": true,
-      "reorder_order_id": 30,
+      "reorder_order_id": 36,
       "inventory_risk": "warning",
-      "inventory_alert_id": 77
+      "inventory_alert_id": 92
     },
     "status": "ok",
-    "latency_ms": 478.7150999982259,
+    "latency_ms": 624.6195000003354,
     "model": "llama-3.3-70b-versatile",
     "tokens": {
-      "prompt_tokens": null,
-      "completion_tokens": null
+      "prompt_tokens": 211,
+      "completion_tokens": 85
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_c4a7cf1ccfca",
+    "agent": "inspector_agent",
+    "timestamp": "2026-06-29T18:19:24.709815+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item",
+      "file_count": 1,
+      "manual_transcript": false
+    },
+    "output_summary": {
+      "po_number": "PO 4069",
+      "damage_type": "moisture/water damage",
+      "damaged_qty": 2,
+      "evidence_notes": "The narrator states that they received an order where two units were damaged due to water damage, and specifies the PO number is 4069.",
+      "confidence_notes": "High confidence as the narrator clearly states the PO number, quantity, and damage type in the audio."
+    },
+    "status": "ok",
+    "latency_ms": 5400.769200001378,
+    "model": "gemini-flash-latest",
+    "tokens": {
+      "prompt_tokens": 453,
+      "completion_tokens": 108
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_c4a7cf1ccfca",
+    "agent": "context_agent",
+    "timestamp": "2026-06-29T18:19:25.343728+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item"
+    },
+    "output_summary": {
+      "order_id": 33,
+      "order_number": "ORD-0033",
+      "customer_username": "abc",
+      "vendor_username": "vendory",
+      "sku": "Item",
+      "item_name": "Test",
+      "ordered_qty": 3,
+      "damaged_qty": 2,
+      "damage_type": "moisture damage",
+      "evidence_notes": "The narrator states that they received an order where two units were damaged due to water damage, and specifies the PO number is 4069.",
+      "confidence_notes": "High confidence as the narrator clearly states the PO number, quantity, and damage type in the audio.",
+      "stated_po_number": "PO 4069",
+      "po_number_mismatch": true,
+      "needs_review": true,
+      "qty_was_clamped": false,
+      "case_summary": "Order ORD-0033, containing 3 units of SKU Item 'Test', was received with 2 units sustaining moisture damage, as evidenced by water damage noted by the recipient, referencing PO number 4069."
+    },
+    "status": "ok",
+    "latency_ms": 591.3103000002593,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 134,
+      "completion_tokens": 44
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_c4a7cf1ccfca",
+    "agent": "policy_agent",
+    "timestamp": "2026-06-29T18:19:27.014161+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item",
+      "damage_type": "moisture damage"
+    },
+    "output_summary": {
+      "eligible_for_claim": false,
+      "liable": "pending",
+      "justification": "The SLA excerpts only discuss eligibility for suspected transit damage with visible external packaging damage, which is not mentioned in the given scenario, and do not address liability for this type of damage."
+    },
+    "status": "ok",
+    "latency_ms": 1630.838600000061,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 469,
+      "completion_tokens": 61
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_c4a7cf1ccfca",
+    "agent": "inventory_agent",
+    "timestamp": "2026-06-29T18:19:27.187447+00:00",
+    "input_summary": {
+      "customer_username": "abc",
+      "vendor_username": "vendory",
+      "sku": "Item"
+    },
+    "output_summary": {
+      "risk": "warning",
+      "customer_qty_before_damage": 3,
+      "customer_qty_after_damage": 1,
+      "vendor_qty_on_hand": 0,
+      "vendor_reorder_threshold": 0,
+      "vendor_below_threshold": false
+    },
+    "status": "ok",
+    "latency_ms": 133.75900000028196,
+    "model": null,
+    "tokens": null,
+    "error": null
+  },
+  {
+    "run_id": "run_c4a7cf1ccfca",
+    "agent": "reorder_agent",
+    "timestamp": "2026-06-29T18:19:28.573944+00:00",
+    "input_summary": {
+      "sku": "Item",
+      "damaged_qty": 2
+    },
+    "output_summary": {
+      "id": 37,
+      "order_number": "ORD-0037",
+      "customer_username": "abc",
+      "vendor_username": "vendory",
+      "items": [
+        {
+          "sku": "Item",
+          "item_name": "Test",
+          "qty": 2
+        }
+      ],
+      "status": "requested",
+      "undelivered_reason": null,
+      "requested_at": "2026-06-29T18:19:28.151943+00:00",
+      "created_at": "2026-06-29T18:19:28.153948+00:00",
+      "updated_at": "2026-06-29T18:19:28.153948+00:00",
+      "reorder_note": "A replacement-stock order was auto-generated for the customer due to the moisture damage to 2 units of 'Test' on order ORD-0033, which triggered an inventory risk warning."
+    },
+    "status": "ok",
+    "latency_ms": 1160.4470000002038,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 112,
+      "completion_tokens": 38
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_c4a7cf1ccfca",
+    "agent": "claim_agent",
+    "timestamp": "2026-06-29T18:19:28.682295+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item",
+      "eligible_for_claim": false
+    },
+    "output_summary": null,
+    "status": "ok",
+    "latency_ms": 0.01759999940986745,
+    "model": null,
+    "tokens": null,
+    "error": null
+  },
+  {
+    "run_id": "run_c4a7cf1ccfca",
+    "agent": "governance_agent",
+    "timestamp": "2026-06-29T18:19:29.600560+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item"
+    },
+    "output_summary": {
+      "case_summary": "Order ORD-0033, containing 3 units of SKU Item 'Test', was received with 2 units sustaining moisture damage, as evidenced by water damage noted by the recipient, referencing PO number 4069.",
+      "narrative": "Order ORD-0033 was received with 2 out of 3 units of SKU Item 'Test' damaged due to moisture, resulting in a replacement order for 2 units being placed. No claim was filed due to pending liability determination. The inventory risk level has been elevated to warning as a result of this incident. The replacement order aims to mitigate the inventory risk, ensuring timely replenishment of the damaged goods.",
+      "liable": "pending",
+      "eligible_for_claim": false,
+      "claim_filed": false,
+      "claim_id": null,
+      "reorder_placed": true,
+      "reorder_order_id": 37,
+      "inventory_risk": "warning",
+      "inventory_alert_id": 94
+    },
+    "status": "ok",
+    "latency_ms": 864.2460999999457,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 217,
+      "completion_tokens": 84
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_ea4c661f47e6",
+    "agent": "inspector_agent",
+    "timestamp": "2026-06-29T18:20:14.512333+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item",
+      "file_count": 1,
+      "manual_transcript": false
+    },
+    "output_summary": {
+      "po_number": "4027",
+      "damage_type": "other",
+      "damaged_qty": 1,
+      "evidence_notes": "The narrator states in Hindi that one unit in the order received today was damaged, and specifies the PO number as 4027.",
+      "confidence_notes": "High confidence as the PO number and quantity of damaged units are clearly and directly spoken in the audio."
+    },
+    "status": "ok",
+    "latency_ms": 5606.71800000091,
+    "model": "gemini-flash-latest",
+    "tokens": {
+      "prompt_tokens": 465,
+      "completion_tokens": 100
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_ea4c661f47e6",
+    "agent": "context_agent",
+    "timestamp": "2026-06-29T18:20:15.042235+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item"
+    },
+    "output_summary": {
+      "order_id": 33,
+      "order_number": "ORD-0033",
+      "customer_username": "abc",
+      "vendor_username": "vendory",
+      "sku": "Item",
+      "item_name": "Test",
+      "ordered_qty": 3,
+      "damaged_qty": 1,
+      "damage_type": "other",
+      "evidence_notes": "The narrator states in Hindi that one unit in the order received today was damaged, and specifies the PO number as 4027.",
+      "confidence_notes": "High confidence as the PO number and quantity of damaged units are clearly and directly spoken in the audio.",
+      "stated_po_number": "4027",
+      "po_number_mismatch": true,
+      "needs_review": true,
+      "qty_was_clamped": false,
+      "case_summary": "One unit of SKU Item 'Test' in order ORD-0033 was damaged due to unknown causes, as reported by the customer with reference to PO number 4027."
+    },
+    "status": "ok",
+    "latency_ms": 473.95049999977346,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 131,
+      "completion_tokens": 36
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_ea4c661f47e6",
+    "agent": "policy_agent",
+    "timestamp": "2026-06-29T18:20:17.047983+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item",
+      "damage_type": "other"
+    },
+    "output_summary": {
+      "eligible_for_claim": false,
+      "liable": "pending",
+      "justification": "The SLA excerpts do not mention visible external packaging damage, which is one of the criteria for eligibility, and do not address liability."
+    },
+    "status": "ok",
+    "latency_ms": 1965.886899999532,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 461,
+      "completion_tokens": 51
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_ea4c661f47e6",
+    "agent": "inventory_agent",
+    "timestamp": "2026-06-29T18:20:17.166539+00:00",
+    "input_summary": {
+      "customer_username": "abc",
+      "vendor_username": "vendory",
+      "sku": "Item"
+    },
+    "output_summary": {
+      "risk": "warning",
+      "customer_qty_before_damage": 3,
+      "customer_qty_after_damage": 2,
+      "vendor_qty_on_hand": 0,
+      "vendor_reorder_threshold": 0,
+      "vendor_below_threshold": false
+    },
+    "status": "ok",
+    "latency_ms": 93.70849999868369,
+    "model": null,
+    "tokens": null,
+    "error": null
+  },
+  {
+    "run_id": "run_ea4c661f47e6",
+    "agent": "reorder_agent",
+    "timestamp": "2026-06-29T18:20:17.721840+00:00",
+    "input_summary": {
+      "sku": "Item",
+      "damaged_qty": 1
+    },
+    "output_summary": {
+      "id": 38,
+      "order_number": "ORD-0038",
+      "customer_username": "abc",
+      "vendor_username": "vendory",
+      "items": [
+        {
+          "sku": "Item",
+          "item_name": "Test",
+          "qty": 1
+        }
+      ],
+      "status": "requested",
+      "undelivered_reason": null,
+      "requested_at": "2026-06-29T18:20:17.639284+00:00",
+      "created_at": "2026-06-29T18:20:17.640313+00:00",
+      "updated_at": "2026-06-29T18:20:17.640313+00:00",
+      "reorder_note": "A replacement-stock order was auto-generated for the customer because the damaged unit of 'Test' on order ORD-0033 triggered an inventory risk warning that necessitated immediate replenishment to maintain adequate stock levels."
+    },
+    "status": "ok",
+    "latency_ms": 523.8901000011538,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 109,
+      "completion_tokens": 42
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_ea4c661f47e6",
+    "agent": "claim_agent",
+    "timestamp": "2026-06-29T18:20:17.740613+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item",
+      "eligible_for_claim": false
+    },
+    "output_summary": null,
+    "status": "ok",
+    "latency_ms": 0.0070000005507608876,
+    "model": null,
+    "tokens": null,
+    "error": null
+  },
+  {
+    "run_id": "run_ea4c661f47e6",
+    "agent": "governance_agent",
+    "timestamp": "2026-06-29T18:20:18.530903+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item"
+    },
+    "output_summary": {
+      "case_summary": "One unit of SKU Item 'Test' in order ORD-0033 was damaged due to unknown causes, as reported by the customer with reference to PO number 4027.",
+      "narrative": "A freight damage case was reported for order ORD-0033 involving one unit of SKU Item 'Test' with unknown causes, resulting in a replacement order being placed for one unit. No claim was filed due to pending liability determination based on the SLA excerpts. The inventory risk level has been elevated to warning as a precautionary measure. The replacement order is currently being processed to mitigate potential inventory shortages.",
+      "liable": "pending",
+      "eligible_for_claim": false,
+      "claim_filed": false,
+      "claim_id": null,
+      "reorder_placed": true,
+      "reorder_order_id": 38,
+      "inventory_risk": "warning",
+      "inventory_alert_id": 96
+    },
+    "status": "ok",
+    "latency_ms": 766.2860999989789,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 199,
+      "completion_tokens": 81
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_6efe172ffea4",
+    "agent": "inspector_agent",
+    "timestamp": "2026-06-29T18:23:49.895803+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item",
+      "file_count": 1,
+      "manual_transcript": false
+    },
+    "output_summary": {
+      "po_number": "PO-4091",
+      "damage_type": "shortage",
+      "damaged_qty": 4,
+      "evidence_notes": "The video shows a presenter displaying a small cardboard box that has been torn open at one end and is completely empty. The presenter states that the package arrived damaged and the contents, consisting of 4 pens, are missing. He references PO-4091.",
+      "confidence_notes": "High confidence. The physical damage to the packaging and the resulting shortage of 4 units are clearly demonstrated and narrated."
+    },
+    "status": "ok",
+    "latency_ms": 12290.468700000929,
+    "model": "gemini-flash-latest",
+    "tokens": {
+      "prompt_tokens": 897,
+      "completion_tokens": 119
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_6efe172ffea4",
+    "agent": "context_agent",
+    "timestamp": "2026-06-29T18:23:50.663462+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item"
+    },
+    "output_summary": {
+      "order_id": 33,
+      "order_number": "ORD-0033",
+      "customer_username": "abc",
+      "vendor_username": "vendory",
+      "sku": "Item",
+      "item_name": "Test",
+      "ordered_qty": 3,
+      "damaged_qty": 3,
+      "damage_type": "shortage",
+      "evidence_notes": "The video shows a presenter displaying a small cardboard box that has been torn open at one end and is completely empty. The presenter states that the package arrived damaged and the contents, consisting of 4 pens, are missing. He references PO-4091.",
+      "confidence_notes": "High confidence. The physical damage to the packaging and the resulting shortage of 4 units are clearly demonstrated and narrated.",
+      "stated_po_number": "PO-4091",
+      "po_number_mismatch": true,
+      "needs_review": true,
+      "qty_was_clamped": true,
+      "case_summary": "Order ORD-0033 is pending claim review due to a shortage damage type where all 3 units of SKU item 'Test' were missing upon arrival as evidenced by a video presentation of the empty and torn packaging."
+    },
+    "status": "ok",
+    "latency_ms": 726.5093000005436,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 156,
+      "completion_tokens": 44
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_6efe172ffea4",
+    "agent": "policy_agent",
+    "timestamp": "2026-06-29T18:23:52.659569+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item",
+      "damage_type": "shortage"
+    },
+    "output_summary": {
+      "eligible_for_claim": true,
+      "liable": "pending",
+      "justification": "The SLA-grounded answer states that the case is eligible for a damage claim review due to visible external packaging damage, but does not mention liability."
+    },
+    "status": "ok",
+    "latency_ms": 1950.893699999142,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 492,
+      "completion_tokens": 50
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_6efe172ffea4",
+    "agent": "inventory_agent",
+    "timestamp": "2026-06-29T18:23:52.749812+00:00",
+    "input_summary": {
+      "customer_username": "abc",
+      "vendor_username": "vendory",
+      "sku": "Item"
+    },
+    "output_summary": {
+      "risk": "critical",
+      "customer_qty_before_damage": 3,
+      "customer_qty_after_damage": 0,
+      "vendor_qty_on_hand": 0,
+      "vendor_reorder_threshold": 0,
+      "vendor_below_threshold": false
+    },
+    "status": "ok",
+    "latency_ms": 67.92309999946156,
+    "model": null,
+    "tokens": null,
+    "error": null
+  },
+  {
+    "run_id": "run_6efe172ffea4",
+    "agent": "reorder_agent",
+    "timestamp": "2026-06-29T18:23:53.113763+00:00",
+    "input_summary": {
+      "sku": "Item",
+      "damaged_qty": 3
+    },
+    "output_summary": {
+      "id": 39,
+      "order_number": "ORD-0039",
+      "customer_username": "abc",
+      "vendor_username": "vendory",
+      "items": [
+        {
+          "sku": "Item",
+          "item_name": "Test",
+          "qty": 3
+        }
+      ],
+      "status": "requested",
+      "undelivered_reason": null,
+      "requested_at": "2026-06-29T18:23:53.029961+00:00",
+      "created_at": "2026-06-29T18:23:53.031967+00:00",
+      "updated_at": "2026-06-29T18:23:53.031967+00:00",
+      "reorder_note": "A replacement-stock order was auto-generated for the customer due to the critical inventory risk resulting from the shortage of 3 units of 'Test' on order ORD-0033."
+    },
+    "status": "ok",
+    "latency_ms": 340.3498999996373,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 110,
+      "completion_tokens": 36
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_6efe172ffea4",
+    "agent": "claim_agent",
+    "timestamp": "2026-06-29T18:23:53.870692+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item",
+      "eligible_for_claim": true
+    },
+    "output_summary": {
+      "id": 22,
+      "claim_number": "CLM-0022",
+      "customer_username": "abc",
+      "vendor_username": "vendory",
+      "order_id": 33,
+      "sku": "Item",
+      "damage_type": "shortage",
+      "damaged_qty": 3,
+      "claim_text": "Order ORD-0033 was received with a shortage of 3 out of 3 Test items, resulting in a total claim amount. Visible external packaging damage was noted, which may have contributed to the shortage. As per the Service Level Agreement, this case is eligible for a damage claim review. The claim is currently pending liability determination, and further investigation is required to assess responsibility. A thorough review of the shipment and packaging is necessary to determine the cause of the shortage and assign liability accordingly.",
+      "status": "pending",
+      "decision_reason": null,
+      "created_at": "2026-06-29T18:23:53.789617+00:00",
+      "updated_at": "2026-06-29T18:23:53.789617+00:00"
+    },
+    "status": "ok",
+    "latency_ms": 735.1865000000544,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 155,
+      "completion_tokens": 99
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_6efe172ffea4",
+    "agent": "governance_agent",
+    "timestamp": "2026-06-29T18:23:54.570021+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item"
+    },
+    "output_summary": {
+      "case_summary": "Order ORD-0033 is pending claim review due to a shortage damage type where all 3 units of SKU item 'Test' were missing upon arrival as evidenced by a video presentation of the empty and torn packaging.",
+      "narrative": "Order ORD-0033 suffered a shortage damage with all 3 units of SKU item 'Test' missing upon arrival, prompting a claim review and subsequent claim filing. A replacement order for 3 units has been placed to mitigate inventory loss. The inventory risk level for this item is currently classified as critical due to the shortage. The claim is still under review to determine liability, with the replacement order ensuring timely replenishment of stock.",
+      "liable": "pending",
+      "eligible_for_claim": true,
+      "claim_filed": true,
+      "claim_id": 22,
+      "reorder_placed": true,
+      "reorder_order_id": 39,
+      "inventory_risk": "critical",
+      "inventory_alert_id": 99
+    },
+    "status": "ok",
+    "latency_ms": 678.458700000192,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 210,
+      "completion_tokens": 87
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_5c887d731f2f",
+    "agent": "inspector_agent",
+    "timestamp": "2026-06-29T18:25:10.066359+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item",
+      "file_count": 1,
+      "manual_transcript": false
+    },
+    "output_summary": {
+      "po_number": "WJ85264",
+      "damage_type": "crushing",
+      "damaged_qty": 1,
+      "evidence_notes": "The speaker shows a cardboard box with a torn and crushed top flap. He states that one unit is damaged and displays a yellow label with the identifier WJ85264.",
+      "confidence_notes": "High confidence. The identifier WJ85264 is clearly visible on the label, and the speaker confirms one unit is damaged."
+    },
+    "status": "ok",
+    "latency_ms": 7978.065000001152,
+    "model": "gemini-flash-latest",
+    "tokens": {
+      "prompt_tokens": 1598,
+      "completion_tokens": 119
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_5c887d731f2f",
+    "agent": "context_agent",
+    "timestamp": "2026-06-29T18:25:10.498907+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item"
+    },
+    "output_summary": {
+      "order_id": 33,
+      "order_number": "ORD-0033",
+      "customer_username": "abc",
+      "vendor_username": "vendory",
+      "sku": "Item",
+      "item_name": "Test",
+      "ordered_qty": 3,
+      "damaged_qty": 1,
+      "damage_type": "crushing",
+      "evidence_notes": "The speaker shows a cardboard box with a torn and crushed top flap. He states that one unit is damaged and displays a yellow label with the identifier WJ85264.",
+      "confidence_notes": "High confidence. The identifier WJ85264 is clearly visible on the label, and the speaker confirms one unit is damaged.",
+      "stated_po_number": "WJ85264",
+      "po_number_mismatch": true,
+      "needs_review": true,
+      "qty_was_clamped": false,
+      "case_summary": "Order ORD-0033 sustained crushing damage to 1 of 3 'Test' SKU items, evidenced by a torn and crushed cardboard box top flap and a yellow label with identifier WJ85264."
+    },
+    "status": "ok",
+    "latency_ms": 376.7523999995319,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 139,
+      "completion_tokens": 42
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_5c887d731f2f",
+    "agent": "policy_agent",
+    "timestamp": "2026-06-29T18:25:12.747368+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item",
+      "damage_type": "crushing"
+    },
+    "output_summary": {
+      "eligible_for_claim": true,
+      "liable": "pending",
+      "justification": "The SLA excerpts state that the case is eligible for a damage claim review due to visible external packaging damage and the possibility of content damage, but do not address liability."
+    },
+    "status": "ok",
+    "latency_ms": 2216.3932000003115,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 487,
+      "completion_tokens": 54
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_5c887d731f2f",
+    "agent": "inventory_agent",
+    "timestamp": "2026-06-29T18:25:12.833119+00:00",
+    "input_summary": {
+      "customer_username": "abc",
+      "vendor_username": "vendory",
+      "sku": "Item"
+    },
+    "output_summary": {
+      "risk": "warning",
+      "customer_qty_before_damage": 3,
+      "customer_qty_after_damage": 2,
+      "vendor_qty_on_hand": 0,
+      "vendor_reorder_threshold": 0,
+      "vendor_below_threshold": false
+    },
+    "status": "ok",
+    "latency_ms": 60.15389999993204,
+    "model": null,
+    "tokens": null,
+    "error": null
+  },
+  {
+    "run_id": "run_5c887d731f2f",
+    "agent": "reorder_agent",
+    "timestamp": "2026-06-29T18:25:13.324467+00:00",
+    "input_summary": {
+      "sku": "Item",
+      "damaged_qty": 1
+    },
+    "output_summary": {
+      "id": 40,
+      "order_number": "ORD-0040",
+      "customer_username": "abc",
+      "vendor_username": "vendory",
+      "items": [
+        {
+          "sku": "Item",
+          "item_name": "Test",
+          "qty": 1
+        }
+      ],
+      "status": "requested",
+      "undelivered_reason": null,
+      "requested_at": "2026-06-29T18:25:13.228741+00:00",
+      "created_at": "2026-06-29T18:25:13.230747+00:00",
+      "updated_at": "2026-06-29T18:25:13.230747+00:00",
+      "reorder_note": "A replacement-stock order was auto-generated for the customer due to the crushing damage to 1 unit of 'Test' on order ORD-0033, which triggered an inventory risk warning."
+    },
+    "status": "ok",
+    "latency_ms": 460.51249999982247,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 110,
+      "completion_tokens": 38
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_5c887d731f2f",
+    "agent": "claim_agent",
+    "timestamp": "2026-06-29T18:25:14.166797+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item",
+      "eligible_for_claim": true
+    },
+    "output_summary": {
+      "id": 23,
+      "claim_number": "CLM-0023",
+      "customer_username": "abc",
+      "vendor_username": "vendory",
+      "order_id": 33,
+      "sku": "Item",
+      "damage_type": "crushing",
+      "damaged_qty": 1,
+      "claim_text": "Order ORD-0033 contained three units of Test SKU Item, but upon arrival, one unit was found to have suffered crushing damage. The external packaging of the shipment exhibited visible damage, which may have contributed to the damage of the enclosed item. As per the applicable Service Level Agreement, this shipment is eligible for a damage claim review due to the noticeable external packaging damage and potential content damage. A thorough review of the claim is required to determine liability and assess the extent of the damage to the affected unit. The claimant is seeking compensation for the damaged item and awaits a determination regarding liability.",
+      "status": "pending",
+      "decision_reason": null,
+      "created_at": "2026-06-29T18:25:14.080705+00:00",
+      "updated_at": "2026-06-29T18:25:14.080705+00:00"
+    },
+    "status": "ok",
+    "latency_ms": 821.73149999835,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 159,
+      "completion_tokens": 119
+    },
+    "error": null
+  },
+  {
+    "run_id": "run_5c887d731f2f",
+    "agent": "governance_agent",
+    "timestamp": "2026-06-29T18:25:14.902659+00:00",
+    "input_summary": {
+      "order_id": 33,
+      "sku": "Item"
+    },
+    "output_summary": {
+      "case_summary": "Order ORD-0033 sustained crushing damage to 1 of 3 'Test' SKU items, evidenced by a torn and crushed cardboard box top flap and a yellow label with identifier WJ85264.",
+      "narrative": "Order ORD-0033 incurred freight damage resulting in a crushed 'Test' SKU item, prompting a claim filing and replacement order for one unit. The claim has been filed and a replacement order has been placed to mitigate inventory risk. The current inventory risk level is warning due to the damage and pending liability determination. The case remains open pending further review to determine liability and finalize the claim.",
+      "liable": "pending",
+      "eligible_for_claim": true,
+      "claim_filed": true,
+      "claim_id": 23,
+      "reorder_placed": true,
+      "reorder_order_id": 40,
+      "inventory_risk": "warning",
+      "inventory_alert_id": 102
+    },
+    "status": "ok",
+    "latency_ms": 711.7478000000119,
+    "model": "llama-3.3-70b-versatile",
+    "tokens": {
+      "prompt_tokens": 212,
+      "completion_tokens": 78
     },
     "error": null
   }

@@ -51,6 +51,16 @@ export default function Users({ filterRole, title }: UsersProps) {
   const [editing, setEditing] = useState<User | null>(null);
   const [form, setForm] = useState<FormState>(emptyForm(filterRole ?? "vendor"));
   const [deleteUser, setDeleteUser] = useState<User | null>(null);
+  const [passwordPolicy, setPasswordPolicy] = useState<string | null>(null);
+
+  useEffect(() => {
+    api
+      .get<{ description: string }>("/api/auth/password-policy")
+      .then((res) => setPasswordPolicy(res.description))
+      .catch(() => {
+        /* non-critical hint text — fail silently */
+      });
+  }, []);
 
   async function load() {
     setLoading(true);
@@ -227,12 +237,16 @@ export default function Users({ filterRole, title }: UsersProps) {
           <Input label="Display name" value={form.display_name} onChange={(e) => setForm({ ...form, display_name: e.target.value })} />
           <Input label="Company name" value={form.company_name} onChange={(e) => setForm({ ...form, company_name: e.target.value })} />
           <Input label="Email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
-          <Input
-            label={editing ? "New password (leave blank to keep)" : "Password"}
-            type="password"
-            value={form.password}
-            onChange={(e) => setForm({ ...form, password: e.target.value })}
-          />
+          <div>
+            <Input
+              label={editing ? "New password (leave blank to keep)" : "Password"}
+              type="password"
+              minLength={8}
+              value={form.password}
+              onChange={(e) => setForm({ ...form, password: e.target.value })}
+            />
+            {passwordPolicy && <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">{passwordPolicy}</p>}
+          </div>
           {form.role === "customer" && (
             <div className="flex flex-col gap-1">
               <span className="text-xs font-medium text-slate-600 dark:text-slate-300">Linked vendors</span>

@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ai-app-frontend",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "ai-app/frontend",
+      "port": 5174
+    },
+    {
+      "name": "erp-app-frontend",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "erp-app/frontend",
+      "port": 5173
+    }
+  ]
+}

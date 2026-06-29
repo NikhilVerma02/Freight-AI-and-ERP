@@ -52,8 +52,10 @@ def create_user(payload: UserCreate, current_user: dict = Depends(require_role(*
         raise HTTPException(status_code=400, detail="role must be one of admin|vendor|customer")
     try:
         record = svc.create_user(data, actor=current_user["username"])
-    except ValueError:
-        raise HTTPException(status_code=409, detail="Username already exists")
+    except ValueError as exc:
+        if "duplicate key" in str(exc):
+            raise HTTPException(status_code=409, detail="Username already exists")
+        raise HTTPException(status_code=400, detail=str(exc))
     if record["role"] == "customer" and vendor_usernames:
         links_svc.set_links_for_customer(record["username"], vendor_usernames, actor=current_user["username"])
     return record
@@ -64,7 +66,10 @@ def update_user(username: str, payload: UserPatch, current_user: dict = Depends(
     data = payload.model_dump()
     vendor_usernames = data.pop("vendor_usernames", None)
     patch = {k: v for k, v in data.items() if v is not None}
-    record = svc.update_user(username, patch, actor=current_user["username"])
+    try:
+        record = svc.update_user(username, patch, actor=current_user["username"])
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
     if not record:
         raise HTTPException(status_code=404, detail="User not found")
     if record["role"] == "customer" and vendor_usernames is not None:

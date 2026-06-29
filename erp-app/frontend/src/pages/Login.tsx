@@ -1,10 +1,69 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth, ApiError } from "../lib/auth";
+import { api } from "../lib/api";
 import { Button } from "../components/ui/Button";
 import { Input, Select } from "../components/ui/Input";
 
 type Mode = "signin" | "signup";
+
+function UserIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+      <path d="M20 21a8 8 0 0 0-16 0" />
+      <circle cx="12" cy="7" r="4" />
+    </svg>
+  );
+}
+
+function LockIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+      <rect x="5" y="11" width="14" height="9" rx="2" />
+      <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+    </svg>
+  );
+}
+
+/** Original inline illustration (no external image) standing in for the reference's photo
+ * panel — a stylized skyline using only the app's existing accent palette. */
+function SkylineIllustration() {
+  return (
+    <svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMax slice" className="h-full w-full">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#2563eb" />
+          <stop offset="100%" stopColor="#1e3a8a" />
+        </linearGradient>
+        <linearGradient id="bld1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.9" />
+          <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.6" />
+        </linearGradient>
+      </defs>
+      <rect width="400" height="600" fill="url(#sky)" />
+      <g opacity="0.5">
+        <circle cx="320" cy="90" r="60" fill="#93c5fd" opacity="0.25" />
+        <circle cx="80" cy="60" r="40" fill="#bfdbfe" opacity="0.2" />
+      </g>
+      <g fill="url(#bld1)">
+        <rect x="20" y="360" width="50" height="240" />
+        <rect x="80" y="300" width="40" height="300" />
+        <rect x="130" y="400" width="55" height="200" />
+        <rect x="195" y="260" width="45" height="340" />
+        <rect x="250" y="340" width="60" height="260" />
+        <rect x="320" y="380" width="50" height="220" />
+      </g>
+      <g fill="#dbeafe" opacity="0.5">
+        {Array.from({ length: 26 }).map((_, i) => (
+          <rect key={i} x={28 + (i % 6) * 56} y={280 + Math.floor(i / 6) * 30} width="8" height="10" />
+        ))}
+      </g>
+      <g stroke="#bfdbfe" strokeWidth="2" opacity="0.4" fill="none">
+        <path d="M0 600 Q 100 560 200 590 T 400 570" />
+      </g>
+    </svg>
+  );
+}
 
 export default function Login() {
   const { login, signup, user } = useAuth();
@@ -26,6 +85,16 @@ export default function Login() {
 
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [passwordPolicy, setPasswordPolicy] = useState<string | null>(null);
+
+  useEffect(() => {
+    api
+      .get<{ description: string }>("/api/auth/password-policy")
+      .then((res) => setPasswordPolicy(res.description))
+      .catch(() => {
+        /* non-critical hint text — fail silently */
+      });
+  }, []);
 
   if (user) {
     const dest = (location.state as { from?: string } | null)?.from || "/";
@@ -73,68 +142,31 @@ export default function Login() {
   }
 
   return (
-    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-slate-800 px-4 dark:from-black dark:via-navy-950 dark:to-navy-900">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-40"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 20% 20%, rgba(59,130,246,0.25), transparent 40%), radial-gradient(circle at 80% 0%, rgba(96,165,250,0.18), transparent 35%), radial-gradient(circle at 50% 100%, rgba(37,99,235,0.2), transparent 40%)",
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-        }}
-      />
-
-      <div className="relative w-full max-w-md">
-        <div className="mb-6 flex flex-col items-center gap-3 text-center">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-accent-dark text-2xl font-bold text-white shadow-xl shadow-accent/30 ring-1 ring-white/10">
+    <div className="relative flex min-h-screen items-center justify-center bg-gradient-to-br from-sky-50 via-blue-50 to-white px-4 py-10 dark:from-navy-950 dark:via-navy-900 dark:to-black">
+      <div className="relative flex w-full max-w-4xl overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-black/5 dark:bg-navy-800 dark:ring-white/10">
+        {/* Left: form panel */}
+        <div className="flex w-full flex-col gap-5 p-8 sm:p-10 md:w-[55%]">
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-accent-dark text-lg font-bold text-white shadow-lg shadow-accent/30">
             F
           </div>
-          <div>
-            <h1 className="text-2xl font-semibold tracking-tight text-white">Freight ERP</h1>
-            <p className="mt-1 text-sm text-slate-400">
-              {mode === "signin" ? "Sign in to the system of record" : "Create a vendor or customer account"}
-            </p>
-          </div>
-        </div>
 
-        <div className="rounded-2xl bg-white p-7 shadow-2xl ring-1 ring-black/5 dark:bg-navy-800 dark:ring-white/10">
-          <div className="mb-5 flex rounded-lg bg-slate-100 p-1 dark:bg-navy-900">
-            <button
-              type="button"
-              onClick={() => switchMode("signin")}
-              className={`flex-1 rounded-md py-1.5 text-sm font-medium transition-colors ${
-                mode === "signin"
-                  ? "bg-white text-slate-900 shadow-sm dark:bg-navy-700 dark:text-white"
-                  : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
-              }`}
-            >
-              Sign in
-            </button>
-            <button
-              type="button"
-              onClick={() => switchMode("signup")}
-              className={`flex-1 rounded-md py-1.5 text-sm font-medium transition-colors ${
-                mode === "signup"
-                  ? "bg-white text-slate-900 shadow-sm dark:bg-navy-700 dark:text-white"
-                  : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
-              }`}
-            >
-              Sign up
-            </button>
+          <div>
+            <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
+              {mode === "signin" ? "Sign In" : "Sign Up"}
+            </h1>
+            <p className="mt-1.5 text-sm text-slate-500 dark:text-slate-400">
+              {mode === "signin"
+                ? "Welcome to Freight ERP. Please enter your username and password."
+                : "Create a vendor or customer account to get started."}
+            </p>
           </div>
 
           {mode === "signin" ? (
             <form onSubmit={handleSignIn} className="flex flex-col gap-4">
               <Input
                 id="username"
-                label="Username"
-                placeholder="e.g. admin"
+                icon={<UserIcon />}
+                placeholder="Username"
                 autoComplete="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -142,9 +174,9 @@ export default function Login() {
               />
               <Input
                 id="password"
-                label="Password"
+                icon={<LockIcon />}
                 type="password"
-                placeholder="••••••••"
+                placeholder="Password"
                 autoComplete="current-password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -156,7 +188,7 @@ export default function Login() {
                 </p>
               )}
               <Button type="submit" disabled={submitting} className="mt-1 w-full">
-                {submitting ? "Signing in..." : "Sign in"}
+                {submitting ? "Signing in..." : "Sign In"}
               </Button>
             </form>
           ) : (
@@ -170,45 +202,24 @@ export default function Login() {
                 <option value="customer">Customer</option>
                 <option value="vendor">Vendor</option>
               </Select>
-              <Input
-                id="su-username"
-                label="Username"
-                placeholder="choose a username"
-                autoComplete="username"
-                value={suUsername}
-                onChange={(e) => setSuUsername(e.target.value)}
-                required
-              />
-              <Input
-                id="su-password"
-                label="Password"
-                type="password"
-                placeholder="••••••••"
-                autoComplete="new-password"
-                value={suPassword}
-                onChange={(e) => setSuPassword(e.target.value)}
-                required
-              />
-              <Input
-                id="su-display-name"
-                label="Display name"
-                placeholder="e.g. Acme Logistics"
-                value={suDisplayName}
-                onChange={(e) => setSuDisplayName(e.target.value)}
-              />
-              <Input
-                id="su-company"
-                label="Company name (optional)"
-                value={suCompany}
-                onChange={(e) => setSuCompany(e.target.value)}
-              />
-              <Input
-                id="su-email"
-                label="Email (optional)"
-                type="email"
-                value={suEmail}
-                onChange={(e) => setSuEmail(e.target.value)}
-              />
+              <Input id="su-username" icon={<UserIcon />} placeholder="Choose a username" autoComplete="username" value={suUsername} onChange={(e) => setSuUsername(e.target.value)} required />
+              <div>
+                <Input
+                  id="su-password"
+                  icon={<LockIcon />}
+                  type="password"
+                  placeholder="Password"
+                  autoComplete="new-password"
+                  minLength={8}
+                  value={suPassword}
+                  onChange={(e) => setSuPassword(e.target.value)}
+                  required
+                />
+                {passwordPolicy && <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">{passwordPolicy}</p>}
+              </div>
+              <Input id="su-display-name" label="Display name" placeholder="e.g. Acme Logistics" value={suDisplayName} onChange={(e) => setSuDisplayName(e.target.value)} />
+              <Input id="su-company" label="Company name (optional)" value={suCompany} onChange={(e) => setSuCompany(e.target.value)} />
+              <Input id="su-email" label="Email (optional)" type="email" value={suEmail} onChange={(e) => setSuEmail(e.target.value)} />
               {suRole === "customer" && (
                 <p className="rounded-lg bg-accent/5 px-3 py-2 text-xs text-slate-600 ring-1 ring-accent/20 dark:text-slate-300">
                   An admin will link your account to vendors before you can place orders.
@@ -220,19 +231,43 @@ export default function Login() {
                 </p>
               )}
               <Button type="submit" disabled={submitting} className="mt-1 w-full">
-                {submitting ? "Creating account..." : "Create account"}
+                {submitting ? "Creating account..." : "Register"}
               </Button>
             </form>
           )}
 
+          <p className="text-sm text-slate-500 dark:text-slate-400">
+            {mode === "signin" ? (
+              <>
+                Don't have an account?{" "}
+                <button type="button" onClick={() => switchMode("signup")} className="font-medium text-accent hover:underline">
+                  Click here to Sign Up
+                </button>
+              </>
+            ) : (
+              <>
+                Already have an account?{" "}
+                <button type="button" onClick={() => switchMode("signin")} className="font-medium text-accent hover:underline">
+                  Click here to Sign In
+                </button>
+              </>
+            )}
+          </p>
+
           {mode === "signin" && (
-            <div className="mt-5 rounded-lg bg-slate-50 px-3 py-3 text-xs text-slate-500 ring-1 ring-slate-200 dark:bg-navy-900 dark:text-slate-400 dark:ring-navy-700">
+            <div className="rounded-lg bg-slate-50 px-3 py-3 text-xs text-slate-500 ring-1 ring-slate-200 dark:bg-navy-900 dark:text-slate-400 dark:ring-navy-700">
               <p className="mb-1 font-semibold text-slate-600 dark:text-slate-300">Demo credentials</p>
-              <p>admin / admin — platform admin</p>
-              <p>vendorx / vendorx — vendor (also vendory, vendorz)</p>
-              <p>customera / customera — customer (also customerb)</p>
+              <p>admin / Admin@123 — platform admin</p>
+              <p>vendorx / Vendorx@123 — vendor (also vendory, vendorz)</p>
+              <p>customera / Customera@123 — customer (also customerb)</p>
             </div>
           )}
+        </div>
+
+        {/* Right: illustration panel */}
+        <div className="relative hidden w-[45%] md:block">
+          <SkylineIllustration />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-950/30 via-transparent to-transparent" />
         </div>
       </div>
     </div>

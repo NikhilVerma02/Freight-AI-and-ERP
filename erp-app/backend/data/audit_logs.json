@@ -1519,5 +1519,437 @@
     "module": "alerts",
     "record_id": 77,
     "details": "alert to vendorx: Inventory risk (warning) \u2014 Steel Chassis Frame A"
+  },
+  {
+    "id": 170,
+    "timestamp": "2026-06-29T14:27:43.409945+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "orders",
+    "record_id": 31,
+    "details": "order ORD-0031 customera -> vendorx"
+  },
+  {
+    "id": 171,
+    "timestamp": "2026-06-29T14:27:43.523440+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 78,
+    "details": "alert to vendorx: New order ORD-0031"
+  },
+  {
+    "id": 172,
+    "timestamp": "2026-06-29T14:27:44.855223+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "claims",
+    "record_id": 19,
+    "details": "claim CLM-0019 on order 1"
+  },
+  {
+    "id": 173,
+    "timestamp": "2026-06-29T14:27:44.889774+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 79,
+    "details": "alert to vendorx: New claim CLM-0019"
+  },
+  {
+    "id": 174,
+    "timestamp": "2026-06-29T14:27:44.973611+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 80,
+    "details": "alert to vendorx: Inventory risk (warning) \u2014 Steel Chassis Frame A"
+  },
+  {
+    "id": 175,
+    "timestamp": "2026-06-29T14:28:34.603399+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "orders",
+    "record_id": 32,
+    "details": "order ORD-0032 customera -> vendorx"
+  },
+  {
+    "id": 176,
+    "timestamp": "2026-06-29T14:28:34.641557+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 81,
+    "details": "alert to vendorx: New order ORD-0032"
+  },
+  {
+    "id": 177,
+    "timestamp": "2026-06-29T14:28:35.647386+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "claims",
+    "record_id": 20,
+    "details": "claim CLM-0020 on order 1"
+  },
+  {
+    "id": 178,
+    "timestamp": "2026-06-29T14:28:35.696093+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 82,
+    "details": "alert to vendorx: New claim CLM-0020"
+  },
+  {
+    "id": 179,
+    "timestamp": "2026-06-29T14:28:35.760248+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 83,
+    "details": "alert to vendorx: Inventory risk (warning) \u2014 Steel Chassis Frame A"
+  },
+  {
+    "id": 180,
+    "timestamp": "2026-06-29T17:00:34.890386+00:00",
+    "actor": "testweak",
+    "action": "create",
+    "module": "users",
+    "record_id": null,
+    "details": "created user testweak"
+  },
+  {
+    "id": 181,
+    "timestamp": "2026-06-29T17:00:35.331473+00:00",
+    "actor": "testcompliant",
+    "action": "create",
+    "module": "users",
+    "record_id": null,
+    "details": "created user testcompliant"
+  },
+  {
+    "id": 182,
+    "timestamp": "2026-06-29T17:01:53.964063+00:00",
+    "actor": "testcompliant2",
+    "action": "create",
+    "module": "users",
+    "record_id": null,
+    "details": "created user testcompliant2"
+  },
+  {
+    "id": 183,
+    "timestamp": "2026-06-29T18:05:23.000621+00:00",
+    "actor": "abc",
+    "action": "create",
+    "module": "users",
+    "record_id": null,
+    "details": "created user abc"
+  },
+  {
+    "id": 184,
+    "timestamp": "2026-06-29T18:06:18.688962+00:00",
+    "actor": "vendory",
+    "action": "create",
+    "module": "customer_vendor_links",
+    "record_id": 6,
+    "details": "linked abc <-> vendory"
+  },
+  {
+    "id": 185,
+    "timestamp": "2026-06-29T18:06:51.846752+00:00",
+    "actor": "abc",
+    "action": "create",
+    "module": "orders",
+    "record_id": 33,
+    "details": "order ORD-0033 abc -> vendory"
+  },
+  {
+    "id": 186,
+    "timestamp": "2026-06-29T18:06:51.884169+00:00",
+    "actor": "abc",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 84,
+    "details": "alert to vendory: New order ORD-0033"
+  },
+  {
+    "id": 187,
+    "timestamp": "2026-06-29T18:07:22.500318+00:00",
+    "actor": "vendory",
+    "action": "update",
+    "module": "orders",
+    "record_id": 33,
+    "details": "status -> delivered"
+  },
+  {
+    "id": 188,
+    "timestamp": "2026-06-29T18:07:22.532270+00:00",
+    "actor": "vendory",
+    "action": "create",
+    "module": "customer_inventory",
+    "record_id": 2,
+    "details": "created Item qty=3 for abc"
+  },
+  {
+    "id": 189,
+    "timestamp": "2026-06-29T18:07:22.570295+00:00",
+    "actor": "vendory",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 85,
+    "details": "alert to abc: Order ORD-0033 delivered"
+  },
+  {
+    "id": 190,
+    "timestamp": "2026-06-29T18:09:24.448952+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "orders",
+    "record_id": 34,
+    "details": "order ORD-0034 abc -> vendory"
+  },
+  {
+    "id": 191,
+    "timestamp": "2026-06-29T18:09:24.517017+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 86,
+    "details": "alert to vendory: New order ORD-0034"
+  },
+  {
+    "id": 192,
+    "timestamp": "2026-06-29T18:09:24.778356+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 87,
+    "details": "alert to vendory: Inventory risk (critical) \u2014 Test"
+  },
+  {
+    "id": 193,
+    "timestamp": "2026-06-29T18:10:58.677643+00:00",
+    "actor": "vendory",
+    "action": "upsert",
+    "module": "vendor_sla",
+    "record_id": 5,
+    "details": "SLA uploaded for vendory -> ['abc'] (vendory_1782756658544.pdf)"
+  },
+  {
+    "id": 194,
+    "timestamp": "2026-06-29T18:14:38.929279+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "orders",
+    "record_id": 35,
+    "details": "order ORD-0035 abc -> vendory"
+  },
+  {
+    "id": 195,
+    "timestamp": "2026-06-29T18:14:38.979740+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 88,
+    "details": "alert to vendory: New order ORD-0035"
+  },
+  {
+    "id": 196,
+    "timestamp": "2026-06-29T18:14:39.902577+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "claims",
+    "record_id": 21,
+    "details": "claim CLM-0021 on order 33"
+  },
+  {
+    "id": 197,
+    "timestamp": "2026-06-29T18:14:39.978960+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 89,
+    "details": "alert to vendory: New claim CLM-0021"
+  },
+  {
+    "id": 198,
+    "timestamp": "2026-06-29T18:14:40.125120+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 90,
+    "details": "alert to vendory: Inventory risk (critical) \u2014 Test"
+  },
+  {
+    "id": 199,
+    "timestamp": "2026-06-29T18:18:41.302458+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "orders",
+    "record_id": 36,
+    "details": "order ORD-0036 abc -> vendory"
+  },
+  {
+    "id": 200,
+    "timestamp": "2026-06-29T18:18:41.334119+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 91,
+    "details": "alert to vendory: New order ORD-0036"
+  },
+  {
+    "id": 201,
+    "timestamp": "2026-06-29T18:18:41.447989+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 92,
+    "details": "alert to vendory: Inventory risk (warning) \u2014 Test"
+  },
+  {
+    "id": 202,
+    "timestamp": "2026-06-29T18:19:28.252890+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "orders",
+    "record_id": 37,
+    "details": "order ORD-0037 abc -> vendory"
+  },
+  {
+    "id": 203,
+    "timestamp": "2026-06-29T18:19:28.436275+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 93,
+    "details": "alert to vendory: New order ORD-0037"
+  },
+  {
+    "id": 204,
+    "timestamp": "2026-06-29T18:19:28.913672+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 94,
+    "details": "alert to vendory: Inventory risk (warning) \u2014 Test"
+  },
+  {
+    "id": 205,
+    "timestamp": "2026-06-29T18:20:17.650430+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "orders",
+    "record_id": 38,
+    "details": "order ORD-0038 abc -> vendory"
+  },
+  {
+    "id": 206,
+    "timestamp": "2026-06-29T18:20:17.692207+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 95,
+    "details": "alert to vendory: New order ORD-0038"
+  },
+  {
+    "id": 207,
+    "timestamp": "2026-06-29T18:20:17.849700+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 96,
+    "details": "alert to vendory: Inventory risk (warning) \u2014 Test"
+  },
+  {
+    "id": 208,
+    "timestamp": "2026-06-29T18:23:53.038182+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "orders",
+    "record_id": 39,
+    "details": "order ORD-0039 abc -> vendory"
+  },
+  {
+    "id": 209,
+    "timestamp": "2026-06-29T18:23:53.077796+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 97,
+    "details": "alert to vendory: New order ORD-0039"
+  },
+  {
+    "id": 210,
+    "timestamp": "2026-06-29T18:23:53.794929+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "claims",
+    "record_id": 22,
+    "details": "claim CLM-0022 on order 33"
+  },
+  {
+    "id": 211,
+    "timestamp": "2026-06-29T18:23:53.841435+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 98,
+    "details": "alert to vendory: New claim CLM-0022"
+  },
+  {
+    "id": 212,
+    "timestamp": "2026-06-29T18:23:53.942853+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 99,
+    "details": "alert to vendory: Inventory risk (critical) \u2014 Test"
+  },
+  {
+    "id": 213,
+    "timestamp": "2026-06-29T18:25:13.241780+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "orders",
+    "record_id": 40,
+    "details": "order ORD-0040 abc -> vendory"
+  },
+  {
+    "id": 214,
+    "timestamp": "2026-06-29T18:25:13.289755+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 100,
+    "details": "alert to vendory: New order ORD-0040"
+  },
+  {
+    "id": 215,
+    "timestamp": "2026-06-29T18:25:14.087739+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "claims",
+    "record_id": 23,
+    "details": "claim CLM-0023 on order 33"
+  },
+  {
+    "id": 216,
+    "timestamp": "2026-06-29T18:25:14.135898+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 101,
+    "details": "alert to vendory: New claim CLM-0023"
+  },
+  {
+    "id": 217,
+    "timestamp": "2026-06-29T18:25:14.240644+00:00",
+    "actor": "ai-agent",
+    "action": "create",
+    "module": "alerts",
+    "record_id": 102,
+    "details": "alert to vendory: Inventory risk (warning) \u2014 Test"
   }
 ]

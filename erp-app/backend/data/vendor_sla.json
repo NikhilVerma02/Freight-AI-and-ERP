@@ -37,5 +37,18 @@
     "uploaded_at": "2026-06-28T10:39:15.737343+00:00",
     "created_at": "2026-06-28T10:39:15.738339+00:00",
     "updated_at": "2026-06-28T10:39:15.738339+00:00"
+  },
+  {
+    "id": 5,
+    "vendor_username": "vendory",
+    "customer_usernames": [
+      "abc"
+    ],
+    "sla_document_filename": "vendory_1782756658544.pdf",
+    "sla_text_cache": "Claims SLA \u2013 Eligibility for Suspected \nTransit Damage \nDamage Assessment Criteria \nClaim Eligibility \nA shipment is eligible for a damage claim review when: \n1. Visible external packaging damage is present, including but not limited to: \no Large tears \no Crushing or compression \no Punctures \no Structural deformation of the carton or palletized load \n2. The observed packaging damage could reasonably have affected the contents, even if the \ncontents are not directly visible during inspection. \n3. The inspection evidence is sufficient to indicate potential transit damage but insufficient \nto determine the full extent of product damage. \nApplicable Evidence \n\uf0b7 Evidence Notes: \"The bottom box on the pallet has a large tear and appears crushed.\" \n\uf0b7 Confidence Notes: \"The extent of the damage to the contents of the box is not visible.\" \nSLA Decision \nStatus: Eligible for Claim Review \nReason: \nThe shipment exhibits significant external packaging damage (tear and crushing), creating a \nreasonable possibility of damage to the enclosed goods. Because the contents cannot be visually \ninspected from the available evidence, the claim should remain eligible and proceed for \nadditional validation rather than being rejected due to lack of visible internal damage. \nRequired Next Steps \n\uf0b7 Record photographic evidence of the damaged packaging. \n\uf0b7 Request photographs of the contents after opening, if available. \n\uf0b7 Verify shipment handling history and delivery condition. \n\uf0b7 Process the claim according to standard damage assessment procedures once additional \nevidence is received. \n ",
+    "liability_summary": "Claims SLA \u2013 Eligibility for Suspected \nTransit Damage \nDamage Assessment Criteria \nClaim Eligibility \nA shipment is eligible for a damage claim review when: \n1. Visible external packaging damage is present, including but not limited to: \no Large tears \no Crushing or compression \no Punctures \no Stru...",
+    "uploaded_at": "2026-06-29T18:10:58.671805+00:00",
+    "created_at": "2026-06-29T18:10:58.671805+00:00",
+    "updated_at": "2026-06-29T18:10:58.671805+00:00"
   }
 ]

@@ -28,13 +28,15 @@ def seed_users() -> None:
     path = DATA_DIR / "users.json"
     if not _is_empty(path):
         return
+    # Passwords follow the app's password policy (see app/services/users.py:
+    # PASSWORD_POLICY_DESCRIPTION) — min 8 chars, upper+lower+digit+special char.
     demo_users = [
-        ("admin", "admin", "admin", "Alex Admin", None, "admin@freighterp.com"),
-        ("vendorx", "vendorx", "vendor", "Vendor X", "Vendor X Logistics", "ops@vendorx.com"),
-        ("vendory", "vendory", "vendor", "Vendor Y", "Vendor Y Freight", "ops@vendory.com"),
-        ("vendorz", "vendorz", "vendor", "Vendor Z", "Vendor Z Transport", "ops@vendorz.com"),
-        ("customera", "customera", "customer", "Customer A", "Customer A Manufacturing", "procurement@customera.com"),
-        ("customerb", "customerb", "customer", "Customer B", "Customer B Industries", "procurement@customerb.com"),
+        ("admin", "Admin@123", "admin", "Alex Admin", None, "admin@freighterp.com"),
+        ("vendorx", "Vendorx@123", "vendor", "Vendor X", "Vendor X Logistics", "ops@vendorx.com"),
+        ("vendory", "Vendory@123", "vendor", "Vendor Y", "Vendor Y Freight", "ops@vendory.com"),
+        ("vendorz", "Vendorz@123", "vendor", "Vendor Z", "Vendor Z Transport", "ops@vendorz.com"),
+        ("customera", "Customera@123", "customer", "Customer A", "Customer A Manufacturing", "procurement@customera.com"),
+        ("customerb", "Customerb@123", "customer", "Customer B", "Customer B Industries", "procurement@customerb.com"),
     ]
     ts = now_iso()
     records = []

@@ -1,14 +1,16 @@
 """
 POST /api/ingest/run — multipart: vendor/order are picked explicitly on the
-upload form (order_id, sku) plus one optional media file (video OR image —
-voice input is handled client-side via the browser's speech-to-text and
-folded into manual_transcript, so there's no separate audio upload) and/or
-a manual_transcript override. Streams the Inspector -> Context -> Policy ->
-Inventory -> Reorder -> Claim -> Governance agent pipeline as
-Server-Sent Events (one event the instant each agent starts, another the
-instant it finishes) so the UI can show live "executing" -> "done" state
-per agent instead of waiting for the whole run and faking a staggered
-reveal afterwards.
+upload form (order_id, sku) plus one optional media file (video, image, or
+audio — either a picked file, or one recorded live in-browser via
+getUserMedia/MediaRecorder and submitted the same way as a regular upload;
+see frontend LiveCapture.tsx) and/or a manual_transcript override. A video's
+embedded audio track (e.g. spoken narration while filming) is passed to
+Gemini as-is and understood natively — no separate transcription step.
+Streams the Inspector -> Context -> Policy -> Inventory -> Reorder -> Claim
+-> Governance agent pipeline as Server-Sent Events (one event the instant
+each agent starts, another the instant it finishes) so the UI can show live
+"executing" -> "done" state per agent instead of waiting for the whole run
+and faking a staggered reveal afterwards.
 
 GET /api/ingest/runs[, /{run_id}] — list/inspect past runs.
 GET /api/ingest/vendors|customers|orders — pickers for the upload form,
@@ -32,6 +34,8 @@ router = APIRouter(prefix="/api/ingest", tags=["ingest"])
 _MIME_BY_EXTENSION = {
     ".mp4": "video/mp4", ".mov": "video/quicktime", ".webm": "video/webm", ".avi": "video/x-msvideo",
     ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png", ".webp": "image/webp",
+    ".mp3": "audio/mpeg", ".wav": "audio/wav", ".m4a": "audio/mp4", ".ogg": "audio/ogg", ".oga": "audio/ogg",
+    ".aac": "audio/aac", ".flac": "audio/flac",
 }
 
 

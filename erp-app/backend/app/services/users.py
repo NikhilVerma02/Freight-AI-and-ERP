@@ -1,11 +1,35 @@
 from __future__ import annotations
 
+import re
+
 import bcrypt
 
 from app.services.audit_logs import log_action
 from app.store import CollectionByKey
 
 _users = CollectionByKey("users.json", key_field="username")
+
+PASSWORD_MIN_LENGTH = 8
+PASSWORD_POLICY_DESCRIPTION = (
+    f"Password must be at least {PASSWORD_MIN_LENGTH} characters and include an uppercase "
+    "letter, a lowercase letter, a number, and a special character."
+)
+
+
+def validate_password_policy(password: str) -> None:
+    """Raises ValueError with a user-facing message if `password` doesn't meet policy.
+    Called from create_user/update_user so every path that sets a password — signup,
+    admin create-user, admin edit-user — is covered from one place."""
+    if len(password) < PASSWORD_MIN_LENGTH:
+        raise ValueError(f"Password must be at least {PASSWORD_MIN_LENGTH} characters long")
+    if not re.search(r"[A-Z]", password):
+        raise ValueError("Password must contain at least one uppercase letter")
+    if not re.search(r"[a-z]", password):
+        raise ValueError("Password must contain at least one lowercase letter")
+    if not re.search(r"[0-9]", password):
+        raise ValueError("Password must contain at least one number")
+    if not re.search(r"[^A-Za-z0-9]", password):
+        raise ValueError("Password must contain at least one special character")
 
 
 def hash_password(plain: str) -> str:
@@ -38,6 +62,7 @@ def get_user_by_username(username: str, safe: bool = False) -> dict | None:
 def create_user(payload: dict, actor: str = "system") -> dict:
     plain_password = payload.pop("password", None)
     if plain_password:
+        validate_password_policy(plain_password)
         payload["password_hash"] = hash_password(plain_password)
     record = _users.create(payload)
     log_action(actor, "create", "users", None, f"created user {record.get('username')}")
@@ -47,6 +72,7 @@ def create_user(payload: dict, actor: str = "system") -> dict:
 def update_user(username: str, patch: dict, actor: str = "system") -> dict | None:
     plain_password = patch.pop("password", None)
     if plain_password:
+        validate_password_policy(plain_password)
         patch["password_hash"] = hash_password(plain_password)
     record = _users.update_by_key(username, patch)
     if record:

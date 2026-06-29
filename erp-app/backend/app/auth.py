@@ -11,12 +11,19 @@ from datetime import datetime, timedelta, timezone
 from fastapi import APIRouter, Depends, Header, HTTPException
 from pydantic import BaseModel
 
-from app.services.users import create_user, get_user_by_username, verify_password
+from app.services.users import PASSWORD_POLICY_DESCRIPTION, create_user, get_user_by_username, verify_password
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 
 SESSION_TTL_HOURS = 12
 SIGNUP_ROLES = {"vendor", "customer"}
+
+
+@router.get("/password-policy")
+def password_policy():
+    """Single source of truth for the password rule text, so both frontends (and any
+    future client) show the exact same copy instead of duplicating it."""
+    return {"description": PASSWORD_POLICY_DESCRIPTION}
 
 # token -> {user_id, username, role, expires_at}
 _sessions: dict[str, dict] = {}
@@ -77,17 +84,20 @@ def signup(payload: SignupRequest):
     if get_user_by_username(username):
         raise HTTPException(status_code=409, detail="Username already taken")
 
-    record = create_user(
-        {
-            "username": username,
-            "password": payload.password,
-            "role": payload.role,
-            "display_name": payload.display_name.strip() or username,
-            "company_name": payload.company_name,
-            "email": payload.email,
-        },
-        actor=username,
-    )
+    try:
+        record = create_user(
+            {
+                "username": username,
+                "password": payload.password,
+                "role": payload.role,
+                "display_name": payload.display_name.strip() or username,
+                "company_name": payload.company_name,
+                "email": payload.email,
+            },
+            actor=username,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
     return _issue_session(record)
 
 

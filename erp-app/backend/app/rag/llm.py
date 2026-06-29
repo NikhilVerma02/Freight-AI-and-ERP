@@ -25,25 +25,23 @@ def _get_client():
     return _client
 
 
-def answer_question(question: str, context_chunks: list[str], trace_id: str | None = None) -> str | None:
-    """Ask Groq to answer `question` grounded only in `context_chunks`. Returns None on failure.
+def chat(
+    system_prompt: str,
+    user_prompt: str,
+    name: str = "groq_chat",
+    temperature: float = 0.3,
+    trace_id: str | None = None,
+) -> str | None:
+    """Generic Groq chat-completion call, instrumented the same way for every caller
+    (SLA Q&A, the ERP chatbot, etc). Returns None on failure.
     trace_id (optional): Langfuse trace to nest this call under — see app/observability.py."""
     client = _get_client()
     if client is None:
         logger.warning("llm: GROQ_API_KEY not set — cannot answer")
         return None
 
-    context = "\n\n---\n\n".join(context_chunks) if context_chunks else "(no relevant SLA text found)"
-    system_prompt = (
-        "You are an assistant answering questions about a vendor's Service Level "
-        "Agreement (SLA) document. Answer ONLY using the SLA excerpts provided below. "
-        "If the answer isn't contained in the excerpts, say you don't have enough "
-        "information in the SLA to answer. Be concise."
-    )
-    user_prompt = f"SLA excerpts:\n{context}\n\nQuestion: {question}"
-
     generation = observability.start_generation(
-        trace_id, "groq_sla_answer", GROQ_CHAT_MODEL, input={"system": system_prompt, "user": user_prompt}
+        trace_id, name, GROQ_CHAT_MODEL, input={"system": system_prompt, "user": user_prompt}
     )
     try:
         resp = client.chat.completions.create(
@@ -52,7 +50,7 @@ def answer_question(question: str, context_chunks: list[str], trace_id: str | No
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ],
-            temperature=0.2,
+            temperature=temperature,
         )
         content = resp.choices[0].message.content
         usage = getattr(resp, "usage", None)
@@ -72,3 +70,16 @@ def answer_question(question: str, context_chunks: list[str], trace_id: str | No
         logger.error("llm: Groq chat completion failed: %s", exc)
         observability.finish_generation(generation, status="error", error=str(exc))
         return None
+
+
+def answer_question(question: str, context_chunks: list[str], trace_id: str | None = None) -> str | None:
+    """Ask Groq to answer `question` grounded only in `context_chunks`. Returns None on failure."""
+    context = "\n\n---\n\n".join(context_chunks) if context_chunks else "(no relevant SLA text found)"
+    system_prompt = (
+        "You are an assistant answering questions about a vendor's Service Level "
+        "Agreement (SLA) document. Answer ONLY using the SLA excerpts provided below. "
+        "If the answer isn't contained in the excerpts, say you don't have enough "
+        "information in the SLA to answer. Be concise."
+    )
+    user_prompt = f"SLA excerpts:\n{context}\n\nQuestion: {question}"
+    return chat(system_prompt, user_prompt, name="groq_sla_answer", temperature=0.2, trace_id=trace_id)

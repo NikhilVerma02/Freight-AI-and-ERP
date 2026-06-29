@@ -3,6 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import { useAuth, type Role } from "../lib/auth";
 import { useTheme } from "../lib/theme";
 import { useAlerts } from "../lib/alerts";
+import ChatWidget from "./ChatWidget";
 
 interface NavItem {
   to: string;
@@ -181,6 +182,7 @@ export default function Layout() {
           <Outlet />
         </main>
       </div>
+      <ChatWidget />
     </div>
   );
 }

@@ -6,6 +6,7 @@ import { useAuth } from "../lib/auth";
 import { Badge, statusToTone, Button, Card, CardBody, CardHeader, CardTitle, CardSubtitle, Spinner } from "../components/ui";
 import { Label, Select, Textarea } from "../components/ui/Input";
 import { AgentFlowCard } from "../components/AgentFlowCard";
+import LiveCapture from "../components/LiveCapture";
 import { AGENT_META, STEP_KEYS, buildFacts, StepKey } from "../lib/agentFacts";
 import { getLanguage } from "../lib/i18n";
 import type { CustomerOption, OrderOption, VendorOption } from "../lib/types";
@@ -99,6 +100,7 @@ export default function CaseIntake() {
 
   // Media inputs
   const [media, setMedia] = useState<File | null>(null);
+  const [mediaMode, setMediaMode] = useState<"upload" | "record">("upload");
   const [manualTranscript, setManualTranscript] = useState("");
   const [dragOver, setDragOver] = useState(false);
   const [listening, setListening] = useState(false);
@@ -356,20 +358,59 @@ export default function CaseIntake() {
               </div>
             </div>
 
-            {/* Media input — one slot, image or video */}
-            <MediaPicker
-              label={t("intake.mediaLabel")}
-              file={media}
-              accept="video/*,image/*"
-              dragOver={dragOver}
-              onDragOver={() => setDragOver(true)}
-              onDragLeave={() => setDragOver(false)}
-              onDrop={(f) => {
-                setDragOver(false);
-                setMedia(f);
-              }}
-              onPick={setMedia}
-            />
+            {/* Media input — one slot, image/video/audio, either picked from disk or recorded live */}
+            <div>
+              <div className="mb-2 flex items-center justify-between">
+                <Label className="mb-0">{t("intake.mediaLabel")}</Label>
+                <div className="flex gap-1">
+                  {(["upload", "record"] as const).map((m) => (
+                    <button
+                      key={m}
+                      type="button"
+                      onClick={() => setMediaMode(m)}
+                      className={`rounded-md px-2.5 py-1 text-xs font-medium transition-colors ${
+                        mediaMode === m ? "bg-accent-500 text-white" : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                      }`}
+                    >
+                      {m === "upload" ? t("intake.mediaModeUpload") : t("intake.mediaModeRecord")}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              {mediaMode === "upload" ? (
+                <MediaPicker
+                  label=""
+                  file={media}
+                  accept="video/*,image/*,audio/*"
+                  dragOver={dragOver}
+                  onDragOver={() => setDragOver(true)}
+                  onDragLeave={() => setDragOver(false)}
+                  onDrop={(f) => {
+                    setDragOver(false);
+                    setMedia(f);
+                  }}
+                  onPick={setMedia}
+                />
+              ) : (
+                <LiveCapture
+                  onCapture={setMedia}
+                  labels={{
+                    video: t("intake.recordVideo"),
+                    photo: t("intake.recordPhoto"),
+                    audio: t("intake.recordAudio"),
+                    startCamera: t("intake.startCamera"),
+                    startMic: t("intake.startMic"),
+                    startRecording: t("intake.startRecording"),
+                    stopRecording: t("intake.stopRecording"),
+                    capturePhoto: t("intake.capturePhoto"),
+                    retake: t("intake.retake"),
+                    recording: t("intake.recordingIndicator"),
+                    permissionError: t("intake.captureError"),
+                    hint: t("intake.liveCaptureHint"),
+                  }}
+                />
+              )}
+            </div>
 
             <div>
               <div className="flex items-center justify-between">
@@ -507,10 +548,10 @@ function MediaPicker({
   onDrop?: (f: File) => void;
   onPick: (f: File | null) => void;
 }) {
-  const inputId = `media-${label.replace(/\s+/g, "-").toLowerCase()}`;
+  const inputId = `media-${(label || "picker").replace(/\s+/g, "-").toLowerCase()}`;
   return (
     <div>
-      <Label>{label}</Label>
+      {label && <Label>{label}</Label>}
       <div
         onDragOver={(e) => {
           e.preventDefault();

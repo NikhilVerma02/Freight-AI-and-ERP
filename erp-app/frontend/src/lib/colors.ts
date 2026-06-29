@@ -10,6 +10,7 @@ interface EntityPalette {
   ring: string;
   bar: string; // border-l accent bar shown on list cards
   hex: string; // for recharts series fill/stroke
+  surface: string; // pastel full-card background, used by dashboard KPI tiles
 }
 
 export const ENTITY_COLORS: Record<EntityKind, EntityPalette> = {
@@ -19,6 +20,7 @@ export const ENTITY_COLORS: Record<EntityKind, EntityPalette> = {
     ring: "ring-blue-500/20",
     bar: "border-l-blue-500",
     hex: "#3b82f6",
+    surface: "bg-blue-50 dark:bg-blue-500/10",
   },
   claims: {
     text: "text-violet-600 dark:text-violet-400",
@@ -26,6 +28,7 @@ export const ENTITY_COLORS: Record<EntityKind, EntityPalette> = {
     ring: "ring-violet-500/20",
     bar: "border-l-violet-500",
     hex: "#8b5cf6",
+    surface: "bg-violet-50 dark:bg-violet-500/10",
   },
   alerts: {
     text: "text-amber-600 dark:text-amber-400",
@@ -33,6 +36,7 @@ export const ENTITY_COLORS: Record<EntityKind, EntityPalette> = {
     ring: "ring-amber-500/20",
     bar: "border-l-amber-500",
     hex: "#f59e0b",
+    surface: "bg-amber-50 dark:bg-amber-500/10",
   },
   vendors: {
     text: "text-teal-600 dark:text-teal-400",
@@ -40,6 +44,7 @@ export const ENTITY_COLORS: Record<EntityKind, EntityPalette> = {
     ring: "ring-teal-500/20",
     bar: "border-l-teal-500",
     hex: "#14b8a6",
+    surface: "bg-teal-50 dark:bg-teal-500/10",
   },
   customers: {
     text: "text-indigo-600 dark:text-indigo-400",
@@ -47,6 +52,7 @@ export const ENTITY_COLORS: Record<EntityKind, EntityPalette> = {
     ring: "ring-indigo-500/20",
     bar: "border-l-indigo-500",
     hex: "#6366f1",
+    surface: "bg-indigo-50 dark:bg-indigo-500/10",
   },
   inventory: {
     text: "text-emerald-600 dark:text-emerald-400",
@@ -54,6 +60,7 @@ export const ENTITY_COLORS: Record<EntityKind, EntityPalette> = {
     ring: "ring-emerald-500/20",
     bar: "border-l-emerald-500",
     hex: "#10b981",
+    surface: "bg-emerald-50 dark:bg-emerald-500/10",
   },
   sla: {
     text: "text-rose-600 dark:text-rose-400",
@@ -61,6 +68,7 @@ export const ENTITY_COLORS: Record<EntityKind, EntityPalette> = {
     ring: "ring-rose-500/20",
     bar: "border-l-rose-500",
     hex: "#f43f5e",
+    surface: "bg-rose-50 dark:bg-rose-500/10",
   },
   evaluation: {
     text: "text-cyan-600 dark:text-cyan-400",
@@ -68,6 +76,7 @@ export const ENTITY_COLORS: Record<EntityKind, EntityPalette> = {
     ring: "ring-cyan-500/20",
     bar: "border-l-cyan-500",
     hex: "#06b6d4",
+    surface: "bg-cyan-50 dark:bg-cyan-500/10",
   },
 };
 
