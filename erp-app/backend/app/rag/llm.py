@@ -31,25 +31,31 @@ def chat(
     name: str = "groq_chat",
     temperature: float = 0.3,
     trace_id: str | None = None,
+    history: list[dict] | None = None,
 ) -> str | None:
     """Generic Groq chat-completion call, instrumented the same way for every caller
     (SLA Q&A, the ERP chatbot, etc). Returns None on failure.
+    history (optional): prior {"role": "user"|"assistant", "content": str} turns to splice
+    in between the system prompt and the new user_prompt — conversational memory, see
+    app/services/chat_history.py.
     trace_id (optional): Langfuse trace to nest this call under — see app/observability.py."""
     client = _get_client()
     if client is None:
         logger.warning("llm: GROQ_API_KEY not set — cannot answer")
         return None
 
+    messages = [{"role": "system", "content": system_prompt}]
+    if history:
+        messages.extend(history)
+    messages.append({"role": "user", "content": user_prompt})
+
     generation = observability.start_generation(
-        trace_id, name, GROQ_CHAT_MODEL, input={"system": system_prompt, "user": user_prompt}
+        trace_id, name, GROQ_CHAT_MODEL, input={"system": system_prompt, "user": user_prompt, "history_turns": len(history or [])}
     )
     try:
         resp = client.chat.completions.create(
             model=GROQ_CHAT_MODEL,
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt},
-            ],
+            messages=messages,
             temperature=temperature,
         )
         content = resp.choices[0].message.content

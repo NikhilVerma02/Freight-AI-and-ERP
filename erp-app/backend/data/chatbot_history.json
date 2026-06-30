@@ -1,0 +1,75 @@
+[
+  {
+    "id": "1e9aa6b092fb",
+    "username": "admin",
+    "title": "Hello",
+    "created_at": "2026-06-30T17:34:18.202368+00:00",
+    "updated_at": "2026-06-30T17:41:11.188685+00:00",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Hello",
+        "created_at": "2026-06-30T17:34:26.469327+00:00"
+      },
+      {
+        "role": "assistant",
+        "content": "Hello. How can I assist you with the orders, claims, or vendors today?",
+        "created_at": "2026-06-30T17:34:26.491451+00:00"
+      },
+      {
+        "role": "user",
+        "content": "List me all vendors name",
+        "created_at": "2026-06-30T17:34:48.118336+00:00"
+      },
+      {
+        "role": "assistant",
+        "content": "Based on the data snapshot, the vendors mentioned are:\n\n1. vendorx\n2. vendory\n3. vendorz",
+        "created_at": "2026-06-30T17:34:48.137220+00:00"
+      },
+      {
+        "role": "user",
+        "content": "hello",
+        "created_at": "2026-06-30T17:41:11.188685+00:00"
+      }
+    ]
+  },
+  {
+    "id": "c321bccaea61",
+    "username": "admin",
+    "title": "How many SLAs I have",
+    "created_at": "2026-06-30T17:35:08.765384+00:00",
+    "updated_at": "2026-06-30T17:39:39.378363+00:00",
+    "messages": [
+      {
+        "role": "user",
+        "content": "How many SLAs I have",
+        "created_at": "2026-06-30T17:35:11.332739+00:00"
+      },
+      {
+        "role": "assistant",
+        "content": "You have 4 SLAs (Service Level Agreements) listed in your data snapshot, each corresponding to a different vendor: vendorz, vendorx (listed twice), and vendory.",
+        "created_at": "2026-06-30T17:35:11.348951+00:00"
+      },
+      {
+        "role": "user",
+        "content": "Tell me the claim eligibility creteria",
+        "created_at": "2026-06-30T17:35:37.560831+00:00"
+      },
+      {
+        "role": "user",
+        "content": "Tell me the claim eligibility creteria",
+        "created_at": "2026-06-30T17:36:00.727454+00:00"
+      },
+      {
+        "role": "user",
+        "content": "Tell me the claim eligibility creteria",
+        "created_at": "2026-06-30T17:38:15.226617+00:00"
+      },
+      {
+        "role": "user",
+        "content": "Tell me the claim eligibilty criteria of vendor X SLA",
+        "created_at": "2026-06-30T17:39:39.378363+00:00"
+      }
+    ]
+  }
+]

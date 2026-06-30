@@ -8,6 +8,14 @@ already used for SLA Q&A (see app/rag/llm.py).
 Multilingual: no translation step needed — the system prompt instructs the
 model to reply in whatever language the question was asked in, and
 Llama-3.3-70b already handles this well across English/Hindi/etc.
+
+Memory: conversations are organized into separate sessions per user (see
+app/services/chat_history.py — "New chat" + a "Recents" list, like this very
+assistant). Each question/answer is persisted into its session, and the most
+recent turns from THAT session are replayed back into the LLM as conversation
+history on every new question — switching sessions starts a genuinely fresh
+context. History is capped to a configured number of days
+(CHATBOT_HISTORY_RETENTION_DAYS) and turns per session (CHATBOT_HISTORY_MAX_TURNS).
 """
 from __future__ import annotations
 
@@ -17,6 +25,7 @@ import logging
 from app.rag import vector_store
 from app.rag.embeddings import embed_query
 from app.rag.llm import chat
+from app.services import chat_history as chat_history_svc
 from app.services import claims as claims_svc
 from app.services import customer_inventory as customer_inv_svc
 from app.services import orders as orders_svc
@@ -151,7 +160,7 @@ def _retrieve_sla_chunks(slas: list[dict], question: str, trace_id: str | None) 
     return chunks
 
 
-def answer(question: str, current_user: dict, trace_id: str | None = None) -> str:
+def answer(question: str, current_user: dict, session_id: str, trace_id: str | None = None) -> str:
     context = _gather_context(current_user)
     sla_chunks = _retrieve_sla_chunks(context["slas"], question, trace_id)
 
@@ -171,7 +180,11 @@ def answer(question: str, current_user: dict, trace_id: str | None = None) -> st
         sla_excerpts="\n\n---\n\n".join(sla_chunks) if sla_chunks else "(none retrieved for this question)",
     )
 
-    reply = chat(system_prompt, question, name="groq_chatbot", temperature=0.3, trace_id=trace_id)
+    history = chat_history_svc.get_recent_messages(context["username"], session_id)
+    reply = chat(system_prompt, question, name="groq_chatbot", temperature=0.3, trace_id=trace_id, history=history)
+
+    chat_history_svc.append_message(context["username"], session_id, "user", question)
     if reply is None:
         return "Sorry, I couldn't reach the AI service right now (check GROQ_API_KEY). Please try again shortly."
+    chat_history_svc.append_message(context["username"], session_id, "assistant", reply)
     return reply

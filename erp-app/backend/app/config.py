@@ -22,3 +22,11 @@ SLA_RAG_TOP_K = int(os.environ.get("SLA_RAG_TOP_K", "4"))
 LANGFUSE_PUBLIC_KEY = os.environ.get("LANGFUSE_PUBLIC_KEY", "")
 LANGFUSE_SECRET_KEY = os.environ.get("LANGFUSE_SECRET_KEY", "")
 LANGFUSE_HOST = os.environ.get("LANGFUSE_HOST", "https://cloud.langfuse.com")
+
+# Chatbot conversation memory (see app/services/chat_history.py) — how many
+# days of past turns to retain per user, and how many of the most recent
+# turns to actually feed back into the LLM as context on each new question
+# (bounded separately from retention so a chatty week doesn't blow up the
+# prompt size/cost).
+CHATBOT_HISTORY_RETENTION_DAYS = int(os.environ.get("CHATBOT_HISTORY_RETENTION_DAYS", "7"))
+CHATBOT_HISTORY_MAX_TURNS = int(os.environ.get("CHATBOT_HISTORY_MAX_TURNS", "20"))

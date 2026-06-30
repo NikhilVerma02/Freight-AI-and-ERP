@@ -25,6 +25,7 @@ import SlaView from "./pages/SlaView";
 import MyCustomers from "./pages/MyCustomers";
 import MyVendors from "./pages/MyVendors";
 import RagEvaluation from "./pages/RagEvaluation";
+import Chatbot from "./pages/Chatbot";
 
 function RequireAuth({ children }: { children: React.ReactNode }) {
   const { token } = useAuth();
@@ -73,6 +74,7 @@ export default function App() {
                 <Route path="claims" element={<Claims />} />
                 <Route path="alerts" element={<Alerts />} />
                 <Route path="rag-evaluation" element={<RagEvaluation />} />
+                <Route path="chatbot" element={<Chatbot />} />
 
                 {/* Inventory */}
                 <Route

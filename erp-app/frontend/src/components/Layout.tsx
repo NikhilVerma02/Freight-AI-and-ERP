@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { useAuth, type Role } from "../lib/auth";
-import { useTheme } from "../lib/theme";
 import { useAlerts } from "../lib/alerts";
 import ChatWidget from "./ChatWidget";
 
@@ -14,6 +13,7 @@ interface NavItem {
 const NAV_BY_ROLE: Record<Role, NavItem[]> = {
   admin: [
     { to: "/", label: "Dashboard", icon: "📊" },
+    { to: "/chatbot", label: "Assistant", icon: "💬" },
     { to: "/vendors", label: "Vendors", icon: "🏭" },
     { to: "/customers", label: "Customers", icon: "🏢" },
     { to: "/vendor-inventory", label: "Vendor Inventory", icon: "📦" },
@@ -27,6 +27,7 @@ const NAV_BY_ROLE: Record<Role, NavItem[]> = {
   ],
   vendor: [
     { to: "/", label: "Dashboard", icon: "📊" },
+    { to: "/chatbot", label: "Assistant", icon: "💬" },
     { to: "/orders", label: "Orders", icon: "🧾" },
     { to: "/claims", label: "Claims", icon: "📋" },
     { to: "/sla-upload", label: "Upload SLA", icon: "📄" },
@@ -37,6 +38,7 @@ const NAV_BY_ROLE: Record<Role, NavItem[]> = {
   ],
   customer: [
     { to: "/", label: "Dashboard", icon: "📊" },
+    { to: "/chatbot", label: "Assistant", icon: "💬" },
     { to: "/orders", label: "Orders", icon: "🧾" },
     { to: "/claims", label: "Claims", icon: "📋" },
     { to: "/sla", label: "SLA", icon: "📄" },
@@ -52,56 +54,6 @@ const ROLE_LABELS: Record<string, string> = {
   vendor: "Vendor",
   customer: "Customer",
 };
-
-function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme();
-  const isDark = theme === "dark";
-  return (
-    <button
-      onClick={toggleTheme}
-      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      title={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      className="relative flex h-9 w-9 items-center justify-center rounded-lg border border-slate-300 bg-white text-slate-600 transition-colors hover:bg-slate-50 dark:border-navy-600 dark:bg-navy-800 dark:text-slate-300 dark:hover:bg-navy-700"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={`absolute h-4.5 w-4.5 transition-all duration-300 ${
-          isDark ? "rotate-90 scale-0 opacity-0" : "rotate-0 scale-100 opacity-100"
-        }`}
-      >
-        <circle cx="12" cy="12" r="4" />
-        <path d="M12 2v2" />
-        <path d="M12 20v2" />
-        <path d="m4.93 4.93 1.41 1.41" />
-        <path d="m17.66 17.66 1.41 1.41" />
-        <path d="M2 12h2" />
-        <path d="M20 12h2" />
-        <path d="m6.34 17.66-1.41 1.41" />
-        <path d="m19.07 4.93-1.41 1.41" />
-      </svg>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={`absolute h-4.5 w-4.5 transition-all duration-300 ${
-          isDark ? "rotate-0 scale-100 opacity-100" : "-rotate-90 scale-0 opacity-0"
-        }`}
-      >
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-      </svg>
-    </button>
-  );
-}
 
 export default function Layout() {
   const { user, logout } = useAuth();
@@ -156,7 +108,6 @@ export default function Layout() {
         <header className="flex items-center justify-between border-b border-slate-200 bg-white px-6 py-3.5 shadow-sm dark:border-navy-800 dark:bg-navy-900 dark:shadow-none">
           <div />
           <div className="flex items-center gap-4">
-            <ThemeToggle />
             <div className="flex items-center gap-3 rounded-full bg-slate-50 px-3 py-1.5 ring-1 ring-slate-200 dark:bg-navy-800 dark:ring-navy-700">
               <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent-dark text-sm font-semibold text-white">
                 {user?.display_name?.charAt(0) ?? "?"}

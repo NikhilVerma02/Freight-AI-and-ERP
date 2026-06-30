@@ -4,42 +4,40 @@ export type Theme = "light" | "dark";
 
 interface ThemeContextValue {
   theme: Theme;
-  toggleTheme: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
-const STORAGE_KEY = "theme";
-
-function getInitialTheme(): Theme {
-  if (typeof window === "undefined") return "light";
-  const stored = window.localStorage.getItem(STORAGE_KEY);
-  if (stored === "light" || stored === "dark") return stored;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+function systemPrefersDark(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
 }
 
+/** Always follows the OS/browser color-scheme preference live — no manual
+ * toggle, no persisted override. */
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const [theme, setTheme] = useState<Theme>(() => (systemPrefersDark() ? "dark" : "light"));
 
   useEffect(() => {
+    window.localStorage.removeItem("theme"); // retire the old manual-toggle preference, if any
+
     const root = document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
+    const mql = window.matchMedia("(prefers-color-scheme: dark)");
+
+    function apply(isDark: boolean) {
+      root.classList.toggle("dark", isDark);
+      setTheme(isDark ? "dark" : "light");
     }
-    window.localStorage.setItem(STORAGE_KEY, theme);
-  }, [theme]);
+    function handleChange(e: MediaQueryListEvent) {
+      apply(e.matches);
+    }
 
-  function toggleTheme() {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
-  }
+    apply(mql.matches);
+    mql.addEventListener("change", handleChange);
+    return () => mql.removeEventListener("change", handleChange);
+  }, []);
 
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={{ theme }}>{children}</ThemeContext.Provider>;
 }
 
 export function useTheme(): ThemeContextValue {
