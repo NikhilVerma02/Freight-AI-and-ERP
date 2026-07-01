@@ -17,6 +17,7 @@ from __future__ import annotations
 import logging
 
 from app import observability
+from app.agents.confidence import clamp_confidence
 from app.agents.json_utils import safe_json_parse
 from app.providers import gemini_client
 
@@ -35,7 +36,9 @@ EXTRACTION_SYSTEM_PROMPT = (
     "'shortage', 'other'), damaged_qty (integer or null — your best count of damaged units from "
     "the evidence, combining what's shown and what's said), evidence_notes (short string "
     "describing what you observed AND what was said), confidence_notes (short string explaining "
-    "any uncertainty). No prose, no markdown fences."
+    "any uncertainty), confidence (integer 0-100 — your own confidence that the extracted facts "
+    "above are accurate and complete, given the clarity/completeness of the evidence; lower it "
+    "for blurry footage, inaudible narration, or any guesswork). No prose, no markdown fences."
 )
 
 
@@ -78,5 +81,6 @@ async def run_inspection(files: list[dict], manual_transcript: str | None, run_i
             "status": "failed",
             "error": f"Could not parse structured JSON from model output: {extract_result['content']!r}",
         }
+    extracted["confidence"] = clamp_confidence(extracted.get("confidence"))
 
     return {"extracted": extracted, "raw": raw, "status": "ok", "error": None}

@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "run_id": "run_33fb30e50c77",
+    "started_at": "2026-07-01T18:13:53.444062+00:00",
+    "finished_at": "2026-07-01T18:14:16.059575+00:00",
+    "status": "completed",
+    "case_summary": "1 media file(s) uploaded",
+    "claim_id": 26,
+    "alert_id": 127,
+    "actor_username": "customera",
+    "actor_role": "customer"
+  }
+]

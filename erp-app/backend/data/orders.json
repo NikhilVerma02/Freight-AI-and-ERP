@@ -715,5 +715,203 @@
     "requested_at": "2026-06-29T18:25:13.228741+00:00",
     "created_at": "2026-06-29T18:25:13.230747+00:00",
     "updated_at": "2026-06-29T18:25:13.230747+00:00"
+  },
+  {
+    "id": 41,
+    "order_number": "ORD-0041",
+    "customer_username": "customera",
+    "vendor_username": "vendorx",
+    "items": [
+      {
+        "sku": "STL-CHASSIS-A",
+        "item_name": "Steel Chassis Frame A",
+        "qty": 3
+      }
+    ],
+    "status": "requested",
+    "undelivered_reason": null,
+    "requested_at": "2026-06-30T18:02:51.739994+00:00",
+    "created_at": "2026-06-30T18:02:51.739994+00:00",
+    "updated_at": "2026-06-30T18:02:51.739994+00:00"
+  },
+  {
+    "id": 42,
+    "order_number": "ORD-0042",
+    "customer_username": "customera",
+    "vendor_username": "vendorx",
+    "items": [
+      {
+        "sku": "STL-CHASSIS-A",
+        "item_name": "Steel Chassis Frame A",
+        "qty": 3
+      }
+    ],
+    "status": "requested",
+    "undelivered_reason": null,
+    "requested_at": "2026-06-30T18:18:17.855133+00:00",
+    "created_at": "2026-06-30T18:18:17.855133+00:00",
+    "updated_at": "2026-06-30T18:18:17.855133+00:00"
+  },
+  {
+    "id": 43,
+    "order_number": "ORD-0043",
+    "customer_username": "customera",
+    "vendor_username": "vendorx",
+    "items": [
+      {
+        "sku": "STL-CHASSIS-A",
+        "item_name": "Steel Chassis Frame A",
+        "qty": 4
+      }
+    ],
+    "status": "requested",
+    "undelivered_reason": null,
+    "requested_at": "2026-06-30T18:18:52.389640+00:00",
+    "created_at": "2026-06-30T18:18:52.390635+00:00",
+    "updated_at": "2026-06-30T18:18:52.390635+00:00"
+  },
+  {
+    "id": 44,
+    "order_number": "ORD-0044",
+    "customer_username": "customera",
+    "vendor_username": "vendorx",
+    "items": [
+      {
+        "sku": "STL-CHASSIS-A",
+        "item_name": "Steel Chassis Frame A",
+        "qty": 2
+      }
+    ],
+    "status": "requested",
+    "undelivered_reason": null,
+    "requested_at": "2026-06-30T18:25:04.934400+00:00",
+    "created_at": "2026-06-30T18:25:04.936407+00:00",
+    "updated_at": "2026-06-30T18:25:04.936407+00:00"
+  },
+  {
+    "id": 45,
+    "order_number": "ORD-0045",
+    "customer_username": "customera",
+    "vendor_username": "vendorx",
+    "items": [
+      {
+        "sku": "STL-CHASSIS-A",
+        "item_name": "Steel Chassis Frame A",
+        "qty": 2
+      }
+    ],
+    "status": "requested",
+    "undelivered_reason": null,
+    "requested_at": "2026-06-30T18:32:32.014809+00:00",
+    "created_at": "2026-06-30T18:32:32.020605+00:00",
+    "updated_at": "2026-06-30T18:32:32.020605+00:00"
+  },
+  {
+    "id": 46,
+    "order_number": "ORD-0046",
+    "customer_username": "customera",
+    "vendor_username": "vendorx",
+    "items": [
+      {
+        "sku": "STL-CHASSIS-A",
+        "item_name": "Steel Chassis Frame A",
+        "qty": 3
+      }
+    ],
+    "status": "requested",
+    "undelivered_reason": null,
+    "requested_at": "2026-07-01T17:58:47.232416+00:00",
+    "created_at": "2026-07-01T17:58:47.234429+00:00",
+    "updated_at": "2026-07-01T17:58:47.234429+00:00"
+  },
+  {
+    "id": 47,
+    "order_number": "ORD-0047",
+    "customer_username": "customera",
+    "vendor_username": "vendorx",
+    "items": [
+      {
+        "sku": "STL-CHASSIS-A",
+        "item_name": "Steel Chassis Frame A",
+        "qty": 3
+      }
+    ],
+    "status": "requested",
+    "undelivered_reason": null,
+    "requested_at": "2026-07-01T17:59:40.433087+00:00",
+    "created_at": "2026-07-01T17:59:40.434423+00:00",
+    "updated_at": "2026-07-01T17:59:40.434423+00:00"
+  },
+  {
+    "id": 48,
+    "order_number": "ORD-0048",
+    "customer_username": "customera",
+    "vendor_username": "vendorx",
+    "items": [
+      {
+        "sku": "STL-CHASSIS-A",
+        "item_name": "Steel Chassis Frame A",
+        "qty": 2
+      }
+    ],
+    "status": "requested",
+    "undelivered_reason": null,
+    "requested_at": "2026-07-01T18:01:54.986005+00:00",
+    "created_at": "2026-07-01T18:01:54.989132+00:00",
+    "updated_at": "2026-07-01T18:01:54.989132+00:00"
+  },
+  {
+    "id": 49,
+    "order_number": "ORD-0049",
+    "customer_username": "customera",
+    "vendor_username": "vendorx",
+    "items": [
+      {
+        "sku": "STL-CHASSIS-A",
+        "item_name": "Steel Chassis Frame A",
+        "qty": 5
+      }
+    ],
+    "status": "requested",
+    "undelivered_reason": null,
+    "requested_at": "2026-07-01T18:04:36.767844+00:00",
+    "created_at": "2026-07-01T18:04:36.769848+00:00",
+    "updated_at": "2026-07-01T18:04:36.769848+00:00"
+  },
+  {
+    "id": 50,
+    "order_number": "ORD-0050",
+    "customer_username": "customera",
+    "vendor_username": "vendorx",
+    "items": [
+      {
+        "sku": "STL-CHASSIS-A",
+        "item_name": "Steel Chassis Frame A",
+        "qty": 2
+      }
+    ],
+    "status": "requested",
+    "undelivered_reason": null,
+    "requested_at": "2026-07-01T18:11:36.147808+00:00",
+    "created_at": "2026-07-01T18:11:36.149214+00:00",
+    "updated_at": "2026-07-01T18:11:36.149214+00:00"
+  },
+  {
+    "id": 51,
+    "order_number": "ORD-0051",
+    "customer_username": "customera",
+    "vendor_username": "vendorx",
+    "items": [
+      {
+        "sku": "STL-CHASSIS-A",
+        "item_name": "Steel Chassis Frame A",
+        "qty": 2
+      }
+    ],
+    "status": "requested",
+    "undelivered_reason": null,
+    "requested_at": "2026-07-01T18:14:12.439435+00:00",
+    "created_at": "2026-07-01T18:14:12.439435+00:00",
+    "updated_at": "2026-07-01T18:14:12.439435+00:00"
   }
 ]

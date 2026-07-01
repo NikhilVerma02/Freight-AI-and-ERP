@@ -343,5 +343,50 @@
     "decision_reason": null,
     "created_at": "2026-06-29T18:25:14.080705+00:00",
     "updated_at": "2026-06-29T18:25:14.080705+00:00"
+  },
+  {
+    "id": 24,
+    "claim_number": "CLM-0024",
+    "customer_username": "customera",
+    "vendor_username": "vendorx",
+    "order_id": 1,
+    "sku": "STL-CHASSIS-A",
+    "damage_type": "crushing",
+    "damaged_qty": 3,
+    "claim_text": "Order ORD-0001 contained 50 units of Steel Chassis Frame A, however upon inspection it was discovered that 3 units had sustained crushing damage. Visible external packaging damage was noted, which has prompted a damage claim review in accordance with the terms outlined in the applicable Service Level Agreement. As the damage was readily apparent upon delivery, a thorough examination of the shipment and its handling is warranted to determine the cause and allocate responsibility. The claimant is seeking compensation for the damaged units, and a determination of liability is pending further review and investigation. The total value of the damaged goods is to be calculated and submitted for consideration in conjunction with the final liability determination.",
+    "status": "pending",
+    "decision_reason": null,
+    "created_at": "2026-06-30T18:02:52.710492+00:00",
+    "updated_at": "2026-06-30T18:02:52.710492+00:00"
+  },
+  {
+    "id": 25,
+    "claim_number": "CLM-0025",
+    "customer_username": "customera",
+    "vendor_username": "vendorx",
+    "order_id": 1,
+    "sku": "STL-CHASSIS-A",
+    "damage_type": "crushing",
+    "damaged_qty": 3,
+    "claim_text": "A claim is being submitted for damage to three Steel Chassis Frame A units, identified by SKU STL-CHASSIS-A, from order ORD-0001, which arrived with visible crushing damage. The damaged items were part of a larger shipment of 50 units, with the remaining 47 units arriving undamaged. The external packaging showed signs of damage that could have reasonably contributed to the crushing of the contents, as supported by excerpts from the applicable Service Level Agreement. Liability is currently pending determination, and this claim is being filed in accordance with the SLA guidelines for damage claim review. The claimant is seeking compensation for the damaged units, and further review is required to determine the responsible party and the extent of the damages.",
+    "status": "pending",
+    "decision_reason": null,
+    "created_at": "2026-06-30T18:18:18.870220+00:00",
+    "updated_at": "2026-06-30T18:18:18.870220+00:00"
+  },
+  {
+    "id": 26,
+    "claim_number": "CLM-0026",
+    "customer_username": "customera",
+    "vendor_username": "vendorx",
+    "order_id": 1,
+    "sku": "STL-CHASSIS-A",
+    "damage_type": "crushing",
+    "damaged_qty": 2,
+    "claim_text": "A claim is being submitted for damage to two Steel Chassis Frame A units, SKU STL-CHASSIS-A, from order ORD-0001, which arrived with visible crushing damage. The damaged units were part of a larger shipment of 50, with the remaining 48 units arriving in satisfactory condition. The external packaging exhibited sufficient damage to reasonably conclude that the observed damage to the two units could have occurred during transit. As the damage was evident upon delivery, a thorough inspection was conducted, confirming the crushing damage to the two affected Steel Chassis Frame A units. The claim is being reviewed for eligibility pursuant to the terms outlined in the applicable Service Level Agreement.",
+    "status": "pending",
+    "decision_reason": null,
+    "created_at": "2026-07-01T18:14:15.043094+00:00",
+    "updated_at": "2026-07-01T18:14:15.043094+00:00"
   }
 ]

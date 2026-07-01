@@ -9,6 +9,7 @@ import CaseDetail from "./pages/CaseDetail";
 import CaseHistory from "./pages/CaseHistory";
 import ClaimRequests from "./pages/ClaimRequests";
 import OrderRequests from "./pages/OrderRequests";
+import Chatbot from "./pages/Chatbot";
 import KpiDashboard from "./pages/KpiDashboard";
 import LogsExceptions from "./pages/LogsExceptions";
 
@@ -83,6 +84,14 @@ function AppRoutes() {
           element={
             <RequireRole roles={["admin", "vendor", "customer"]}>
               <OrderRequests />
+            </RequireRole>
+          }
+        />
+        <Route
+          path="/chatbot"
+          element={
+            <RequireRole roles={["admin", "vendor", "customer"]}>
+              <Chatbot />
             </RequireRole>
           }
         />

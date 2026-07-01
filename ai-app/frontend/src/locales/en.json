@@ -8,6 +8,7 @@
     "history": "Case History",
     "claims": "Claim Request",
     "orders": "Order Request",
+    "chatbot": "FreightBot",
     "kpi": "KPI Dashboard",
     "logs": "Logs & Exceptions"
   },
@@ -123,6 +124,10 @@
     "requestedAt": "Requested At",
     "reorderSkipped": "No reorder needed (0 units damaged)",
     "claimSkipped": "No claim filed (not eligible)",
+    "skippedReason": "Skip Reason",
+    "skippedGeneric": "This step was skipped.",
+    "confidence": "Confidence",
+    "overallConfidence": "Overall Confidence",
     "narrative": "Claim Narrative",
     "claimPayload": "Structured Claim Payload",
     "erpClaimId": "ERP Claim ID",

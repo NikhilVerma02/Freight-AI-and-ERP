@@ -51,7 +51,7 @@ const SpeechRecognitionCtor: (new () => SpeechRecognitionLike) | undefined =
 const speechRecognitionSupported = !!SpeechRecognitionCtor;
 
 interface StepState {
-  status: "pending" | "running" | "ok" | "failed";
+  status: "pending" | "running" | "ok" | "failed" | "skipped";
   error?: string | null;
   data?: unknown;
 }

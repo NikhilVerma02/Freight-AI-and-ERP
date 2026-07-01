@@ -10,6 +10,7 @@ from __future__ import annotations
 import logging
 
 from app import observability
+from app.agents.confidence import average_confidence
 from app.mcp_client import ErpMcpClient, McpClientError
 from app.providers import groq_client
 
@@ -81,6 +82,14 @@ async def run_governance(
         else case["case_summary"]
     )
 
+    # Overall run confidence: the average of the three genuine judgment calls in this pipeline
+    # (Inspector's evidence read, Context's reconciliation, Policy's SLA interpretation) — the
+    # other agents' "confidence" fields are inherited/deterministic, not independent judgments,
+    # so averaging them in would just dilute this number without adding real signal.
+    overall_confidence = average_confidence(
+        [case.get("inspector_confidence"), case.get("confidence"), (policy_result or {}).get("confidence")]
+    )
+
     summary = {
         "case_summary": case["case_summary"],
         "narrative": narrative,
@@ -92,5 +101,6 @@ async def run_governance(
         "reorder_order_id": (reorder_out.get("order") or {}).get("id"),
         "inventory_risk": risk,
         "inventory_alert_id": alert_record.get("id") if alert_record else None,
+        "overall_confidence": overall_confidence,
     }
     return {"summary": summary, "raw": raw, "status": "ok", "error": None}

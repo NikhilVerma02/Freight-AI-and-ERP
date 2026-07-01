@@ -6,6 +6,15 @@ the whole run (nothing downstream has a valid case without them); Policy/
 Inventory/Reorder/Claim/Governance failures are logged and the run
 continues so the UI can still show whatever succeeded.
 
+Event-driven branches (steps marked status="skipped", with a `reason` in
+their payload, rather than silently omitted or shown as a fake success):
+  - No damage detected (Inspector reports damaged_qty <= 0/null): the run
+    ends right there — Context/Policy/Inventory/Reorder/Claim/Governance
+    never run. There's nothing for them to reconcile/assess/file against.
+  - Not eligible for a claim (Policy Agent says eligible_for_claim=false):
+    Claim Agent is skipped, but Inventory/Reorder/Governance still run —
+    the damaged stock still needs tracking/replacing even without a claim.
+
 run_pipeline_stream() is an async generator so the router can forward each
 step's start/finish as an SSE event the instant it happens — the frontend
 shows "executing" the moment an agent starts and the real extracted info
@@ -24,6 +33,15 @@ from app.logging_store import create_run, finish_run, log_step, new_run_id
 from app.mcp_client import ErpMcpClient, McpClientError
 
 logger = logging.getLogger("ai_app.agents.orchestrator")
+
+
+_DOWNSTREAM_STEPS = ("context", "policy", "inventory", "reorder", "claim", "governance")
+
+
+def _skip_event(step: str, reason: str) -> dict[str, Any]:
+    """A step that never ran because an earlier event-driven branch made it moot —
+    status='skipped' (not 'ok') so the UI shows it distinctly from a real success."""
+    return {"type": "step_done", "step": step, "status": "skipped", "error": None, "data": {"skipped": True, "reason": reason}}
 
 
 def _tokens_from_envelope(envelope: dict | None) -> dict | None:
@@ -91,6 +109,23 @@ async def run_pipeline_stream(
     if inspector_out["status"] != "ok":
         finish_run(run_id, "failed")
         yield {"type": "run_complete", "run_id": run_id, "status": "failed"}
+        return
+
+    # Event-driven branch #1: no damage found in the evidence — nothing for the rest of the
+    # pipeline to do (no case to reconcile, no policy to check, no stock to track/replace).
+    damaged_qty = (inspector_out.get("extracted") or {}).get("damaged_qty")
+    if not damaged_qty or damaged_qty <= 0:
+        reason = "No damaged units were detected in the submitted evidence — pipeline ended after the Inspector Agent."
+        for step in _DOWNSTREAM_STEPS:
+            yield _skip_event(step, reason)
+            log_step(
+                run_id, f"{step}_agent", input_summary={"order_id": order_id, "sku": sku},
+                output_summary={"skipped": True, "reason": reason}, status="skipped",
+                latency_ms=None, model=None, tokens=None, error=None,
+            )
+        finish_run(run_id, "completed")
+        observability.flush()
+        yield {"type": "run_complete", "run_id": run_id, "status": "completed"}
         return
 
     # ---------------- Context Structuring ----------------
@@ -208,15 +243,18 @@ async def run_pipeline_stream(
         run_id, "reorder_agent",
         input_summary={"sku": sku, "damaged_qty": case["damaged_qty"]},
         output_summary=reorder_out.get("order"),
-        status=reorder_out["status"],
+        status="skipped" if reorder_out.get("skipped") else reorder_out["status"],
         latency_ms=latency_ms,
         model=note_envelope.get("model") if note_envelope else None,
         tokens=_tokens_from_envelope(note_envelope),
         error=reorder_out.get("error"),
     )
-    yield {"type": "step_done", "step": "reorder", "status": reorder_out["status"], "error": reorder_out.get("error"), "data": reorder_out.get("order")}
-    if reorder_out["status"] != "ok":
-        overall_status = "partial"
+    if reorder_out.get("skipped"):
+        yield _skip_event("reorder", "No units were damaged after reconciliation — no replacement stock needed.")
+    else:
+        yield {"type": "step_done", "step": "reorder", "status": reorder_out["status"], "error": reorder_out.get("error"), "data": reorder_out.get("order")}
+        if reorder_out["status"] != "ok":
+            overall_status = "partial"
 
     # ---------------- Claim ----------------
     yield {"type": "step_start", "step": "claim"}
@@ -229,19 +267,25 @@ async def run_pipeline_stream(
     latency_ms = (time.perf_counter() - t0) * 1000
 
     draft_envelope = (claim_out.get("raw") or {}).get("draft")
+    _claim_log_summary = (
+        {"skipped": True, "reason": claim_out.get("skip_reason")} if claim_out.get("skipped") else claim_out.get("claim")
+    )
     log_step(
         run_id, "claim_agent",
         input_summary={"order_id": order_id, "sku": sku, "eligible_for_claim": (policy_out.get("result") or {}).get("eligible_for_claim")},
-        output_summary=claim_out.get("claim"),
-        status=claim_out["status"],
+        output_summary=_claim_log_summary,
+        status="skipped" if claim_out.get("skipped") else claim_out["status"],
         latency_ms=latency_ms,
         model=draft_envelope.get("model") if draft_envelope else None,
         tokens=_tokens_from_envelope(draft_envelope),
         error=claim_out.get("error"),
     )
-    yield {"type": "step_done", "step": "claim", "status": claim_out["status"], "error": claim_out.get("error"), "data": claim_out.get("claim")}
-    if claim_out["status"] != "ok":
-        overall_status = "partial"
+    if claim_out.get("skipped"):
+        yield _skip_event("claim", claim_out.get("skip_reason") or "Claim skipped.")
+    else:
+        yield {"type": "step_done", "step": "claim", "status": claim_out["status"], "error": claim_out.get("error"), "data": claim_out.get("claim")}
+        if claim_out["status"] != "ok":
+            overall_status = "partial"
 
     # ---------------- Governance / Summary ----------------
     yield {"type": "step_start", "step": "governance"}

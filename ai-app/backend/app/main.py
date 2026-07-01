@@ -27,6 +27,7 @@ from app.routers.ingest import router as ingest_router  # noqa: E402
 from app.routers.kpi import router as kpi_router  # noqa: E402
 from app.routers.logs import router as logs_router  # noqa: E402
 from app.routers.observability import router as observability_router  # noqa: E402
+from app.routers.chat import router as chat_router  # noqa: E402
 from app.routers.records import router as records_router  # noqa: E402
 
 ERP_MCP_URL = os.environ.get("ERP_MCP_URL", "http://127.0.0.1:8001/mcp/")
@@ -65,6 +66,7 @@ app.add_middleware(
 app.add_middleware(ApiLoggingMiddleware)
 
 app.include_router(auth_router)
+app.include_router(chat_router)
 app.include_router(ingest_router)
 app.include_router(kpi_router)
 app.include_router(logs_router)

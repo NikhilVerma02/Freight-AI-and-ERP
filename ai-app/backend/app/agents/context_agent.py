@@ -8,12 +8,21 @@ Deterministic validation (qty clamping, damage-type normalization) happens
 in code; a single Groq call is used only to produce a clean one-paragraph
 case summary for the claim narrative/dashboard — keeping the
 business-critical validation out of the LLM's hands.
+
+Confidence: this agent's own work is mostly deterministic (no LLM judgment
+to self-score), so its `confidence` is computed in code from concrete red
+flags found during reconciliation (qty had to be clamped, stated PO number
+doesn't match the picked order) rather than asked of a model — starts at
+100 and is docked per flag. The Inspector's own self-reported confidence is
+carried through unchanged as `inspector_confidence` so Governance can later
+weigh both.
 """
 from __future__ import annotations
 
 import logging
 
 from app import observability
+from app.agents.confidence import clamp_confidence
 from app.providers import groq_client
 
 logger = logging.getLogger("ai_app.agents.context")
@@ -84,6 +93,14 @@ async def run_context_structuring(
         stated_po_number and stated_po_number.strip().lower() != (order.get("order_number") or "").lower()
     )
 
+    inspector_confidence = clamp_confidence(inspector_extracted.get("confidence"))
+    confidence = 100
+    if qty_was_clamped:
+        confidence -= 25
+    if po_number_mismatch:
+        confidence -= 30
+    confidence = max(confidence, 30)
+
     case = {
         "order_id": order.get("id"),
         "order_number": order.get("order_number"),
@@ -100,6 +117,8 @@ async def run_context_structuring(
         "po_number_mismatch": po_number_mismatch,
         "needs_review": damaged_qty == 0 or qty_was_clamped or po_number_mismatch,
         "qty_was_clamped": qty_was_clamped,
+        "inspector_confidence": inspector_confidence,
+        "confidence": confidence,
     }
 
     summary_prompt = (

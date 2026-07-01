@@ -10,6 +10,7 @@ const navItems: { to: string; key: string; icon: string; roles: Role[] }[] = [
   { to: "/history", key: "history", icon: "☰", roles: ["admin", "vendor", "customer"] },
   { to: "/claims", key: "claims", icon: "🧾", roles: ["admin", "vendor", "customer"] },
   { to: "/orders", key: "orders", icon: "🔁", roles: ["admin", "vendor", "customer"] },
+  { to: "/chatbot", key: "chatbot", icon: "💬", roles: ["admin", "vendor", "customer"] },
   { to: "/kpi", key: "kpi", icon: "▥", roles: ["admin", "vendor", "customer"] },
   { to: "/logs", key: "logs", icon: "▦", roles: ["admin"] },
 ];

@@ -1,6 +1,6 @@
 import React from "react";
 
-type Tone = "ok" | "failed" | "running" | "partial" | "neutral" | "info";
+type Tone = "ok" | "failed" | "running" | "partial" | "neutral" | "info" | "skipped";
 
 const toneClasses: Record<Tone, string> = {
   ok: "bg-emerald-500/10 text-emerald-400 border-emerald-500/30",
@@ -9,6 +9,7 @@ const toneClasses: Record<Tone, string> = {
   partial: "bg-amber-500/10 text-amber-400 border-amber-500/30",
   neutral: "bg-slate-700/30 text-slate-300 border-slate-600/40",
   info: "bg-violet-500/10 text-violet-300 border-violet-500/30",
+  skipped: "bg-slate-600/20 text-slate-400 border-slate-500/30",
 };
 
 export function statusToTone(status: string | null | undefined): Tone {
@@ -22,6 +23,8 @@ export function statusToTone(status: string | null | undefined): Tone {
       return "running";
     case "partial":
       return "partial";
+    case "skipped":
+      return "skipped";
     default:
       return "neutral";
   }

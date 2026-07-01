@@ -22,6 +22,7 @@ from __future__ import annotations
 import logging
 
 from app import observability
+from app.agents.confidence import clamp_confidence
 from app.agents.json_utils import safe_json_parse
 from app.mcp_client import ErpMcpClient, McpClientError
 from app.providers import groq_client
@@ -45,7 +46,10 @@ REASONING_SYSTEM_PROMPT = (
     "the SLA happens to mention the specific product name or SKU, which it generally won't. "
     "Respond with ONLY a JSON object with these exact keys: eligible_for_claim (boolean), liable "
     "(one of: true, false, \"partial\", \"pending\"), justification (string, cite the SLA "
-    "answer). No prose, no markdown fences."
+    "answer), confidence (integer 0-100 — your own confidence in these judgments, given how "
+    "directly the SLA excerpt addresses this exact situation; lower it if the SLA answer is "
+    "vague, only tangentially related, or you had to infer rather than read it directly). No "
+    "prose, no markdown fences."
 )
 
 
@@ -83,6 +87,7 @@ async def run_policy(mcp_client: ErpMcpClient, case: dict, run_id: str | None = 
             "eligible_for_claim": False,
             "liable": "pending",
             "justification": sla_answer.get("error") or "No SLA answer was returned for this vendor/customer pair.",
+            "confidence": 0,  # genuinely no basis for this fail-closed guess, not a real judgment
         }
         return {"result": result, "raw": raw, "status": "ok", "error": None}
 
@@ -116,4 +121,5 @@ async def run_policy(mcp_client: ErpMcpClient, case: dict, run_id: str | None = 
             "error": f"Could not parse verdict JSON from model output: {reasoning_result['content']!r}",
         }
 
+    parsed["confidence"] = clamp_confidence(parsed.get("confidence"))
     return {"result": parsed, "raw": raw, "status": "ok", "error": None}

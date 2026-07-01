@@ -72,5 +72,8 @@ async def run_inventory(mcp_client: ErpMcpClient, case: dict) -> dict:
         "vendor_qty_on_hand": vendor_qty_on_hand,
         "vendor_reorder_threshold": vendor_reorder_threshold,
         "vendor_below_threshold": vendor_below_threshold,
+        # Deterministic, tool-grounded computation — no LLM judgment involved, so this is
+        # always maximal rather than asked of a model (nothing to be "uncertain" about).
+        "confidence": 100,
     }
     return {"result": result, "raw": raw, "status": "ok", "error": None}

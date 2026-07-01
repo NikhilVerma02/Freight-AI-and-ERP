@@ -1,1804 +1,5 @@
 [
   {
-    "timestamp": "2026-06-29T18:10:48.820501+00:00",
-    "method": "GET",
-    "path": "/api/vendors/vendory/customers",
-    "status_code": 200,
-    "duration_ms": 38.42
-  },
-  {
-    "timestamp": "2026-06-29T18:10:49.097147+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.26
-  },
-  {
-    "timestamp": "2026-06-29T18:10:49.917470+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.74
-  },
-  {
-    "timestamp": "2026-06-29T18:10:58.499032+00:00",
-    "method": "OPTIONS",
-    "path": "/api/vendors/sla/upload",
-    "status_code": 200,
-    "duration_ms": 0.36
-  },
-  {
-    "timestamp": "2026-06-29T18:11:03.772606+00:00",
-    "method": "POST",
-    "path": "/api/vendors/sla/upload",
-    "status_code": 200,
-    "duration_ms": 5243.38
-  },
-  {
-    "timestamp": "2026-06-29T18:11:03.823551+00:00",
-    "method": "GET",
-    "path": "/api/vendors/vendory/customers",
-    "status_code": 200,
-    "duration_ms": 7.65
-  },
-  {
-    "timestamp": "2026-06-29T18:11:03.881537+00:00",
-    "method": "GET",
-    "path": "/api/vendors/sla",
-    "status_code": 200,
-    "duration_ms": 67.42
-  },
-  {
-    "timestamp": "2026-06-29T18:11:04.096796+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 6.24
-  },
-  {
-    "timestamp": "2026-06-29T18:11:04.917289+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.17
-  },
-  {
-    "timestamp": "2026-06-29T18:11:09.186103+00:00",
-    "method": "GET",
-    "path": "/api/orders",
-    "status_code": 200,
-    "duration_ms": 34.24
-  },
-  {
-    "timestamp": "2026-06-29T18:11:09.233425+00:00",
-    "method": "GET",
-    "path": "/api/links",
-    "status_code": 200,
-    "duration_ms": 69.93
-  },
-  {
-    "timestamp": "2026-06-29T18:11:09.302574+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 131.42
-  },
-  {
-    "timestamp": "2026-06-29T18:11:09.349400+00:00",
-    "method": "GET",
-    "path": "/api/orders",
-    "status_code": 200,
-    "duration_ms": 51.59
-  },
-  {
-    "timestamp": "2026-06-29T18:11:09.388426+00:00",
-    "method": "GET",
-    "path": "/api/links",
-    "status_code": 200,
-    "duration_ms": 48.72
-  },
-  {
-    "timestamp": "2026-06-29T18:11:09.436248+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 90.79
-  },
-  {
-    "timestamp": "2026-06-29T18:11:11.440923+00:00",
-    "method": "GET",
-    "path": "/api/vendors/sla",
-    "status_code": 200,
-    "duration_ms": 17.95
-  },
-  {
-    "timestamp": "2026-06-29T18:11:11.482416+00:00",
-    "method": "GET",
-    "path": "/api/vendors/sla",
-    "status_code": 200,
-    "duration_ms": 7.53
-  },
-  {
-    "timestamp": "2026-06-29T18:11:17.411224+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 3.39
-  },
-  {
-    "timestamp": "2026-06-29T18:11:19.919080+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.52
-  },
-  {
-    "timestamp": "2026-06-29T18:11:24.921215+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.51
-  },
-  {
-    "timestamp": "2026-06-29T18:11:34.926868+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 5.52
-  },
-  {
-    "timestamp": "2026-06-29T18:11:39.921502+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.67
-  },
-  {
-    "timestamp": "2026-06-29T18:11:49.927699+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 7.67
-  },
-  {
-    "timestamp": "2026-06-29T18:11:54.915526+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 5.77
-  },
-  {
-    "timestamp": "2026-06-29T18:12:04.927681+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 6.57
-  },
-  {
-    "timestamp": "2026-06-29T18:12:09.920466+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 5.5
-  },
-  {
-    "timestamp": "2026-06-29T18:12:24.909518+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.07
-  },
-  {
-    "timestamp": "2026-06-29T18:12:39.920629+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.55
-  },
-  {
-    "timestamp": "2026-06-29T18:12:49.921176+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.34
-  },
-  {
-    "timestamp": "2026-06-29T18:12:54.912949+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.23
-  },
-  {
-    "timestamp": "2026-06-29T18:12:55.986779+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 5.43
-  },
-  {
-    "timestamp": "2026-06-29T18:12:56.125075+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 3.81
-  },
-  {
-    "timestamp": "2026-06-29T18:12:57.331444+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 1.81
-  },
-  {
-    "timestamp": "2026-06-29T18:13:10.334388+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 4.46
-  },
-  {
-    "timestamp": "2026-06-29T18:13:23.966545+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 1.74
-  },
-  {
-    "timestamp": "2026-06-29T18:13:24.096516+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 1.9
-  },
-  {
-    "timestamp": "2026-06-29T18:13:42.013758+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 2.61
-  },
-  {
-    "timestamp": "2026-06-29T18:13:42.168414+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 1.87
-  },
-  {
-    "timestamp": "2026-06-29T18:13:44.802913+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 2.01
-  },
-  {
-    "timestamp": "2026-06-29T18:13:49.935179+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.99
-  },
-  {
-    "timestamp": "2026-06-29T18:13:50.066759+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.62
-  },
-  {
-    "timestamp": "2026-06-29T18:13:54.982347+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 1.92
-  },
-  {
-    "timestamp": "2026-06-29T18:14:49.958260+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 25.65
-  },
-  {
-    "timestamp": "2026-06-29T18:14:49.984594+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 46.83
-  },
-  {
-    "timestamp": "2026-06-29T18:15:23.047210+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 5.63
-  },
-  {
-    "timestamp": "2026-06-29T18:15:26.459532+00:00",
-    "method": "GET",
-    "path": "/api/vendors/sla",
-    "status_code": 200,
-    "duration_ms": 27.86
-  },
-  {
-    "timestamp": "2026-06-29T18:15:26.544900+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 93.44
-  },
-  {
-    "timestamp": "2026-06-29T18:15:26.629561+00:00",
-    "method": "GET",
-    "path": "/api/vendors/vendory/customers",
-    "status_code": 200,
-    "duration_ms": 190.36
-  },
-  {
-    "timestamp": "2026-06-29T18:15:26.720705+00:00",
-    "method": "GET",
-    "path": "/api/vendors/sla",
-    "status_code": 200,
-    "duration_ms": 31.82
-  },
-  {
-    "timestamp": "2026-06-29T18:15:26.804839+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 115.66
-  },
-  {
-    "timestamp": "2026-06-29T18:15:26.842490+00:00",
-    "method": "GET",
-    "path": "/api/vendors/vendory/customers",
-    "status_code": 200,
-    "duration_ms": 149.69
-  },
-  {
-    "timestamp": "2026-06-29T18:15:27.435132+00:00",
-    "method": "GET",
-    "path": "/api/claims",
-    "status_code": 200,
-    "duration_ms": 7.0
-  },
-  {
-    "timestamp": "2026-06-29T18:15:27.508458+00:00",
-    "method": "GET",
-    "path": "/api/orders",
-    "status_code": 200,
-    "duration_ms": 78.23
-  },
-  {
-    "timestamp": "2026-06-29T18:15:27.562675+00:00",
-    "method": "GET",
-    "path": "/api/claims",
-    "status_code": 200,
-    "duration_ms": 65.77
-  },
-  {
-    "timestamp": "2026-06-29T18:15:27.646888+00:00",
-    "method": "GET",
-    "path": "/api/orders",
-    "status_code": 200,
-    "duration_ms": 6.97
-  },
-  {
-    "timestamp": "2026-06-29T18:15:40.668430+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 6.05
-  },
-  {
-    "timestamp": "2026-06-29T18:15:40.781890+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 2.95
-  },
-  {
-    "timestamp": "2026-06-29T18:15:41.919560+00:00",
-    "method": "OPTIONS",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 0.31
-  },
-  {
-    "timestamp": "2026-06-29T18:15:41.956358+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.07
-  },
-  {
-    "timestamp": "2026-06-29T18:15:44.739613+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 2.08
-  },
-  {
-    "timestamp": "2026-06-29T18:15:44.860527+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 2.05
-  },
-  {
-    "timestamp": "2026-06-29T18:15:49.913863+00:00",
-    "method": "OPTIONS",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 0.3
-  },
-  {
-    "timestamp": "2026-06-29T18:15:49.945267+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.66
-  },
-  {
-    "timestamp": "2026-06-29T18:15:54.152381+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 1.7
-  },
-  {
-    "timestamp": "2026-06-29T18:15:54.284616+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 2.0
-  },
-  {
-    "timestamp": "2026-06-29T18:15:56.915443+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.46
-  },
-  {
-    "timestamp": "2026-06-29T18:16:07.753600+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 4.02
-  },
-  {
-    "timestamp": "2026-06-29T18:16:07.868369+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 6.98
-  },
-  {
-    "timestamp": "2026-06-29T18:16:08.918705+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 2.55
-  },
-  {
-    "timestamp": "2026-06-29T18:16:09.038214+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 2.39
-  },
-  {
-    "timestamp": "2026-06-29T18:16:11.922277+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 6.62
-  },
-  {
-    "timestamp": "2026-06-29T18:16:12.037155+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 7.14
-  },
-  {
-    "timestamp": "2026-06-29T18:16:16.259671+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 7.79
-  },
-  {
-    "timestamp": "2026-06-29T18:16:16.345925+00:00",
-    "method": "GET",
-    "path": "/api/vendors/sla",
-    "status_code": 200,
-    "duration_ms": 101.34
-  },
-  {
-    "timestamp": "2026-06-29T18:16:16.438701+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 14.52
-  },
-  {
-    "timestamp": "2026-06-29T18:16:16.490917+00:00",
-    "method": "GET",
-    "path": "/api/vendors/sla",
-    "status_code": 200,
-    "duration_ms": 63.17
-  },
-  {
-    "timestamp": "2026-06-29T18:16:17.091553+00:00",
-    "method": "OPTIONS",
-    "path": "/api/claims",
-    "status_code": 200,
-    "duration_ms": 6.69
-  },
-  {
-    "timestamp": "2026-06-29T18:16:17.136133+00:00",
-    "method": "OPTIONS",
-    "path": "/api/orders",
-    "status_code": 200,
-    "duration_ms": 48.23
-  },
-  {
-    "timestamp": "2026-06-29T18:16:17.175706+00:00",
-    "method": "OPTIONS",
-    "path": "/api/claims",
-    "status_code": 200,
-    "duration_ms": 86.55
-  },
-  {
-    "timestamp": "2026-06-29T18:16:17.212723+00:00",
-    "method": "OPTIONS",
-    "path": "/api/orders",
-    "status_code": 200,
-    "duration_ms": 121.78
-  },
-  {
-    "timestamp": "2026-06-29T18:16:17.264258+00:00",
-    "method": "GET",
-    "path": "/api/claims",
-    "status_code": 200,
-    "duration_ms": 7.44
-  },
-  {
-    "timestamp": "2026-06-29T18:16:17.298527+00:00",
-    "method": "GET",
-    "path": "/api/orders",
-    "status_code": 200,
-    "duration_ms": 40.53
-  },
-  {
-    "timestamp": "2026-06-29T18:16:17.342380+00:00",
-    "method": "GET",
-    "path": "/api/orders",
-    "status_code": 200,
-    "duration_ms": 4.47
-  },
-  {
-    "timestamp": "2026-06-29T18:16:17.384907+00:00",
-    "method": "GET",
-    "path": "/api/claims",
-    "status_code": 200,
-    "duration_ms": 51.39
-  },
-  {
-    "timestamp": "2026-06-29T18:16:21.777179+00:00",
-    "method": "OPTIONS",
-    "path": "/api/observability/rag-eval",
-    "status_code": 200,
-    "duration_ms": 0.37
-  },
-  {
-    "timestamp": "2026-06-29T18:16:21.825901+00:00",
-    "method": "OPTIONS",
-    "path": "/api/observability/rag-eval/run/status",
-    "status_code": 200,
-    "duration_ms": 3.39
-  },
-  {
-    "timestamp": "2026-06-29T18:16:21.861064+00:00",
-    "method": "OPTIONS",
-    "path": "/api/observability/rag-eval",
-    "status_code": 200,
-    "duration_ms": 37.04
-  },
-  {
-    "timestamp": "2026-06-29T18:16:21.897874+00:00",
-    "method": "OPTIONS",
-    "path": "/api/observability/rag-eval/run/status",
-    "status_code": 200,
-    "duration_ms": 72.8
-  },
-  {
-    "timestamp": "2026-06-29T18:16:21.948832+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval",
-    "status_code": 200,
-    "duration_ms": 122.87
-  },
-  {
-    "timestamp": "2026-06-29T18:16:21.985424+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval/run/status",
-    "status_code": 200,
-    "duration_ms": 44.57
-  },
-  {
-    "timestamp": "2026-06-29T18:16:22.035097+00:00",
-    "method": "OPTIONS",
-    "path": "/api/observability/rag-eval/20260628T175109Z",
-    "status_code": 200,
-    "duration_ms": 4.66
-  },
-  {
-    "timestamp": "2026-06-29T18:16:22.073761+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval/run/status",
-    "status_code": 200,
-    "duration_ms": 45.61
-  },
-  {
-    "timestamp": "2026-06-29T18:16:22.120486+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval",
-    "status_code": 200,
-    "duration_ms": 89.71
-  },
-  {
-    "timestamp": "2026-06-29T18:16:22.157412+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval/20260628T175109Z",
-    "status_code": 200,
-    "duration_ms": 83.23
-  },
-  {
-    "timestamp": "2026-06-29T18:16:22.216555+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval/20260628T175109Z",
-    "status_code": 200,
-    "duration_ms": 6.84
-  },
-  {
-    "timestamp": "2026-06-29T18:16:22.270763+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval",
-    "status_code": 200,
-    "duration_ms": 69.84
-  },
-  {
-    "timestamp": "2026-06-29T18:16:22.333647+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval",
-    "status_code": 200,
-    "duration_ms": 6.62
-  },
-  {
-    "timestamp": "2026-06-29T18:16:26.918117+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.59
-  },
-  {
-    "timestamp": "2026-06-29T18:16:31.173757+00:00",
-    "method": "OPTIONS",
-    "path": "/api/observability/rag-eval",
-    "status_code": 200,
-    "duration_ms": 2.41
-  },
-  {
-    "timestamp": "2026-06-29T18:16:31.226468+00:00",
-    "method": "OPTIONS",
-    "path": "/api/observability/rag-eval/run/status",
-    "status_code": 200,
-    "duration_ms": 53.47
-  },
-  {
-    "timestamp": "2026-06-29T18:16:31.266614+00:00",
-    "method": "OPTIONS",
-    "path": "/api/observability/rag-eval",
-    "status_code": 200,
-    "duration_ms": 43.53
-  },
-  {
-    "timestamp": "2026-06-29T18:16:31.307239+00:00",
-    "method": "OPTIONS",
-    "path": "/api/observability/rag-eval/run/status",
-    "status_code": 200,
-    "duration_ms": 81.22
-  },
-  {
-    "timestamp": "2026-06-29T18:16:31.349630+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval/run/status",
-    "status_code": 200,
-    "duration_ms": 3.57
-  },
-  {
-    "timestamp": "2026-06-29T18:16:31.445290+00:00",
-    "method": "OPTIONS",
-    "path": "/api/observability/rag-eval/20260628T175109Z",
-    "status_code": 200,
-    "duration_ms": 0.93
-  },
-  {
-    "timestamp": "2026-06-29T18:16:31.471643+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval/run/status",
-    "status_code": 200,
-    "duration_ms": 34.52
-  },
-  {
-    "timestamp": "2026-06-29T18:16:31.507229+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval",
-    "status_code": 200,
-    "duration_ms": 69.35
-  },
-  {
-    "timestamp": "2026-06-29T18:16:31.565137+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval/20260628T175109Z",
-    "status_code": 200,
-    "duration_ms": 14.07
-  },
-  {
-    "timestamp": "2026-06-29T18:16:31.602204+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval",
-    "status_code": 200,
-    "duration_ms": 44.03
-  },
-  {
-    "timestamp": "2026-06-29T18:16:31.672345+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval/20260628T175109Z",
-    "status_code": 200,
-    "duration_ms": 70.29
-  },
-  {
-    "timestamp": "2026-06-29T18:16:31.724281+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval",
-    "status_code": 200,
-    "duration_ms": 57.2
-  },
-  {
-    "timestamp": "2026-06-29T18:16:31.925056+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.47
-  },
-  {
-    "timestamp": "2026-06-29T18:16:41.434562+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.2
-  },
-  {
-    "timestamp": "2026-06-29T18:16:47.132812+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 6.38
-  },
-  {
-    "timestamp": "2026-06-29T18:16:55.040581+00:00",
-    "method": "OPTIONS",
-    "path": "/api/orders",
-    "status_code": 200,
-    "duration_ms": 4.89
-  },
-  {
-    "timestamp": "2026-06-29T18:16:55.107110+00:00",
-    "method": "OPTIONS",
-    "path": "/api/claims",
-    "status_code": 200,
-    "duration_ms": 69.82
-  },
-  {
-    "timestamp": "2026-06-29T18:16:55.173840+00:00",
-    "method": "OPTIONS",
-    "path": "/api/links",
-    "status_code": 200,
-    "duration_ms": 133.98
-  },
-  {
-    "timestamp": "2026-06-29T18:16:55.221868+00:00",
-    "method": "OPTIONS",
-    "path": "/api/vendor_inventory",
-    "status_code": 200,
-    "duration_ms": 115.28
-  },
-  {
-    "timestamp": "2026-06-29T18:16:55.265461+00:00",
-    "method": "OPTIONS",
-    "path": "/api/orders",
-    "status_code": 200,
-    "duration_ms": 93.38
-  },
-  {
-    "timestamp": "2026-06-29T18:16:55.303867+00:00",
-    "method": "OPTIONS",
-    "path": "/api/claims",
-    "status_code": 200,
-    "duration_ms": 86.32
-  },
-  {
-    "timestamp": "2026-06-29T18:16:55.357672+00:00",
-    "method": "OPTIONS",
-    "path": "/api/links",
-    "status_code": 200,
-    "duration_ms": 91.98
-  },
-  {
-    "timestamp": "2026-06-29T18:16:55.420189+00:00",
-    "method": "OPTIONS",
-    "path": "/api/vendor_inventory",
-    "status_code": 200,
-    "duration_ms": 115.56
-  },
-  {
-    "timestamp": "2026-06-29T18:16:55.488192+00:00",
-    "method": "GET",
-    "path": "/api/orders",
-    "status_code": 200,
-    "duration_ms": 131.31
-  },
-  {
-    "timestamp": "2026-06-29T18:16:55.543130+00:00",
-    "method": "GET",
-    "path": "/api/claims",
-    "status_code": 200,
-    "duration_ms": 124.05
-  },
-  {
-    "timestamp": "2026-06-29T18:16:55.582164+00:00",
-    "method": "GET",
-    "path": "/api/links",
-    "status_code": 200,
-    "duration_ms": 110.43
-  },
-  {
-    "timestamp": "2026-06-29T18:16:55.623739+00:00",
-    "method": "GET",
-    "path": "/api/vendor_inventory",
-    "status_code": 200,
-    "duration_ms": 148.95
-  },
-  {
-    "timestamp": "2026-06-29T18:16:55.683377+00:00",
-    "method": "GET",
-    "path": "/api/orders",
-    "status_code": 200,
-    "duration_ms": 17.11
-  },
-  {
-    "timestamp": "2026-06-29T18:16:55.755087+00:00",
-    "method": "GET",
-    "path": "/api/vendor_inventory",
-    "status_code": 200,
-    "duration_ms": 82.25
-  },
-  {
-    "timestamp": "2026-06-29T18:16:55.806000+00:00",
-    "method": "GET",
-    "path": "/api/links",
-    "status_code": 200,
-    "duration_ms": 135.12
-  },
-  {
-    "timestamp": "2026-06-29T18:16:55.842420+00:00",
-    "method": "GET",
-    "path": "/api/claims",
-    "status_code": 200,
-    "duration_ms": 172.6
-  },
-  {
-    "timestamp": "2026-06-29T18:16:56.429283+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.71
-  },
-  {
-    "timestamp": "2026-06-29T18:17:01.118936+00:00",
-    "method": "GET",
-    "path": "/api/orders",
-    "status_code": 200,
-    "duration_ms": 4.39
-  },
-  {
-    "timestamp": "2026-06-29T18:17:01.187435+00:00",
-    "method": "GET",
-    "path": "/api/orders",
-    "status_code": 200,
-    "duration_ms": 3.77
-  },
-  {
-    "timestamp": "2026-06-29T18:17:01.921862+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.02
-  },
-  {
-    "timestamp": "2026-06-29T18:17:02.477613+00:00",
-    "method": "GET",
-    "path": "/api/claims",
-    "status_code": 200,
-    "duration_ms": 6.34
-  },
-  {
-    "timestamp": "2026-06-29T18:17:02.522757+00:00",
-    "method": "GET",
-    "path": "/api/orders",
-    "status_code": 200,
-    "duration_ms": 49.63
-  },
-  {
-    "timestamp": "2026-06-29T18:17:02.568907+00:00",
-    "method": "GET",
-    "path": "/api/orders",
-    "status_code": 200,
-    "duration_ms": 4.44
-  },
-  {
-    "timestamp": "2026-06-29T18:17:02.607530+00:00",
-    "method": "GET",
-    "path": "/api/claims",
-    "status_code": 200,
-    "duration_ms": 39.26
-  },
-  {
-    "timestamp": "2026-06-29T18:17:03.705807+00:00",
-    "method": "OPTIONS",
-    "path": "/api/vendors/vendory/customers",
-    "status_code": 200,
-    "duration_ms": 3.25
-  },
-  {
-    "timestamp": "2026-06-29T18:17:03.759628+00:00",
-    "method": "OPTIONS",
-    "path": "/api/vendors/vendory/customers",
-    "status_code": 200,
-    "duration_ms": 53.18
-  },
-  {
-    "timestamp": "2026-06-29T18:17:03.805364+00:00",
-    "method": "GET",
-    "path": "/api/vendors/sla",
-    "status_code": 200,
-    "duration_ms": 101.85
-  },
-  {
-    "timestamp": "2026-06-29T18:17:03.841580+00:00",
-    "method": "GET",
-    "path": "/api/vendors/vendory/customers",
-    "status_code": 200,
-    "duration_ms": 38.26
-  },
-  {
-    "timestamp": "2026-06-29T18:17:03.899627+00:00",
-    "method": "GET",
-    "path": "/api/vendors/sla",
-    "status_code": 200,
-    "duration_ms": 59.03
-  },
-  {
-    "timestamp": "2026-06-29T18:17:03.980136+00:00",
-    "method": "GET",
-    "path": "/api/vendors/vendory/customers",
-    "status_code": 200,
-    "duration_ms": 82.94
-  },
-  {
-    "timestamp": "2026-06-29T18:17:05.178466+00:00",
-    "method": "GET",
-    "path": "/api/vendors/vendory/customers",
-    "status_code": 200,
-    "duration_ms": 10.34
-  },
-  {
-    "timestamp": "2026-06-29T18:17:05.238288+00:00",
-    "method": "GET",
-    "path": "/api/vendors/vendory/customers",
-    "status_code": 200,
-    "duration_ms": 15.45
-  },
-  {
-    "timestamp": "2026-06-29T18:17:07.354971+00:00",
-    "method": "GET",
-    "path": "/api/vendor_inventory",
-    "status_code": 200,
-    "duration_ms": 5.23
-  },
-  {
-    "timestamp": "2026-06-29T18:17:07.407388+00:00",
-    "method": "GET",
-    "path": "/api/vendor_inventory",
-    "status_code": 200,
-    "duration_ms": 2.77
-  },
-  {
-    "timestamp": "2026-06-29T18:17:09.134631+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.73
-  },
-  {
-    "timestamp": "2026-06-29T18:17:09.197806+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 9.08
-  },
-  {
-    "timestamp": "2026-06-29T18:17:09.248007+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 8.02
-  },
-  {
-    "timestamp": "2026-06-29T18:17:09.291661+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.63
-  },
-  {
-    "timestamp": "2026-06-29T18:17:10.186926+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval/run/status",
-    "status_code": 200,
-    "duration_ms": 3.04
-  },
-  {
-    "timestamp": "2026-06-29T18:17:10.235775+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval",
-    "status_code": 200,
-    "duration_ms": 52.78
-  },
-  {
-    "timestamp": "2026-06-29T18:17:10.281710+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval/run/status",
-    "status_code": 200,
-    "duration_ms": 13.41
-  },
-  {
-    "timestamp": "2026-06-29T18:17:10.331892+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval/20260628T175109Z",
-    "status_code": 200,
-    "duration_ms": 56.98
-  },
-  {
-    "timestamp": "2026-06-29T18:17:10.365230+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval",
-    "status_code": 200,
-    "duration_ms": 93.29
-  },
-  {
-    "timestamp": "2026-06-29T18:17:10.403789+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval",
-    "status_code": 200,
-    "duration_ms": 3.43
-  },
-  {
-    "timestamp": "2026-06-29T18:17:10.465747+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval/20260628T175109Z",
-    "status_code": 200,
-    "duration_ms": 11.7
-  },
-  {
-    "timestamp": "2026-06-29T18:17:10.525664+00:00",
-    "method": "GET",
-    "path": "/api/observability/rag-eval",
-    "status_code": 200,
-    "duration_ms": 70.75
-  },
-  {
-    "timestamp": "2026-06-29T18:17:11.449056+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.11
-  },
-  {
-    "timestamp": "2026-06-29T18:17:16.955722+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.42
-  },
-  {
-    "timestamp": "2026-06-29T18:17:26.911631+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 5.87
-  },
-  {
-    "timestamp": "2026-06-29T18:17:31.653715+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 3.24
-  },
-  {
-    "timestamp": "2026-06-29T18:17:31.771859+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 2.06
-  },
-  {
-    "timestamp": "2026-06-29T18:17:31.910744+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 2.83
-  },
-  {
-    "timestamp": "2026-06-29T18:17:40.068317+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 1.23
-  },
-  {
-    "timestamp": "2026-06-29T18:17:41.912730+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.73
-  },
-  {
-    "timestamp": "2026-06-29T18:17:46.902766+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.52
-  },
-  {
-    "timestamp": "2026-06-29T18:17:56.916010+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.83
-  },
-  {
-    "timestamp": "2026-06-29T18:18:01.917083+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 5.73
-  },
-  {
-    "timestamp": "2026-06-29T18:18:11.912879+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 5.65
-  },
-  {
-    "timestamp": "2026-06-29T18:18:16.920245+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.65
-  },
-  {
-    "timestamp": "2026-06-29T18:18:31.961143+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 6.07
-  },
-  {
-    "timestamp": "2026-06-29T18:18:38.301105+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 21.21
-  },
-  {
-    "timestamp": "2026-06-29T18:18:41.931475+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 20.59
-  },
-  {
-    "timestamp": "2026-06-29T18:18:49.921090+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 9.18
-  },
-  {
-    "timestamp": "2026-06-29T18:18:56.910004+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.32
-  },
-  {
-    "timestamp": "2026-06-29T18:19:11.918316+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.95
-  },
-  {
-    "timestamp": "2026-06-29T18:19:19.050292+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 2.33
-  },
-  {
-    "timestamp": "2026-06-29T18:19:26.925811+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 5.44
-  },
-  {
-    "timestamp": "2026-06-29T18:19:41.931792+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 23.82
-  },
-  {
-    "timestamp": "2026-06-29T18:19:49.922156+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.56
-  },
-  {
-    "timestamp": "2026-06-29T18:20:08.615788+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 6.96
-  },
-  {
-    "timestamp": "2026-06-29T18:20:42.929146+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 16.9
-  },
-  {
-    "timestamp": "2026-06-29T18:20:49.937329+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 5.64
-  },
-  {
-    "timestamp": "2026-06-29T18:21:43.928756+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.64
-  },
-  {
-    "timestamp": "2026-06-29T18:21:49.926943+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.86
-  },
-  {
-    "timestamp": "2026-06-29T18:22:44.918234+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.65
-  },
-  {
-    "timestamp": "2026-06-29T18:22:49.929916+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.83
-  },
-  {
-    "timestamp": "2026-06-29T18:23:37.343813+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 2.26
-  },
-  {
-    "timestamp": "2026-06-29T18:23:45.924516+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.78
-  },
-  {
-    "timestamp": "2026-06-29T18:23:49.932034+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 5.45
-  },
-  {
-    "timestamp": "2026-06-29T18:24:46.944669+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 25.12
-  },
-  {
-    "timestamp": "2026-06-29T18:24:49.954632+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 8.21
-  },
-  {
-    "timestamp": "2026-06-29T18:25:01.807836+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 2.18
-  },
-  {
-    "timestamp": "2026-06-29T18:25:47.912979+00:00",
-    "method": "OPTIONS",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 0.2
-  },
-  {
-    "timestamp": "2026-06-29T18:25:47.968493+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 19.07
-  },
-  {
-    "timestamp": "2026-06-29T18:25:49.910561+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.99
-  },
-  {
-    "timestamp": "2026-06-29T18:26:17.952710+00:00",
-    "method": "OPTIONS",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 0.47
-  },
-  {
-    "timestamp": "2026-06-29T18:26:18.001435+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.74
-  },
-  {
-    "timestamp": "2026-06-29T18:26:23.479347+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 2.58
-  },
-  {
-    "timestamp": "2026-06-29T18:26:23.617867+00:00",
-    "method": "GET",
-    "path": "/api/auth/me",
-    "status_code": 200,
-    "duration_ms": 2.26
-  },
-  {
-    "timestamp": "2026-06-29T18:26:31.918541+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.25
-  },
-  {
-    "timestamp": "2026-06-29T18:26:32.570788+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 6.52
-  },
-  {
-    "timestamp": "2026-06-29T18:26:41.916807+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 6.38
-  },
-  {
-    "timestamp": "2026-06-29T18:26:46.257743+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.68
-  },
-  {
-    "timestamp": "2026-06-29T18:26:56.961072+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 9.94
-  },
-  {
-    "timestamp": "2026-06-29T18:27:01.260774+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.84
-  },
-  {
-    "timestamp": "2026-06-29T18:27:01.543541+00:00",
-    "method": "OPTIONS",
-    "path": "/api/chatbot/ask",
-    "status_code": 200,
-    "duration_ms": 0.48
-  },
-  {
-    "timestamp": "2026-06-29T18:27:02.699477+00:00",
-    "method": "POST",
-    "path": "/api/chatbot/ask",
-    "status_code": 200,
-    "duration_ms": 1104.26
-  },
-  {
-    "timestamp": "2026-06-29T18:27:11.913156+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.08
-  },
-  {
-    "timestamp": "2026-06-29T18:27:16.252490+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.46
-  },
-  {
-    "timestamp": "2026-06-29T18:27:19.286486+00:00",
-    "method": "POST",
-    "path": "/api/chatbot/ask",
-    "status_code": 200,
-    "duration_ms": 1546.16
-  },
-  {
-    "timestamp": "2026-06-29T18:27:26.907628+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.08
-  },
-  {
-    "timestamp": "2026-06-29T18:27:31.255068+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.75
-  },
-  {
-    "timestamp": "2026-06-29T18:27:47.014923+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 4.27
-  },
-  {
-    "timestamp": "2026-06-29T18:27:49.908530+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.07
-  },
-  {
-    "timestamp": "2026-06-29T18:28:01.906439+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 2.98
-  },
-  {
-    "timestamp": "2026-06-29T18:28:16.922058+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 2.48
-  },
-  {
-    "timestamp": "2026-06-29T18:28:31.917300+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 2.63
-  },
-  {
-    "timestamp": "2026-06-29T18:28:49.918786+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 3.68
-  },
-  {
-    "timestamp": "2026-06-29T18:28:49.964025+00:00",
-    "method": "GET",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 5.83
-  },
-  {
-    "timestamp": "2026-06-30T15:49:46.525570+00:00",
-    "method": "GET",
-    "path": "/",
-    "status_code": 200,
-    "duration_ms": 54.98
-  },
-  {
-    "timestamp": "2026-06-30T15:50:09.498604+00:00",
-    "method": "OPTIONS",
-    "path": "/api/auth/password-policy",
-    "status_code": 200,
-    "duration_ms": 0.33
-  },
-  {
-    "timestamp": "2026-06-30T15:50:09.519299+00:00",
-    "method": "OPTIONS",
-    "path": "/api/auth/password-policy",
-    "status_code": 200,
-    "duration_ms": 0.37
-  },
-  {
-    "timestamp": "2026-06-30T15:50:09.544942+00:00",
-    "method": "GET",
-    "path": "/api/auth/password-policy",
-    "status_code": 200,
-    "duration_ms": 3.61
-  },
-  {
-    "timestamp": "2026-06-30T15:50:09.571271+00:00",
-    "method": "GET",
-    "path": "/api/auth/password-policy",
-    "status_code": 200,
-    "duration_ms": 1.44
-  },
-  {
-    "timestamp": "2026-06-30T15:57:37.704133+00:00",
-    "method": "GET",
-    "path": "/",
-    "status_code": 200,
-    "duration_ms": 1.55
-  },
-  {
-    "timestamp": "2026-06-30T15:57:47.308219+00:00",
-    "method": "POST",
-    "path": "/api/auth/login",
-    "status_code": 200,
-    "duration_ms": 444.67
-  },
-  {
-    "timestamp": "2026-06-30T15:57:54.783275+00:00",
-    "method": "POST",
-    "path": "/api/chatbot/ask",
-    "status_code": 200,
-    "duration_ms": 6372.93
-  },
-  {
-    "timestamp": "2026-06-30T15:57:57.227486+00:00",
-    "method": "POST",
-    "path": "/api/chatbot/ask",
-    "status_code": 200,
-    "duration_ms": 2331.02
-  },
-  {
-    "timestamp": "2026-06-30T15:58:08.963420+00:00",
-    "method": "POST",
-    "path": "/api/auth/login",
-    "status_code": 200,
-    "duration_ms": 354.19
-  },
-  {
-    "timestamp": "2026-06-30T15:58:29.881693+00:00",
-    "method": "POST",
-    "path": "/api/chatbot/ask",
-    "status_code": 200,
-    "duration_ms": 20791.71
-  },
-  {
-    "timestamp": "2026-06-30T15:59:20.394792+00:00",
-    "method": "GET",
-    "path": "/",
-    "status_code": 200,
-    "duration_ms": 150.11
-  },
-  {
-    "timestamp": "2026-06-30T15:59:31.348453+00:00",
-    "method": "POST",
-    "path": "/api/auth/login",
-    "status_code": 200,
-    "duration_ms": 323.48
-  },
-  {
-    "timestamp": "2026-06-30T15:59:36.581447+00:00",
-    "method": "POST",
-    "path": "/api/chatbot/ask",
-    "status_code": 200,
-    "duration_ms": 5105.18
-  },
-  {
-    "timestamp": "2026-06-30T15:59:39.328924+00:00",
-    "method": "POST",
-    "path": "/api/chatbot/ask",
-    "status_code": 200,
-    "duration_ms": 2629.12
-  },
-  {
-    "timestamp": "2026-06-30T15:59:57.808845+00:00",
-    "method": "POST",
-    "path": "/api/auth/login",
-    "status_code": 200,
-    "duration_ms": 298.48
-  },
-  {
-    "timestamp": "2026-06-30T15:59:57.981332+00:00",
-    "method": "GET",
-    "path": "/api/chatbot/history",
-    "status_code": 200,
-    "duration_ms": 3.27
-  },
-  {
-    "timestamp": "2026-06-30T15:59:58.227689+00:00",
-    "method": "DELETE",
-    "path": "/api/chatbot/history",
-    "status_code": 200,
-    "duration_ms": 4.1
-  },
-  {
-    "timestamp": "2026-06-30T15:59:58.476392+00:00",
-    "method": "GET",
-    "path": "/api/chatbot/history",
-    "status_code": 200,
-    "duration_ms": 2.24
-  },
-  {
-    "timestamp": "2026-06-30T16:00:24.401335+00:00",
-    "method": "POST",
-    "path": "/api/auth/login",
-    "status_code": 200,
-    "duration_ms": 307.01
-  },
-  {
-    "timestamp": "2026-06-30T16:00:24.537623+00:00",
-    "method": "GET",
-    "path": "/api/chatbot/history",
-    "status_code": 200,
-    "duration_ms": 2.61
-  },
-  {
-    "timestamp": "2026-06-30T16:04:34.859352+00:00",
-    "method": "GET",
-    "path": "/",
-    "status_code": 200,
-    "duration_ms": 125.13
-  },
-  {
-    "timestamp": "2026-06-30T16:04:52.046273+00:00",
-    "method": "OPTIONS",
-    "path": "/api/auth/password-policy",
-    "status_code": 200,
-    "duration_ms": 0.45
-  },
-  {
-    "timestamp": "2026-06-30T16:04:52.070644+00:00",
-    "method": "OPTIONS",
-    "path": "/api/auth/password-policy",
-    "status_code": 200,
-    "duration_ms": 0.41
-  },
-  {
-    "timestamp": "2026-06-30T16:04:52.095312+00:00",
-    "method": "GET",
-    "path": "/api/auth/password-policy",
-    "status_code": 200,
-    "duration_ms": 2.44
-  },
-  {
-    "timestamp": "2026-06-30T16:04:52.116733+00:00",
-    "method": "GET",
-    "path": "/api/auth/password-policy",
-    "status_code": 200,
-    "duration_ms": 1.77
-  },
-  {
-    "timestamp": "2026-06-30T16:05:00.170861+00:00",
-    "method": "OPTIONS",
-    "path": "/api/auth/login",
-    "status_code": 200,
-    "duration_ms": 0.4
-  },
-  {
-    "timestamp": "2026-06-30T16:05:00.618971+00:00",
-    "method": "POST",
-    "path": "/api/auth/login",
-    "status_code": 200,
-    "duration_ms": 416.48
-  },
-  {
-    "timestamp": "2026-06-30T16:05:00.926814+00:00",
-    "method": "OPTIONS",
-    "path": "/api/orders",
-    "status_code": 200,
-    "duration_ms": 0.46
-  },
-  {
-    "timestamp": "2026-06-30T16:05:00.966987+00:00",
-    "method": "OPTIONS",
-    "path": "/api/claims",
-    "status_code": 200,
-    "duration_ms": 3.42
-  },
-  {
-    "timestamp": "2026-06-30T16:05:00.999291+00:00",
-    "method": "OPTIONS",
-    "path": "/api/claims",
-    "status_code": 200,
-    "duration_ms": 35.42
-  },
-  {
-    "timestamp": "2026-06-30T16:05:01.031659+00:00",
-    "method": "OPTIONS",
-    "path": "/api/links",
-    "status_code": 200,
-    "duration_ms": 67.34
-  },
-  {
-    "timestamp": "2026-06-30T16:05:01.065405+00:00",
-    "method": "OPTIONS",
-    "path": "/api/vendor_inventory",
-    "status_code": 200,
-    "duration_ms": 99.46
-  },
-  {
-    "timestamp": "2026-06-30T16:05:01.095077+00:00",
-    "method": "OPTIONS",
-    "path": "/api/alerts",
-    "status_code": 200,
-    "duration_ms": 63.97
-  },
-  {
-    "timestamp": "2026-06-30T16:05:01.130297+00:00",
-    "method": "OPTIONS",
-    "path": "/api/orders",
-    "status_code": 200,
-    "duration_ms": 66.0
-  },
-  {
     "timestamp": "2026-06-30T16:05:01.200214+00:00",
     "method": "OPTIONS",
     "path": "/api/links",
@@ -3498,5 +1699,1804 @@
     "path": "/api/alerts",
     "status_code": 200,
     "duration_ms": 5.68
+  },
+  {
+    "timestamp": "2026-06-30T17:41:48.929448+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 7.38
+  },
+  {
+    "timestamp": "2026-06-30T17:42:03.924410+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 8.72
+  },
+  {
+    "timestamp": "2026-06-30T17:42:40.919521+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 8.26
+  },
+  {
+    "timestamp": "2026-06-30T17:43:40.924075+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 7.89
+  },
+  {
+    "timestamp": "2026-06-30T17:44:41.015575+00:00",
+    "method": "OPTIONS",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 0.41
+  },
+  {
+    "timestamp": "2026-06-30T17:44:41.057541+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 8.58
+  },
+  {
+    "timestamp": "2026-06-30T17:45:40.932495+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 9.19
+  },
+  {
+    "timestamp": "2026-06-30T17:46:40.939062+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 9.31
+  },
+  {
+    "timestamp": "2026-06-30T17:47:40.925189+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 6.0
+  },
+  {
+    "timestamp": "2026-06-30T17:48:40.936493+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 5.13
+  },
+  {
+    "timestamp": "2026-06-30T17:49:40.928747+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 6.96
+  },
+  {
+    "timestamp": "2026-06-30T17:50:40.938750+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 8.97
+  },
+  {
+    "timestamp": "2026-06-30T17:51:40.936051+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 9.92
+  },
+  {
+    "timestamp": "2026-06-30T17:52:40.945569+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 9.33
+  },
+  {
+    "timestamp": "2026-06-30T17:53:40.934879+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 4.98
+  },
+  {
+    "timestamp": "2026-06-30T17:54:40.937869+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 9.31
+  },
+  {
+    "timestamp": "2026-06-30T17:55:40.922480+00:00",
+    "method": "OPTIONS",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 0.43
+  },
+  {
+    "timestamp": "2026-06-30T17:55:40.964642+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 10.08
+  },
+  {
+    "timestamp": "2026-06-30T17:56:40.931951+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 9.49
+  },
+  {
+    "timestamp": "2026-06-30T17:57:17.064578+00:00",
+    "method": "GET",
+    "path": "/",
+    "status_code": 200,
+    "duration_ms": 2.06
+  },
+  {
+    "timestamp": "2026-06-30T17:57:40.920420+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 8.62
+  },
+  {
+    "timestamp": "2026-06-30T17:57:54.145647+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 314.98
+  },
+  {
+    "timestamp": "2026-06-30T17:57:54.305569+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 2.49
+  },
+  {
+    "timestamp": "2026-06-30T17:58:02.127448+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 321.12
+  },
+  {
+    "timestamp": "2026-06-30T17:58:02.281593+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.36
+  },
+  {
+    "timestamp": "2026-06-30T17:58:40.937880+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 6.47
+  },
+  {
+    "timestamp": "2026-06-30T17:59:40.925604+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 8.26
+  },
+  {
+    "timestamp": "2026-06-30T18:00:40.931627+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 6.1
+  },
+  {
+    "timestamp": "2026-06-30T18:01:40.927193+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 6.4
+  },
+  {
+    "timestamp": "2026-06-30T18:02:18.922277+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 298.77
+  },
+  {
+    "timestamp": "2026-06-30T18:02:19.091140+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.31
+  },
+  {
+    "timestamp": "2026-06-30T18:02:40.936350+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 6.08
+  },
+  {
+    "timestamp": "2026-06-30T18:02:42.268699+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 383.85
+  },
+  {
+    "timestamp": "2026-06-30T18:02:42.430106+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.48
+  },
+  {
+    "timestamp": "2026-06-30T18:03:40.950230+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 26.51
+  },
+  {
+    "timestamp": "2026-06-30T18:04:40.926082+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 6.4
+  },
+  {
+    "timestamp": "2026-06-30T18:05:40.938224+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 9.76
+  },
+  {
+    "timestamp": "2026-06-30T18:06:40.922666+00:00",
+    "method": "OPTIONS",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 0.37
+  },
+  {
+    "timestamp": "2026-06-30T18:06:40.962781+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 9.44
+  },
+  {
+    "timestamp": "2026-06-30T18:07:40.942534+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 11.55
+  },
+  {
+    "timestamp": "2026-06-30T18:08:40.934461+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 12.42
+  },
+  {
+    "timestamp": "2026-06-30T18:09:40.930072+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 5.89
+  },
+  {
+    "timestamp": "2026-06-30T18:10:40.944780+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 12.57
+  },
+  {
+    "timestamp": "2026-06-30T18:11:40.934285+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 9.69
+  },
+  {
+    "timestamp": "2026-06-30T18:12:40.932541+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 10.35
+  },
+  {
+    "timestamp": "2026-06-30T18:13:40.924750+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 6.15
+  },
+  {
+    "timestamp": "2026-06-30T18:14:40.940352+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 9.46
+  },
+  {
+    "timestamp": "2026-06-30T18:15:40.938625+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 8.72
+  },
+  {
+    "timestamp": "2026-06-30T18:16:40.947409+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 10.52
+  },
+  {
+    "timestamp": "2026-06-30T18:17:28.146370+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 310.27
+  },
+  {
+    "timestamp": "2026-06-30T18:17:28.289930+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.36
+  },
+  {
+    "timestamp": "2026-06-30T18:17:40.922700+00:00",
+    "method": "OPTIONS",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 0.4
+  },
+  {
+    "timestamp": "2026-06-30T18:17:40.955767+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 7.38
+  },
+  {
+    "timestamp": "2026-06-30T18:18:31.606074+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 320.22
+  },
+  {
+    "timestamp": "2026-06-30T18:18:31.764162+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.87
+  },
+  {
+    "timestamp": "2026-06-30T18:18:41.004574+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 27.48
+  },
+  {
+    "timestamp": "2026-06-30T18:19:20.456581+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 326.62
+  },
+  {
+    "timestamp": "2026-06-30T18:19:20.612182+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.65
+  },
+  {
+    "timestamp": "2026-06-30T18:19:40.943778+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 24.78
+  },
+  {
+    "timestamp": "2026-06-30T18:20:40.930097+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 9.12
+  },
+  {
+    "timestamp": "2026-06-30T18:21:40.939017+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 9.55
+  },
+  {
+    "timestamp": "2026-06-30T18:22:40.936676+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 8.31
+  },
+  {
+    "timestamp": "2026-06-30T18:23:24.004263+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 401,
+    "duration_ms": 10.39
+  },
+  {
+    "timestamp": "2026-06-30T18:23:24.126178+00:00",
+    "method": "OPTIONS",
+    "path": "/api/auth/password-policy",
+    "status_code": 200,
+    "duration_ms": 0.51
+  },
+  {
+    "timestamp": "2026-06-30T18:23:24.162494+00:00",
+    "method": "OPTIONS",
+    "path": "/api/auth/password-policy",
+    "status_code": 200,
+    "duration_ms": 0.39
+  },
+  {
+    "timestamp": "2026-06-30T18:23:24.190611+00:00",
+    "method": "GET",
+    "path": "/api/auth/password-policy",
+    "status_code": 200,
+    "duration_ms": 2.62
+  },
+  {
+    "timestamp": "2026-06-30T18:23:24.229962+00:00",
+    "method": "GET",
+    "path": "/api/auth/password-policy",
+    "status_code": 200,
+    "duration_ms": 3.62
+  },
+  {
+    "timestamp": "2026-06-30T18:23:44.775509+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 357.47
+  },
+  {
+    "timestamp": "2026-06-30T18:23:44.988198+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 3.0
+  },
+  {
+    "timestamp": "2026-06-30T18:23:45.128896+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.65
+  },
+  {
+    "timestamp": "2026-06-30T18:23:51.621713+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.34
+  },
+  {
+    "timestamp": "2026-06-30T18:24:02.969745+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.87
+  },
+  {
+    "timestamp": "2026-06-30T18:24:40.705614+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 2.95
+  },
+  {
+    "timestamp": "2026-06-30T18:31:50.670691+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 4.11
+  },
+  {
+    "timestamp": "2026-06-30T18:31:50.840236+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.66
+  },
+  {
+    "timestamp": "2026-06-30T18:31:53.291182+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.63
+  },
+  {
+    "timestamp": "2026-06-30T18:32:03.745007+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.46
+  },
+  {
+    "timestamp": "2026-06-30T18:34:39.524198+00:00",
+    "method": "GET",
+    "path": "/",
+    "status_code": 200,
+    "duration_ms": 3.41
+  },
+  {
+    "timestamp": "2026-06-30T18:34:40.206265+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 487.1
+  },
+  {
+    "timestamp": "2026-06-30T18:34:40.337955+00:00",
+    "method": "GET",
+    "path": "/api/sla",
+    "status_code": 404,
+    "duration_ms": 1.68
+  },
+  {
+    "timestamp": "2026-06-30T18:35:00.605815+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 351.05
+  },
+  {
+    "timestamp": "2026-06-30T18:35:00.734277+00:00",
+    "method": "GET",
+    "path": "/api/vendors/sla",
+    "status_code": 200,
+    "duration_ms": 8.5
+  },
+  {
+    "timestamp": "2026-06-30T18:35:09.013710+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 413.77
+  },
+  {
+    "timestamp": "2026-06-30T18:35:09.960932+00:00",
+    "method": "POST",
+    "path": "/api/vendors/sla/3/ask",
+    "status_code": 502,
+    "duration_ms": 837.68
+  },
+  {
+    "timestamp": "2026-07-01T17:54:14.746268+00:00",
+    "method": "OPTIONS",
+    "path": "/api/auth/password-policy",
+    "status_code": 200,
+    "duration_ms": 0.33
+  },
+  {
+    "timestamp": "2026-07-01T17:54:14.786291+00:00",
+    "method": "OPTIONS",
+    "path": "/api/auth/password-policy",
+    "status_code": 200,
+    "duration_ms": 1.03
+  },
+  {
+    "timestamp": "2026-07-01T17:54:14.840622+00:00",
+    "method": "GET",
+    "path": "/api/auth/password-policy",
+    "status_code": 200,
+    "duration_ms": 54.38
+  },
+  {
+    "timestamp": "2026-07-01T17:54:14.871940+00:00",
+    "method": "GET",
+    "path": "/api/auth/password-policy",
+    "status_code": 200,
+    "duration_ms": 1.39
+  },
+  {
+    "timestamp": "2026-07-01T17:54:18.910041+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 401,
+    "duration_ms": 1.8
+  },
+  {
+    "timestamp": "2026-07-01T17:54:19.005224+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 401,
+    "duration_ms": 1.16
+  },
+  {
+    "timestamp": "2026-07-01T17:54:28.363551+00:00",
+    "method": "OPTIONS",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 0.37
+  },
+  {
+    "timestamp": "2026-07-01T17:54:28.394180+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 401,
+    "duration_ms": 4.2
+  },
+  {
+    "timestamp": "2026-07-01T17:54:36.587353+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 401,
+    "duration_ms": 3.91
+  },
+  {
+    "timestamp": "2026-07-01T17:54:48.695629+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 401,
+    "duration_ms": 3.74
+  },
+  {
+    "timestamp": "2026-07-01T17:54:57.619252+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 424.69
+  },
+  {
+    "timestamp": "2026-07-01T17:54:58.734634+00:00",
+    "method": "OPTIONS",
+    "path": "/api/orders",
+    "status_code": 200,
+    "duration_ms": 1.66
+  },
+  {
+    "timestamp": "2026-07-01T17:54:58.767991+00:00",
+    "method": "OPTIONS",
+    "path": "/api/claims",
+    "status_code": 200,
+    "duration_ms": 2.23
+  },
+  {
+    "timestamp": "2026-07-01T17:54:58.803350+00:00",
+    "method": "OPTIONS",
+    "path": "/api/users",
+    "status_code": 200,
+    "duration_ms": 36.97
+  },
+  {
+    "timestamp": "2026-07-01T17:54:58.845329+00:00",
+    "method": "OPTIONS",
+    "path": "/api/users",
+    "status_code": 200,
+    "duration_ms": 45.96
+  },
+  {
+    "timestamp": "2026-07-01T17:54:58.913417+00:00",
+    "method": "OPTIONS",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 110.0
+  },
+  {
+    "timestamp": "2026-07-01T17:54:59.011092+00:00",
+    "method": "OPTIONS",
+    "path": "/api/orders",
+    "status_code": 200,
+    "duration_ms": 166.01
+  },
+  {
+    "timestamp": "2026-07-01T17:54:59.045738+00:00",
+    "method": "OPTIONS",
+    "path": "/api/claims",
+    "status_code": 200,
+    "duration_ms": 135.18
+  },
+  {
+    "timestamp": "2026-07-01T17:54:59.182307+00:00",
+    "method": "GET",
+    "path": "/api/orders",
+    "status_code": 200,
+    "duration_ms": 271.19
+  },
+  {
+    "timestamp": "2026-07-01T17:54:59.235145+00:00",
+    "method": "GET",
+    "path": "/api/users",
+    "status_code": 200,
+    "duration_ms": 132.58
+  },
+  {
+    "timestamp": "2026-07-01T17:54:59.285032+00:00",
+    "method": "GET",
+    "path": "/api/claims",
+    "status_code": 200,
+    "duration_ms": 240.95
+  },
+  {
+    "timestamp": "2026-07-01T17:54:59.335869+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 202.41
+  },
+  {
+    "timestamp": "2026-07-01T17:54:59.404396+00:00",
+    "method": "GET",
+    "path": "/api/orders",
+    "status_code": 200,
+    "duration_ms": 27.88
+  },
+  {
+    "timestamp": "2026-07-01T17:54:59.428876+00:00",
+    "method": "GET",
+    "path": "/api/claims",
+    "status_code": 200,
+    "duration_ms": 39.22
+  },
+  {
+    "timestamp": "2026-07-01T17:54:59.455007+00:00",
+    "method": "GET",
+    "path": "/api/users",
+    "status_code": 200,
+    "duration_ms": 73.68
+  },
+  {
+    "timestamp": "2026-07-01T17:55:02.413560+00:00",
+    "method": "OPTIONS",
+    "path": "/api/chatbot/sessions",
+    "status_code": 200,
+    "duration_ms": 0.37
+  },
+  {
+    "timestamp": "2026-07-01T17:55:02.471257+00:00",
+    "method": "GET",
+    "path": "/api/chatbot/sessions",
+    "status_code": 200,
+    "duration_ms": 33.38
+  },
+  {
+    "timestamp": "2026-07-01T17:55:02.502996+00:00",
+    "method": "OPTIONS",
+    "path": "/api/chatbot/sessions/1e9aa6b092fb",
+    "status_code": 200,
+    "duration_ms": 0.9
+  },
+  {
+    "timestamp": "2026-07-01T17:55:02.542017+00:00",
+    "method": "GET",
+    "path": "/api/chatbot/sessions",
+    "status_code": 200,
+    "duration_ms": 43.92
+  },
+  {
+    "timestamp": "2026-07-01T17:55:02.587406+00:00",
+    "method": "GET",
+    "path": "/api/chatbot/sessions/1e9aa6b092fb",
+    "status_code": 200,
+    "duration_ms": 7.14
+  },
+  {
+    "timestamp": "2026-07-01T17:55:02.622699+00:00",
+    "method": "GET",
+    "path": "/api/chatbot/sessions/1e9aa6b092fb",
+    "status_code": 200,
+    "duration_ms": 3.42
+  },
+  {
+    "timestamp": "2026-07-01T17:55:08.273310+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 32.84
+  },
+  {
+    "timestamp": "2026-07-01T17:55:08.311944+00:00",
+    "method": "GET",
+    "path": "/api/chatbot/sessions",
+    "status_code": 200,
+    "duration_ms": 82.3
+  },
+  {
+    "timestamp": "2026-07-01T17:55:08.370068+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 21.84
+  },
+  {
+    "timestamp": "2026-07-01T17:55:08.410442+00:00",
+    "method": "GET",
+    "path": "/api/chatbot/sessions/1e9aa6b092fb",
+    "status_code": 200,
+    "duration_ms": 53.51
+  },
+  {
+    "timestamp": "2026-07-01T17:55:08.448356+00:00",
+    "method": "GET",
+    "path": "/api/chatbot/sessions",
+    "status_code": 200,
+    "duration_ms": 95.16
+  },
+  {
+    "timestamp": "2026-07-01T17:55:08.507963+00:00",
+    "method": "GET",
+    "path": "/api/chatbot/sessions/1e9aa6b092fb",
+    "status_code": 200,
+    "duration_ms": 8.48
+  },
+  {
+    "timestamp": "2026-07-01T17:55:19.554338+00:00",
+    "method": "OPTIONS",
+    "path": "/api/auth/password-policy",
+    "status_code": 200,
+    "duration_ms": 7.83
+  },
+  {
+    "timestamp": "2026-07-01T17:55:19.596113+00:00",
+    "method": "OPTIONS",
+    "path": "/api/links",
+    "status_code": 200,
+    "duration_ms": 48.37
+  },
+  {
+    "timestamp": "2026-07-01T17:55:19.631170+00:00",
+    "method": "OPTIONS",
+    "path": "/api/links",
+    "status_code": 200,
+    "duration_ms": 77.57
+  },
+  {
+    "timestamp": "2026-07-01T17:55:19.670778+00:00",
+    "method": "OPTIONS",
+    "path": "/api/auth/password-policy",
+    "status_code": 200,
+    "duration_ms": 43.3
+  },
+  {
+    "timestamp": "2026-07-01T17:55:19.737427+00:00",
+    "method": "GET",
+    "path": "/api/auth/password-policy",
+    "status_code": 200,
+    "duration_ms": 27.53
+  },
+  {
+    "timestamp": "2026-07-01T17:55:19.769198+00:00",
+    "method": "GET",
+    "path": "/api/users",
+    "status_code": 200,
+    "duration_ms": 102.22
+  },
+  {
+    "timestamp": "2026-07-01T17:55:19.800394+00:00",
+    "method": "GET",
+    "path": "/api/links",
+    "status_code": 200,
+    "duration_ms": 91.38
+  },
+  {
+    "timestamp": "2026-07-01T17:55:19.842396+00:00",
+    "method": "GET",
+    "path": "/api/auth/password-policy",
+    "status_code": 200,
+    "duration_ms": 5.66
+  },
+  {
+    "timestamp": "2026-07-01T17:55:19.890378+00:00",
+    "method": "GET",
+    "path": "/api/users",
+    "status_code": 200,
+    "duration_ms": 52.16
+  },
+  {
+    "timestamp": "2026-07-01T17:55:19.925031+00:00",
+    "method": "GET",
+    "path": "/api/links",
+    "status_code": 200,
+    "duration_ms": 84.59
+  },
+  {
+    "timestamp": "2026-07-01T17:55:21.528046+00:00",
+    "method": "GET",
+    "path": "/api/chatbot/sessions",
+    "status_code": 200,
+    "duration_ms": 3.7
+  },
+  {
+    "timestamp": "2026-07-01T17:55:21.570513+00:00",
+    "method": "GET",
+    "path": "/api/chatbot/sessions",
+    "status_code": 200,
+    "duration_ms": 7.78
+  },
+  {
+    "timestamp": "2026-07-01T17:55:21.609208+00:00",
+    "method": "GET",
+    "path": "/api/chatbot/sessions/1e9aa6b092fb",
+    "status_code": 200,
+    "duration_ms": 45.57
+  },
+  {
+    "timestamp": "2026-07-01T17:55:21.670238+00:00",
+    "method": "GET",
+    "path": "/api/chatbot/sessions/1e9aa6b092fb",
+    "status_code": 200,
+    "duration_ms": 5.89
+  },
+  {
+    "timestamp": "2026-07-01T17:55:23.245845+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 9.68
+  },
+  {
+    "timestamp": "2026-07-01T17:55:24.490887+00:00",
+    "method": "GET",
+    "path": "/api/auth/password-policy",
+    "status_code": 200,
+    "duration_ms": 1.58
+  },
+  {
+    "timestamp": "2026-07-01T17:55:24.533609+00:00",
+    "method": "GET",
+    "path": "/api/auth/password-policy",
+    "status_code": 200,
+    "duration_ms": 1.57
+  },
+  {
+    "timestamp": "2026-07-01T17:55:37.614430+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 308.69
+  },
+  {
+    "timestamp": "2026-07-01T17:55:37.706145+00:00",
+    "method": "OPTIONS",
+    "path": "/api/vendor_inventory",
+    "status_code": 200,
+    "duration_ms": 0.47
+  },
+  {
+    "timestamp": "2026-07-01T17:55:37.840958+00:00",
+    "method": "OPTIONS",
+    "path": "/api/vendor_inventory",
+    "status_code": 200,
+    "duration_ms": 9.1
+  },
+  {
+    "timestamp": "2026-07-01T17:55:37.924333+00:00",
+    "method": "GET",
+    "path": "/api/claims",
+    "status_code": 200,
+    "duration_ms": 85.55
+  },
+  {
+    "timestamp": "2026-07-01T17:55:37.961433+00:00",
+    "method": "GET",
+    "path": "/api/orders",
+    "status_code": 200,
+    "duration_ms": 122.77
+  },
+  {
+    "timestamp": "2026-07-01T17:55:37.992429+00:00",
+    "method": "GET",
+    "path": "/api/links",
+    "status_code": 200,
+    "duration_ms": 117.95
+  },
+  {
+    "timestamp": "2026-07-01T17:55:38.104084+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 229.15
+  },
+  {
+    "timestamp": "2026-07-01T17:55:38.133773+00:00",
+    "method": "GET",
+    "path": "/api/vendor_inventory",
+    "status_code": 200,
+    "duration_ms": 256.03
+  },
+  {
+    "timestamp": "2026-07-01T17:55:38.196637+00:00",
+    "method": "GET",
+    "path": "/api/claims",
+    "status_code": 200,
+    "duration_ms": 92.44
+  },
+  {
+    "timestamp": "2026-07-01T17:55:38.249323+00:00",
+    "method": "GET",
+    "path": "/api/orders",
+    "status_code": 200,
+    "duration_ms": 144.9
+  },
+  {
+    "timestamp": "2026-07-01T17:55:38.295185+00:00",
+    "method": "GET",
+    "path": "/api/links",
+    "status_code": 200,
+    "duration_ms": 114.67
+  },
+  {
+    "timestamp": "2026-07-01T17:55:38.343582+00:00",
+    "method": "GET",
+    "path": "/api/vendor_inventory",
+    "status_code": 200,
+    "duration_ms": 153.69
+  },
+  {
+    "timestamp": "2026-07-01T17:55:39.688116+00:00",
+    "method": "GET",
+    "path": "/api/chatbot/sessions",
+    "status_code": 200,
+    "duration_ms": 6.93
+  },
+  {
+    "timestamp": "2026-07-01T17:55:39.728464+00:00",
+    "method": "GET",
+    "path": "/api/chatbot/sessions",
+    "status_code": 200,
+    "duration_ms": 3.03
+  },
+  {
+    "timestamp": "2026-07-01T17:55:53.291735+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 9.67
+  },
+  {
+    "timestamp": "2026-07-01T17:56:10.374364+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 18.22
+  },
+  {
+    "timestamp": "2026-07-01T17:56:22.951415+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 12.38
+  },
+  {
+    "timestamp": "2026-07-01T17:56:37.720900+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 16.16
+  },
+  {
+    "timestamp": "2026-07-01T17:56:53.020127+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 11.01
+  },
+  {
+    "timestamp": "2026-07-01T17:57:07.940944+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 11.2
+  },
+  {
+    "timestamp": "2026-07-01T17:57:11.986751+00:00",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "status_code": 200,
+    "duration_ms": 332.45
+  },
+  {
+    "timestamp": "2026-07-01T17:57:12.116502+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.91
+  },
+  {
+    "timestamp": "2026-07-01T17:57:12.349081+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.98
+  },
+  {
+    "timestamp": "2026-07-01T17:57:17.696181+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 2.06
+  },
+  {
+    "timestamp": "2026-07-01T17:57:23.050036+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 12.72
+  },
+  {
+    "timestamp": "2026-07-01T17:57:30.215752+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 2.52
+  },
+  {
+    "timestamp": "2026-07-01T17:57:37.934778+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 9.55
+  },
+  {
+    "timestamp": "2026-07-01T17:57:52.942975+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 9.56
+  },
+  {
+    "timestamp": "2026-07-01T17:58:16.934697+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 8.53
+  },
+  {
+    "timestamp": "2026-07-01T17:58:25.980479+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 3.25
+  },
+  {
+    "timestamp": "2026-07-01T17:59:16.954940+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 27.7
+  },
+  {
+    "timestamp": "2026-07-01T17:59:24.286842+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 3.6
+  },
+  {
+    "timestamp": "2026-07-01T17:59:29.026000+00:00",
+    "method": "GET",
+    "path": "/api/chatbot/sessions",
+    "status_code": 200,
+    "duration_ms": 7.19
+  },
+  {
+    "timestamp": "2026-07-01T17:59:29.087104+00:00",
+    "method": "GET",
+    "path": "/api/chatbot/sessions",
+    "status_code": 200,
+    "duration_ms": 5.58
+  },
+  {
+    "timestamp": "2026-07-01T18:00:16.950737+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 24.51
+  },
+  {
+    "timestamp": "2026-07-01T18:00:25.093601+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.97
+  },
+  {
+    "timestamp": "2026-07-01T18:00:25.226984+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.56
+  },
+  {
+    "timestamp": "2026-07-01T18:01:16.950116+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 8.56
+  },
+  {
+    "timestamp": "2026-07-01T18:01:25.975843+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 2.24
+  },
+  {
+    "timestamp": "2026-07-01T18:01:26.113126+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.3
+  },
+  {
+    "timestamp": "2026-07-01T18:01:28.346963+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.51
+  },
+  {
+    "timestamp": "2026-07-01T18:01:43.974405+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 2.36
+  },
+  {
+    "timestamp": "2026-07-01T18:01:47.282454+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 34.93
+  },
+  {
+    "timestamp": "2026-07-01T18:01:52.723651+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 8.3
+  },
+  {
+    "timestamp": "2026-07-01T18:02:07.969736+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 28.42
+  },
+  {
+    "timestamp": "2026-07-01T18:02:22.984316+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 44.05
+  },
+  {
+    "timestamp": "2026-07-01T18:02:37.960693+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 9.19
+  },
+  {
+    "timestamp": "2026-07-01T18:02:52.943127+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 8.34
+  },
+  {
+    "timestamp": "2026-07-01T18:03:16.952236+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 11.92
+  },
+  {
+    "timestamp": "2026-07-01T18:04:16.936610+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 8.16
+  },
+  {
+    "timestamp": "2026-07-01T18:04:20.976289+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.68
+  },
+  {
+    "timestamp": "2026-07-01T18:05:16.305928+00:00",
+    "method": "OPTIONS",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 0.57
+  },
+  {
+    "timestamp": "2026-07-01T18:05:16.374939+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 24.15
+  },
+  {
+    "timestamp": "2026-07-01T18:05:22.723106+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 11.82
+  },
+  {
+    "timestamp": "2026-07-01T18:05:38.137240+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 72.45
+  },
+  {
+    "timestamp": "2026-07-01T18:05:41.764674+00:00",
+    "method": "OPTIONS",
+    "path": "/api/orders",
+    "status_code": 200,
+    "duration_ms": 0.89
+  },
+  {
+    "timestamp": "2026-07-01T18:05:41.868147+00:00",
+    "method": "OPTIONS",
+    "path": "/api/links",
+    "status_code": 200,
+    "duration_ms": 17.57
+  },
+  {
+    "timestamp": "2026-07-01T18:05:41.948303+00:00",
+    "method": "OPTIONS",
+    "path": "/api/claims",
+    "status_code": 200,
+    "duration_ms": 81.21
+  },
+  {
+    "timestamp": "2026-07-01T18:05:42.002766+00:00",
+    "method": "OPTIONS",
+    "path": "/api/orders",
+    "status_code": 200,
+    "duration_ms": 63.77
+  },
+  {
+    "timestamp": "2026-07-01T18:05:42.046463+00:00",
+    "method": "OPTIONS",
+    "path": "/api/links",
+    "status_code": 200,
+    "duration_ms": 107.65
+  },
+  {
+    "timestamp": "2026-07-01T18:05:42.099060+00:00",
+    "method": "OPTIONS",
+    "path": "/api/vendor_inventory",
+    "status_code": 200,
+    "duration_ms": 151.08
+  },
+  {
+    "timestamp": "2026-07-01T18:05:42.153079+00:00",
+    "method": "OPTIONS",
+    "path": "/api/claims",
+    "status_code": 200,
+    "duration_ms": 152.0
+  },
+  {
+    "timestamp": "2026-07-01T18:05:42.215572+00:00",
+    "method": "OPTIONS",
+    "path": "/api/vendor_inventory",
+    "status_code": 200,
+    "duration_ms": 63.72
+  },
+  {
+    "timestamp": "2026-07-01T18:05:42.297266+00:00",
+    "method": "GET",
+    "path": "/api/links",
+    "status_code": 200,
+    "duration_ms": 83.4
+  },
+  {
+    "timestamp": "2026-07-01T18:05:42.345894+00:00",
+    "method": "GET",
+    "path": "/api/vendor_inventory",
+    "status_code": 200,
+    "duration_ms": 77.42
+  },
+  {
+    "timestamp": "2026-07-01T18:05:42.420224+00:00",
+    "method": "GET",
+    "path": "/api/claims",
+    "status_code": 200,
+    "duration_ms": 205.04
+  },
+  {
+    "timestamp": "2026-07-01T18:05:42.456238+00:00",
+    "method": "GET",
+    "path": "/api/orders",
+    "status_code": 200,
+    "duration_ms": 246.25
+  },
+  {
+    "timestamp": "2026-07-01T18:05:42.503869+00:00",
+    "method": "GET",
+    "path": "/api/links",
+    "status_code": 200,
+    "duration_ms": 87.73
+  },
+  {
+    "timestamp": "2026-07-01T18:05:42.571016+00:00",
+    "method": "GET",
+    "path": "/api/vendor_inventory",
+    "status_code": 200,
+    "duration_ms": 77.88
+  },
+  {
+    "timestamp": "2026-07-01T18:05:42.624865+00:00",
+    "method": "GET",
+    "path": "/api/claims",
+    "status_code": 200,
+    "duration_ms": 127.51
+  },
+  {
+    "timestamp": "2026-07-01T18:05:42.684438+00:00",
+    "method": "GET",
+    "path": "/api/orders",
+    "status_code": 200,
+    "duration_ms": 184.3
+  },
+  {
+    "timestamp": "2026-07-01T18:05:43.387351+00:00",
+    "method": "OPTIONS",
+    "path": "/api/chatbot/sessions",
+    "status_code": 200,
+    "duration_ms": 1.17
+  },
+  {
+    "timestamp": "2026-07-01T18:05:43.440706+00:00",
+    "method": "OPTIONS",
+    "path": "/api/chatbot/sessions",
+    "status_code": 200,
+    "duration_ms": 53.76
+  },
+  {
+    "timestamp": "2026-07-01T18:05:43.513313+00:00",
+    "method": "GET",
+    "path": "/api/chatbot/sessions",
+    "status_code": 200,
+    "duration_ms": 25.43
+  },
+  {
+    "timestamp": "2026-07-01T18:05:43.560705+00:00",
+    "method": "GET",
+    "path": "/api/chatbot/sessions",
+    "status_code": 200,
+    "duration_ms": 6.27
+  },
+  {
+    "timestamp": "2026-07-01T18:05:52.729583+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 17.9
+  },
+  {
+    "timestamp": "2026-07-01T18:05:57.181466+00:00",
+    "method": "POST",
+    "path": "/api/chatbot/sessions",
+    "status_code": 200,
+    "duration_ms": 18.44
+  },
+  {
+    "timestamp": "2026-07-01T18:05:57.246239+00:00",
+    "method": "OPTIONS",
+    "path": "/api/chatbot/ask",
+    "status_code": 200,
+    "duration_ms": 0.43
+  },
+  {
+    "timestamp": "2026-07-01T18:05:59.557582+00:00",
+    "method": "POST",
+    "path": "/api/chatbot/ask",
+    "status_code": 200,
+    "duration_ms": 2258.11
+  },
+  {
+    "timestamp": "2026-07-01T18:05:59.605468+00:00",
+    "method": "GET",
+    "path": "/api/chatbot/sessions",
+    "status_code": 200,
+    "duration_ms": 13.39
+  },
+  {
+    "timestamp": "2026-07-01T18:06:07.721271+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 11.97
+  },
+  {
+    "timestamp": "2026-07-01T18:06:22.719095+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 13.47
+  },
+  {
+    "timestamp": "2026-07-01T18:06:32.882734+00:00",
+    "method": "POST",
+    "path": "/api/chatbot/ask",
+    "status_code": 200,
+    "duration_ms": 2065.89
+  },
+  {
+    "timestamp": "2026-07-01T18:06:32.935252+00:00",
+    "method": "GET",
+    "path": "/api/chatbot/sessions",
+    "status_code": 200,
+    "duration_ms": 21.2
+  },
+  {
+    "timestamp": "2026-07-01T18:06:37.713041+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 5.87
+  },
+  {
+    "timestamp": "2026-07-01T18:06:52.712674+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 10.8
+  },
+  {
+    "timestamp": "2026-07-01T18:07:11.890705+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 9.64
+  },
+  {
+    "timestamp": "2026-07-01T18:07:22.720809+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 17.13
+  },
+  {
+    "timestamp": "2026-07-01T18:07:37.946271+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 13.23
+  },
+  {
+    "timestamp": "2026-07-01T18:07:52.932899+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 8.72
+  },
+  {
+    "timestamp": "2026-07-01T18:08:07.946306+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 8.96
+  },
+  {
+    "timestamp": "2026-07-01T18:08:22.939557+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 6.66
+  },
+  {
+    "timestamp": "2026-07-01T18:09:16.938546+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 8.13
+  },
+  {
+    "timestamp": "2026-07-01T18:10:16.943644+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 10.89
+  },
+  {
+    "timestamp": "2026-07-01T18:10:37.961689+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 10.58
+  },
+  {
+    "timestamp": "2026-07-01T18:10:52.936270+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 5.67
+  },
+  {
+    "timestamp": "2026-07-01T18:11:03.448006+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.87
+  },
+  {
+    "timestamp": "2026-07-01T18:11:03.741670+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.95
+  },
+  {
+    "timestamp": "2026-07-01T18:11:05.537526+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.48
+  },
+  {
+    "timestamp": "2026-07-01T18:11:07.935697+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 7.27
+  },
+  {
+    "timestamp": "2026-07-01T18:11:18.071109+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.63
+  },
+  {
+    "timestamp": "2026-07-01T18:11:22.939590+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 11.15
+  },
+  {
+    "timestamp": "2026-07-01T18:11:37.967687+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 27.47
+  },
+  {
+    "timestamp": "2026-07-01T18:11:52.934523+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 9.61
+  },
+  {
+    "timestamp": "2026-07-01T18:12:16.951248+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 9.94
+  },
+  {
+    "timestamp": "2026-07-01T18:13:16.933946+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 8.75
+  },
+  {
+    "timestamp": "2026-07-01T18:13:40.716683+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 2.49
+  },
+  {
+    "timestamp": "2026-07-01T18:13:41.161646+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.88
+  },
+  {
+    "timestamp": "2026-07-01T18:13:43.265941+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.43
+  },
+  {
+    "timestamp": "2026-07-01T18:13:53.250122+00:00",
+    "method": "GET",
+    "path": "/api/auth/me",
+    "status_code": 200,
+    "duration_ms": 1.46
+  },
+  {
+    "timestamp": "2026-07-01T18:14:16.945626+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 25.93
+  },
+  {
+    "timestamp": "2026-07-01T18:14:29.960807+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 16.32
+  },
+  {
+    "timestamp": "2026-07-01T18:14:37.719452+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 10.7
+  },
+  {
+    "timestamp": "2026-07-01T18:14:48.187663+00:00",
+    "method": "OPTIONS",
+    "path": "/api/chatbot/sessions/96647e0a99e3",
+    "status_code": 200,
+    "duration_ms": 0.46
+  },
+  {
+    "timestamp": "2026-07-01T18:14:48.229810+00:00",
+    "method": "DELETE",
+    "path": "/api/chatbot/sessions/96647e0a99e3",
+    "status_code": 200,
+    "duration_ms": 8.4
+  },
+  {
+    "timestamp": "2026-07-01T18:14:52.729716+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 14.55
+  },
+  {
+    "timestamp": "2026-07-01T18:15:07.932316+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 8.9
+  },
+  {
+    "timestamp": "2026-07-01T18:15:22.933142+00:00",
+    "method": "OPTIONS",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 0.35
+  },
+  {
+    "timestamp": "2026-07-01T18:15:22.962440+00:00",
+    "method": "GET",
+    "path": "/api/alerts",
+    "status_code": 200,
+    "duration_ms": 5.47
   }
 ]

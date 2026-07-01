@@ -51,4 +51,8 @@ async def run_reorder(mcp_client: ErpMcpClient, case: dict, inventory_result: di
     except McpClientError as exc:
         return {"order": None, "skipped": False, "raw": raw, "status": "failed", "error": f"create_order MCP call failed: {exc}"}
 
+    # The decision to reorder is a deterministic rule (damaged_qty > 0), grounded in the
+    # Context Agent's own reconciled facts — so its confidence is inherited rather than
+    # independently re-judged here.
+    order_record["confidence"] = case.get("confidence", 100)
     return {"order": {**order_record, "reorder_note": note}, "skipped": False, "raw": raw, "status": "ok", "error": None}

@@ -4,6 +4,10 @@ Claim Agent — drafts a claim narrative via Groq and files it with the ERP
 eligible. create_claim already raises a "new_claim" alert to the vendor
 server-side (see erp-app/backend/app/services/claims.py) — no separate
 alert call needed here.
+
+Skip condition: Policy Agent says eligible_for_claim=false. Inventory/
+Reorder/Governance still run regardless — the damaged stock still needs
+tracking/replacing even without a claim.
 """
 from __future__ import annotations
 
@@ -24,13 +28,19 @@ DRAFT_SYSTEM_PROMPT = (
 
 async def run_claim(mcp_client: ErpMcpClient, case: dict, policy_result: dict | None, run_id: str | None = None) -> dict:
     """case is the Context Structuring Agent's output; policy_result is the Policy Agent's
-    {liable, eligible_for_claim, justification} dict. run_id (optional): threaded down for
-    Langfuse tracing — see app/observability.py.
-    Returns {claim: dict|None, skipped: bool, raw: dict, status: 'ok'|'failed', error: str|None}."""
+    {liable, eligible_for_claim, justification, confidence} dict. run_id (optional): threaded
+    down for Langfuse tracing — see app/observability.py.
+    Returns {claim: dict|None, skipped: bool, skip_reason: str|None, raw: dict,
+    status: 'ok'|'failed', error: str|None}."""
     raw: dict = {"draft": None, "create_claim": None}
 
     if not policy_result or not policy_result.get("eligible_for_claim"):
-        return {"claim": None, "skipped": True, "raw": raw, "status": "ok", "error": None}
+        return {
+            "claim": None,
+            "skipped": True,
+            "skip_reason": "Not eligible for a claim per the Policy Agent's determination.",
+            "raw": raw, "status": "ok", "error": None,
+        }
 
     draft_prompt = (
         f"Order: {case['order_number']}\nItem: {case['item_name']} (SKU {case['sku']})\n"
@@ -49,6 +59,7 @@ async def run_claim(mcp_client: ErpMcpClient, case: dict, policy_result: dict | 
         return {
             "claim": None,
             "skipped": False,
+            "skip_reason": None,
             "raw": raw,
             "status": "failed",
             "error": f"Claim drafting failed: {draft_result.get('error')}",
@@ -66,6 +77,12 @@ async def run_claim(mcp_client: ErpMcpClient, case: dict, policy_result: dict | 
         )
         raw["create_claim"] = claim_record
     except McpClientError as exc:
-        return {"claim": None, "skipped": False, "raw": raw, "status": "failed", "error": f"create_claim MCP call failed: {exc}"}
+        return {
+            "claim": None, "skipped": False, "skip_reason": None, "raw": raw,
+            "status": "failed", "error": f"create_claim MCP call failed: {exc}",
+        }
 
-    return {"claim": claim_record, "skipped": False, "raw": raw, "status": "ok", "error": None}
+    # The file/skip decision is a deterministic rule over Policy's judgment — confidence is
+    # inherited from there rather than independently re-judged here.
+    claim_record["confidence"] = policy_result.get("confidence", 100)
+    return {"claim": claim_record, "skipped": False, "skip_reason": None, "raw": raw, "status": "ok", "error": None}
